@@ -1,0 +1,83 @@
+<%- contentFor('main') %>
+<div id="SurveyListView" class="row">
+    <div class="col-md-3">
+        <form role="form" class="form-inline">
+            <div class="form-group">
+                <label class="sr-only" for="newSurveyName">
+                    Email address
+                </label>
+                <input type="text" class="form-control" 
+                    id="newSurveyName" placeholder="New Survey Name"
+                    data-bind="value: newSurveyName">
+            </div>
+            <button type="submit" class="btn btn-primary"
+                data-bind="click: createSurvey">
+                Add
+            </button>
+        </form>
+
+        <div class="placeholder"
+            data-bind="visible: surveys().length == 0">
+            No surveys to display - create a new one!
+        </div>
+
+        <div id="surveyList" style="display:none"
+            data-bind="visible: surveys().length > 0, foreach: surveys">
+            <a class="surveyListItem" href="#"
+                data-bind="click: $parent.selectSurvey, text: name"></a>                    
+        </div>
+    </div>
+
+    <div class="col-md-9 main-content"
+        data-bind="visible: selectedSurvey">
+
+        <div id="surveyActions">
+            <button class="btn btn-default"
+                data-bind="click: save">Save</button>
+            <button class="btn btn-danger"
+                data-bind="click: deactivate">Deactivate</button>
+        </div>
+
+        <h1 data-bind="text: selectedSurvey().name"></h1>
+
+        <p>
+            <b>Survey Webhook URL (POST):</b> 
+            http://<span
+                data-bind="text: window.location.host"></span>/surveys/<span 
+                data-bind="text: selectedSurvey()._id"></span>
+        </p>
+
+        <p>
+            <b>Location Data Set:</b> 
+            <i>Nigeria Wards (hard coded)</i>
+        </p>
+
+        <table class="questionsTable">
+            <tr>
+                <th>Questions</th>
+                <th>Response Type</th>
+                <th></th>
+            </tr>
+            <tbody data-bind="foreach: questions">
+                <tr>
+                    <td>
+                        <input data-bind="value: text"/>
+                    </td>
+                    <td style="width:120px">
+                        <select data-bind="value: responseType">
+                            <option value="text">Text</option>
+                            <option value="number">Number</option>
+                            <option value="boolean">Yes/No</option>
+                        </select>
+                    </td>
+                    <td style="width:50px">
+                        <a href="#" data-bind="click: $root.removeQuestion">Delete</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <p><a href="#" data-bind="click: addQuestion">Add Question</a></p>
+    
+    </div>
+
+</div>

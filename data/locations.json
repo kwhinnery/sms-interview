@@ -1,0 +1,6232 @@
+[
+  {
+    "lat": "13.1670",
+    "lng": "5.3959",
+    "ward": "ACHIDA",
+    "district": "WURNO",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "11.8125",
+    "lng": "5.6208",
+    "ward": "ADABKA",
+    "district": "BUKKUYUM",
+    "state": "ZAMFARA"
+  },
+  {
+    "lat": "11.1162",
+    "lng": "5.5103",
+    "ward": "ADAI",
+    "district": "SAKABA",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "10.7923",
+    "lng": "4.4953",
+    "ward": "ADEHE",
+    "district": "AGWARA",
+    "state": "NIGER"
+  },
+  {
+    "lat": "9.5657",
+    "lng": "7.1941",
+    "ward": "ADUNU",
+    "district": "PAIKORO",
+    "state": "NIGER"
+  },
+  {
+    "lat": "10.8360",
+    "lng": "4.7055",
+    "ward": "AGWATA",
+    "district": "AGWARA",
+    "state": "NIGER"
+  },
+  {
+    "lat": "9.6877",
+    "lng": "5.9400",
+    "ward": "AKARE",
+    "district": "WUSHISHI",
+    "state": "NIGER"
+  },
+  {
+    "lat": "12.1327",
+    "lng": "4.5064",
+    "ward": "ALELU/GEHURU",
+    "district": "JEGA",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "12.2870",
+    "lng": "4.4702",
+    "ward": "ALIERO  DANGALADIMA I",
+    "district": "ALIERO",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "12.2704",
+    "lng": "4.4321",
+    "ward": "ALIERO  DANGALADIMA II",
+    "district": "ALIERO",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "12.2899",
+    "lng": "4.4683",
+    "ward": "ALIERO S/FADA I",
+    "district": "ALIERO",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "12.3042",
+    "lng": "4.4587",
+    "ward": "ALIERO S/FADA II",
+    "district": "ALIERO",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "11.5869",
+    "lng": "3.9174",
+    "ward": "ALJANNARE",
+    "district": "SURU",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "13.1296",
+    "lng": "5.3581",
+    "ward": "ALKAMMU/GYELGYEL",
+    "district": "WURNO",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "10.3489",
+    "lng": "6.6697",
+    "ward": "ALLAWA",
+    "district": "SHIRORO",
+    "state": "NIGER"
+  },
+  {
+    "lat": "12.5930",
+    "lng": "4.4305",
+    "ward": "ALWASA/GOTOMO",
+    "district": "ARGUNGU",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "12.5274",
+    "lng": "4.3220",
+    "ward": "AMBURSA",
+    "district": "BIRNIN KEBBI",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "11.8592",
+    "lng": "4.4242",
+    "ward": "ANDARAI/ KURUNKWU/ ZONGUN LIBA",
+    "district": "MAIYAMA",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "13.7411",
+    "lng": "5.3521",
+    "ward": "ARABA",
+    "district": "ILLELA",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "10.4081",
+    "lng": "5.4717",
+    "ward": "AREWA",
+    "district": "KONTAGORA",
+    "state": "NIGER"
+  },
+  {
+    "lat": "9.0621",
+    "lng": "6.5776",
+    "ward": "AREWA/YAMMA",
+    "district": "LAPAI",
+    "state": "NIGER"
+  },
+  {
+    "lat": "13.0258",
+    "lng": "5.2150",
+    "ward": "ARKILLA",
+    "district": "WAMAKKO",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "13.5660",
+    "lng": "5.3162",
+    "ward": "ASARA  AREWA",
+    "district": "GWADABAWA",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "13.4603",
+    "lng": "5.2873",
+    "ward": "ASARA KUDU",
+    "district": "GWADABAWA",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "13.3622",
+    "lng": "5.1593",
+    "ward": "ATAKWANYO",
+    "district": "GWADABAWA",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "11.3879",
+    "lng": "4.6941",
+    "ward": "ATUWO",
+    "district": "SHANGA",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "12.8897",
+    "lng": "4.5881",
+    "ward": "AUGIE NORTH",
+    "district": "AUGIE",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "12.9096",
+    "lng": "4.6051",
+    "ward": "AUGIE SOUTH",
+    "district": "AUGIE",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "10.1591",
+    "lng": "4.7305",
+    "ward": "AUNA CENTRAL",
+    "district": "MAGAMA",
+    "state": "NIGER"
+  },
+  {
+    "lat": "10.2998",
+    "lng": "5.0439",
+    "ward": "AUNA EAST",
+    "district": "MAGAMA",
+    "state": "NIGER"
+  },
+  {
+    "lat": "10.3713",
+    "lng": "4.9632",
+    "ward": "AUNA EAST CENTRAL",
+    "district": "MAGAMA",
+    "state": "NIGER"
+  },
+  {
+    "lat": "10.0044",
+    "lng": "4.7594",
+    "ward": "AUNA SOUTH",
+    "district": "MAGAMA",
+    "state": "NIGER"
+  },
+  {
+    "lat": "10.1626",
+    "lng": "4.7937",
+    "ward": "AUNA SOUTH EAST",
+    "district": "MAGAMA",
+    "state": "NIGER"
+  },
+  {
+    "lat": "13.5933",
+    "lng": "4.4377",
+    "ward": "AWULKITI",
+    "district": "GUDU",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "11.2064",
+    "lng": "5.8775",
+    "ward": "AYU",
+    "district": "WASAGU/DANKO",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "10.4376",
+    "lng": "3.8923",
+    "ward": "BABANNA",
+    "district": "BORGU",
+    "state": "NIGER"
+  },
+  {
+    "lat": "10.2054",
+    "lng": "5.3615",
+    "ward": "BABBAN  RAMI",
+    "district": "MASHEGU",
+    "state": "NIGER"
+  },
+  {
+    "lat": "13.3840",
+    "lng": "4.1810",
+    "ward": "BACHAKA",
+    "district": "GUDU",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "13.0255",
+    "lng": "6.4978",
+    "ward": "BADARAWA",
+    "district": "SHINKAFI",
+    "state": "ZAMFARA"
+  },
+  {
+    "lat": "12.3010",
+    "lng": "4.1924",
+    "ward": "BADARIYA/MAGARZA",
+    "district": "KALGO",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "12.7882",
+    "lng": "5.1649",
+    "ward": "BADAU/DARHELA",
+    "district": "BODINGA",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "9.0846",
+    "lng": "6.1864",
+    "ward": "BADEGGI",
+    "district": "KATCHA",
+    "state": "NIGER"
+  },
+  {
+    "lat": "12.9916",
+    "lng": "5.1944",
+    "ward": "BADO/KASARAWA",
+    "district": "WAMAKKO",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "9.1870",
+    "lng": "7.1836",
+    "ward": "BAGAMA \\B\\",
+    "district": "SULEJA",
+    "state": "NIGER"
+  },
+  {
+    "lat": "12.8948",
+    "lng": "5.2044",
+    "ward": "BAGARAWA",
+    "district": "BODINGA",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "12.8790",
+    "lng": "4.5833",
+    "ward": "BAGAYE/MERA",
+    "district": "AUGIE",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "11.8840",
+    "lng": "6.0067",
+    "ward": "BAGEGA",
+    "district": "ANKA",
+    "state": "ZAMFARA"
+  },
+  {
+    "lat": "12.2686",
+    "lng": "4.7516",
+    "ward": "BAGIDA/LUKKINGO",
+    "district": "TAMBUWAL",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "9.1765",
+    "lng": "7.1850",
+    "ward": "BAGMAMA \\A\\",
+    "district": "SULEJA",
+    "state": "NIGER"
+  },
+  {
+    "lat": "11.3956",
+    "lng": "4.2030",
+    "ward": "BAGUDO/TUGA",
+    "district": "BAGUDO",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "11.4766",
+    "lng": "4.1232",
+    "ward": "BAHINDI/BOKI-DOMA",
+    "district": "BAGUDO",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "11.4787",
+    "lng": "4.9134",
+    "ward": "BAJIDA",
+    "district": "FAKAI",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "12.8701",
+    "lng": "4.9532",
+    "ward": "BAKALE",
+    "district": "YABO",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "12.1848",
+    "lng": "4.5747",
+    "ward": "BAKAYA/SABON BIRNI",
+    "district": "TAMBUWAL",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "8.9448",
+    "lng": "6.2368",
+    "ward": "BAKEKO",
+    "district": "KATCHA",
+    "state": "NIGER"
+  },
+  {
+    "lat": "12.7091",
+    "lng": "5.8735",
+    "ward": "BAKURA",
+    "district": "BAKURA",
+    "state": "ZAMFARA"
+  },
+  {
+    "lat": "11.9270",
+    "lng": "4.0471",
+    "ward": "BAKUWAI",
+    "district": "SURU",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "13.4655",
+    "lng": "4.6620",
+    "ward": "BALLE",
+    "district": "GUDU",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "11.7891",
+    "lng": "4.1004",
+    "ward": "BANDAN",
+    "district": "SURU",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "12.5078",
+    "lng": "6.6383",
+    "ward": "BANGA",
+    "district": "KAURA NAMODA",
+    "state": "ZAMFARA"
+  },
+  {
+    "lat": "9.8570",
+    "lng": "6.6492",
+    "ward": "BANGAJIYA",
+    "district": "SHIRORO",
+    "state": "NIGER"
+  },
+  {
+    "lat": "10.7520",
+    "lng": "5.8136",
+    "ward": "BANGI",
+    "district": "MARIGA",
+    "state": "NIGER"
+  },
+  {
+    "lat": "12.7165",
+    "lng": "5.2695",
+    "ward": "BANGI/DABAGA",
+    "district": "BODINGA",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "11.5972",
+    "lng": "4.6982",
+    "ward": "BANGU/GARINISA",
+    "district": "FAKAI",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "11.6595",
+    "lng": "3.8045",
+    "ward": "BANI ZUMBU",
+    "district": "DANDI",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "11.3150",
+    "lng": "3.6735",
+    "ward": "BANI/TSAMIYA/KALI",
+    "district": "BAGUDO",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "13.2330",
+    "lng": "5.2328",
+    "ward": "BANKANU/ R KADE",
+    "district": "KWARE",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "12.1615",
+    "lng": "5.8707",
+    "ward": "BARAYAR-ZAKI",
+    "district": "ANKA",
+    "state": "ZAMFARA"
+  },
+  {
+    "lat": "12.5868",
+    "lng": "5.4650",
+    "ward": "BARAYAR GIWA",
+    "district": "TURETA",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "11.6028",
+    "lng": "4.0042",
+    "ward": "BARBAREJO",
+    "district": "SURU",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "11.9245",
+    "lng": "5.0096",
+    "ward": "BARDOKI",
+    "district": "GUMMI",
+    "state": "ZAMFARA"
+  },
+  {
+    "lat": "13.1765",
+    "lng": "6.4513",
+    "ward": "BARGAJA",
+    "district": "ISA",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "9.0714",
+    "lng": "5.9990",
+    "ward": "BARIKI",
+    "district": "BIDA",
+    "state": "NIGER"
+  },
+  {
+    "lat": "12.3830",
+    "lng": "4.7939",
+    "ward": "BARKEJI/NABAGUDA",
+    "district": "TAMBUWAL",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "8.7054",
+    "lng": "6.4080",
+    "ward": "BARO",
+    "district": "AGAIE",
+    "state": "NIGER"
+  },
+  {
+    "lat": "9.7285",
+    "lng": "6.0724",
+    "ward": "BARWA",
+    "district": "WUSHISHI",
+    "state": "NIGER"
+  },
+  {
+    "lat": "13.0937",
+    "lng": "5.3234",
+    "ward": "BASANSAN",
+    "district": "KWARE",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "12.3187",
+    "lng": "4.6947",
+    "ward": "BASHIRE/MAIKADA",
+    "district": "TAMBUWAL",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "10.1389",
+    "lng": "6.5484",
+    "ward": "BASSA/KUKOKI",
+    "district": "SHIRORO",
+    "state": "NIGER"
+  },
+  {
+    "lat": "9.1163",
+    "lng": "6.1191",
+    "ward": "BATAGI",
+    "district": "GBAKO",
+    "state": "NIGER"
+  },
+  {
+    "lat": "9.3258",
+    "lng": "6.0010",
+    "ward": "BATAKO",
+    "district": "GBAKO",
+    "state": "NIGER"
+  },
+  {
+    "lat": "9.2290",
+    "lng": "5.7002",
+    "ward": "BATATI",
+    "district": "LAVUN",
+    "state": "NIGER"
+  },
+  {
+    "lat": "12.8428",
+    "lng": "4.7148",
+    "ward": "BAYAWA NORTH",
+    "district": "AUGIE",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "12.7790",
+    "lng": "4.7270",
+    "ward": "BAYAWA SOUTH",
+    "district": "AUGIE",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "11.4272",
+    "lng": "5.3357",
+    "ward": "BEDI",
+    "district": "ZURU",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "9.6090",
+    "lng": "6.3178",
+    "ward": "BEJI",
+    "district": "BOSSO",
+    "state": "NIGER"
+  },
+  {
+    "lat": "11.3002",
+    "lng": "5.9707",
+    "ward": "BENA",
+    "district": "WASAGU/DANKO",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "9.6577",
+    "lng": "7.1704",
+    "ward": "BENI",
+    "district": "MUNYA",
+    "state": "NIGER"
+  },
+  {
+    "lat": "10.4112",
+    "lng": "5.7156",
+    "ward": "BERI",
+    "district": "MARIGA",
+    "state": "NIGER"
+  },
+  {
+    "lat": "11.2856",
+    "lng": "4.3958",
+    "ward": "BESSE",
+    "district": "KOKO/BESSE",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "11.8522",
+    "lng": "6.9460",
+    "ward": "BILBIS",
+    "district": "TSAFE",
+    "state": "ZAMFARA"
+  },
+  {
+    "lat": "11.5420",
+    "lng": "6.3331",
+    "ward": "BINDIN",
+    "district": "MARU",
+    "state": "ZAMFARA"
+  },
+  {
+    "lat": "12.6801",
+    "lng": "4.9665",
+    "ward": "BINGAJE",
+    "district": "YABO",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "11.9490",
+    "lng": "6.3525",
+    "ward": "BINGI",
+    "district": "MARU",
+    "state": "ZAMFARA"
+  },
+  {
+    "lat": "12.0514",
+    "lng": "6.4814",
+    "ward": "BINGI NORTH",
+    "district": "BUNGUDU",
+    "state": "ZAMFARA"
+  },
+  {
+    "lat": "11.7410",
+    "lng": "6.5073",
+    "ward": "BINGI SOUTH",
+    "district": "BUNGUDU",
+    "state": "ZAMFARA"
+  },
+  {
+    "lat": "13.2241",
+    "lng": "4.9112",
+    "ward": "BINJI",
+    "district": "BINJI",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "12.8208",
+    "lng": "4.8471",
+    "ward": "BINJI",
+    "district": "YABO",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "10.9506",
+    "lng": "4.5249",
+    "ward": "BINUWA/GEBE/BUNKUJI",
+    "district": "SHANGA",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "13.4586",
+    "lng": "5.8092",
+    "ward": "BIRJINGO",
+    "district": "GORONYO",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "12.4898",
+    "lng": "6.2169",
+    "ward": "BIRNIN KAYA / DOSARA",
+    "district": "MARADUN",
+    "state": "ZAMFARA"
+  },
+  {
+    "lat": "12.4632",
+    "lng": "4.1916",
+    "ward": "BIRNIN KEBBI DANGALADIMA",
+    "district": "BIRNIN KEBBI",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "12.4668",
+    "lng": "4.1953",
+    "ward": "BIRNIN KEBBI MAFARA",
+    "district": "BIRNIN KEBBI",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "12.6181",
+    "lng": "6.8317",
+    "ward": "BIRNIN MAGAJI",
+    "district": "BIRNIN MAGAJI",
+    "state": "ZAMFARA"
+  },
+  {
+    "lat": "12.1632",
+    "lng": "5.2913",
+    "ward": "BIRNIN MAGAJI",
+    "district": "GUMMI",
+    "state": "ZAMFARA"
+  },
+  {
+    "lat": "8.9879",
+    "lng": "6.6960",
+    "ward": "BIRNIN MAZA/TASHIBO",
+    "district": "LAPAI",
+    "state": "NIGER"
+  },
+  {
+    "lat": "12.6746",
+    "lng": "6.0292",
+    "ward": "BIRNIN TUDU",
+    "district": "BAKURA",
+    "state": "ZAMFARA"
+  },
+  {
+    "lat": "11.5399",
+    "lng": "4.9793",
+    "ward": "BIRNIN TUDU",
+    "district": "FAKAI",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "12.0635",
+    "lng": "5.3026",
+    "ward": "BIRNIN TUDU",
+    "district": "GUMMI",
+    "state": "ZAMFARA"
+  },
+  {
+    "lat": "12.9033",
+    "lng": "4.6726",
+    "ward": "BIRNIN TUDU/GUDALE",
+    "district": "AUGIE",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "10.8058",
+    "lng": "4.8405",
+    "ward": "BIRNIN YAURI",
+    "district": "NGASKI",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "12.8655",
+    "lng": "5.0676",
+    "ward": "BIRNIRUWA",
+    "district": "YABO",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "9.3464",
+    "lng": "6.2183",
+    "ward": "BISANTI",
+    "district": "KATCHA",
+    "state": "NIGER"
+  },
+  {
+    "lat": "12.7387",
+    "lng": "4.1111",
+    "ward": "BIU",
+    "district": "AREWA",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "10.2964",
+    "lng": "5.9254",
+    "ward": "BOBI",
+    "district": "MARIGA",
+    "state": "NIGER"
+  },
+  {
+    "lat": "12.8007",
+    "lng": "5.3353",
+    "ward": "BODAI/JURGA",
+    "district": "DANGE/SHUNI",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "12.8376",
+    "lng": "5.1507",
+    "ward": "BODINGA/TAUMA",
+    "district": "BODINGA",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "9.4375",
+    "lng": "5.2370",
+    "ward": "BOKANI",
+    "district": "MOKWA",
+    "state": "NIGER"
+  },
+  {
+    "lat": "12.7765",
+    "lng": "6.4827",
+    "ward": "BOKO",
+    "district": "ZURMI",
+    "state": "ZAMFARA"
+  },
+  {
+    "lat": "9.0084",
+    "lng": "6.4442",
+    "ward": "BOKU",
+    "district": "AGAIE",
+    "state": "NIGER"
+  },
+  {
+    "lat": "9.3472",
+    "lng": "6.9261",
+    "ward": "BONU",
+    "district": "GURARA",
+    "state": "NIGER"
+  },
+  {
+    "lat": "9.6365",
+    "lng": "6.5090",
+    "ward": "BOSSO CENTRAL  I",
+    "district": "BOSSO",
+    "state": "NIGER"
+  },
+  {
+    "lat": "9.6718",
+    "lng": "6.5470",
+    "ward": "BOSSO CENTRAL  II",
+    "district": "BOSSO",
+    "state": "NIGER"
+  },
+  {
+    "lat": "13.4227",
+    "lng": "5.5597",
+    "ward": "BOYEKAI",
+    "district": "GORONYO",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "12.8460",
+    "lng": "4.6302",
+    "ward": "BUBUCE",
+    "district": "AUGIE",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "12.1521",
+    "lng": "5.4722",
+    "ward": "BUKKUYUM",
+    "district": "BUKKUYUM",
+    "state": "ZAMFARA"
+  },
+  {
+    "lat": "11.6882",
+    "lng": "3.7321",
+    "ward": "BUMA",
+    "district": "DANDI",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "12.2982",
+    "lng": "6.6157",
+    "ward": "BUNGUDU",
+    "district": "BUNGUDU",
+    "state": "ZAMFARA"
+  },
+  {
+    "lat": "13.1160",
+    "lng": "4.9279",
+    "ward": "BUNKARI",
+    "district": "BINJI",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "12.0551",
+    "lng": "4.0149",
+    "ward": "BUNZA DANGALADIMA",
+    "district": "BUNZA",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "12.0904",
+    "lng": "3.9876",
+    "ward": "BUNZA MARAFA",
+    "district": "BUNZA",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "8.9141",
+    "lng": "6.0112",
+    "ward": "BUSU/KUCHI",
+    "district": "LAVUN",
+    "state": "NIGER"
+  },
+  {
+    "lat": "10.7193",
+    "lng": "4.5263",
+    "ward": "BUSURU",
+    "district": "AGWARA",
+    "state": "NIGER"
+  },
+  {
+    "lat": "9.1041",
+    "lng": "6.0147",
+    "ward": "CENIYAN",
+    "district": "BIDA",
+    "state": "NIGER"
+  },
+  {
+    "lat": "10.4031",
+    "lng": "5.4740",
+    "ward": "CENTRAL",
+    "district": "KONTAGORA",
+    "state": "NIGER"
+  },
+  {
+    "lat": "13.2384",
+    "lng": "5.5993",
+    "ward": "CHACHO/MARNONA",
+    "district": "WURNO",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "9.5550",
+    "lng": "6.5572",
+    "ward": "CHANCHAGA",
+    "district": "BOSSO",
+    "state": "NIGER"
+  },
+  {
+    "lat": "12.5211",
+    "lng": "4.5515",
+    "ward": "CHEBERU/BADA",
+    "district": "GWANDU",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "11.9993",
+    "lng": "6.9561",
+    "ward": "CHEDIYA",
+    "district": "TSAFE",
+    "state": "ZAMFARA"
+  },
+  {
+    "lat": "12.4807",
+    "lng": "3.8606",
+    "ward": "CHIBIKE",
+    "district": "AREWA",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "12.9520",
+    "lng": "6.5086",
+    "ward": "CHIKI",
+    "district": "SHINKAFI",
+    "state": "ZAMFARA"
+  },
+  {
+    "lat": "13.2912",
+    "lng": "4.2776",
+    "ward": "CHILAS/MAKUYA",
+    "district": "GUDU",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "9.4594",
+    "lng": "6.9149",
+    "ward": "CHIMBI",
+    "district": "PAIKORO",
+    "state": "NIGER"
+  },
+  {
+    "lat": "13.3200",
+    "lng": "5.3502",
+    "ward": "CHIMMOLA/KUDU",
+    "district": "GWADABAWA",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "13.3834",
+    "lng": "5.3438",
+    "ward": "CHIMOLA AREWA",
+    "district": "GWADABAWA",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "10.6374",
+    "lng": "4.7065",
+    "ward": "CHULU/KOMA",
+    "district": "YAURI",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "11.4865",
+    "lng": "5.2812",
+    "ward": "CIROMAN DABAI",
+    "district": "ZURU",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "9.2701",
+    "lng": "5.6678",
+    "ward": "DABBAN",
+    "district": "LAVUN",
+    "state": "NIGER"
+  },
+  {
+    "lat": "11.5379",
+    "lng": "4.4489",
+    "ward": "DADA/ALELU",
+    "district": "KOKO/BESSE",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "11.6583",
+    "lng": "4.0701",
+    "ward": "DAKINGARI",
+    "district": "SURU",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "12.3105",
+    "lng": "5.7929",
+    "ward": "DAKKO",
+    "district": "BAKURA",
+    "state": "ZAMFARA"
+  },
+  {
+    "lat": "12.5868",
+    "lng": "4.5130",
+    "ward": "DALIJAN",
+    "district": "GWANDU",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "12.4051",
+    "lng": "6.4256",
+    "ward": "DAMAGA / DAMAGIWA",
+    "district": "MARADUN",
+    "state": "ZAMFARA"
+  },
+  {
+    "lat": "13.5622",
+    "lng": "5.2387",
+    "ward": "DAMBA",
+    "district": "ILLELA",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "12.4321",
+    "lng": "5.8422",
+    "ward": "DAMRI",
+    "district": "BAKURA",
+    "state": "ZAMFARA"
+  },
+  {
+    "lat": "12.3432",
+    "lng": "6.7571",
+    "ward": "DAN - ISA",
+    "district": "KAURA NAMODA",
+    "state": "ZAMFARA"
+  },
+  {
+    "lat": "12.0530",
+    "lng": "5.9066",
+    "ward": "DAN GALADIMA",
+    "district": "ANKA",
+    "state": "ZAMFARA"
+  },
+  {
+    "lat": "11.6044",
+    "lng": "6.1956",
+    "ward": "DAN GULBI",
+    "district": "MARU",
+    "state": "ZAMFARA"
+  },
+  {
+    "lat": "11.5270",
+    "lng": "5.9888",
+    "ward": "DAN KURMI",
+    "district": "MARU",
+    "state": "ZAMFARA"
+  },
+  {
+    "lat": "12.6424",
+    "lng": "5.8352",
+    "ward": "DAN MANAU",
+    "district": "BAKURA",
+    "state": "ZAMFARA"
+  },
+  {
+    "lat": "11.4129",
+    "lng": "6.5203",
+    "ward": "DAN SADAU",
+    "district": "MARU",
+    "state": "ZAMFARA"
+  },
+  {
+    "lat": "11.3507",
+    "lng": "6.0458",
+    "ward": "DAN UMARU/MAIRAIRAI",
+    "district": "WASAGU/DANKO",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "12.7927",
+    "lng": "5.2165",
+    "ward": "DANCHADI",
+    "district": "BODINGA",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "9.6620",
+    "lng": "6.8724",
+    "ward": "DANDAUDU",
+    "district": "MUNYA",
+    "state": "NIGER"
+  },
+  {
+    "lat": "12.6987",
+    "lng": "5.1245",
+    "ward": "DANDIN MAHE",
+    "district": "SHAGARI",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "12.5727",
+    "lng": "6.8902",
+    "ward": "DANFAMI SABON BIRINI",
+    "district": "BIRNIN MAGAJI",
+    "state": "ZAMFARA"
+  },
+  {
+    "lat": "12.1928",
+    "lng": "4.2601",
+    "ward": "DANGAMAJI",
+    "district": "JEGA",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "12.8513",
+    "lng": "5.3296",
+    "ward": "DANGE",
+    "district": "DANGE/SHUNI",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "12.2874",
+    "lng": "4.0974",
+    "ward": "DANGOMA/GAYI",
+    "district": "KALGO",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "9.9968",
+    "lng": "7.0735",
+    "ward": "DANGUNU",
+    "district": "MUNYA",
+    "state": "NIGER"
+  },
+  {
+    "lat": "11.9999",
+    "lng": "4.0911",
+    "ward": "DANIYA/SHEMA",
+    "district": "SURU",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "11.7548",
+    "lng": "6.8377",
+    "ward": "DANJIBGA/KUNCHIN - KALGO",
+    "district": "TSAFE",
+    "state": "ZAMFARA"
+  },
+  {
+    "lat": "12.7316",
+    "lng": "5.9221",
+    "ward": "DANKADU",
+    "district": "BAKURA",
+    "state": "ZAMFARA"
+  },
+  {
+    "lat": "13.2726",
+    "lng": "5.4109",
+    "ward": "DANKEMU",
+    "district": "WURNO",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "11.6846",
+    "lng": "5.1705",
+    "ward": "DANKO/MAGA",
+    "district": "WASAGU/DANKO",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "11.1049",
+    "lng": "5.7551",
+    "ward": "DANKOLO",
+    "district": "SAKABA",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "11.2416",
+    "lng": "5.3171",
+    "ward": "DANRANGI",
+    "district": "RIJAU",
+    "state": "NIGER"
+  },
+  {
+    "lat": "12.2556",
+    "lng": "4.4111",
+    "ward": "DANWARAI",
+    "district": "ALIERO",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "9.6412",
+    "lng": "5.2610",
+    "ward": "DAPANGI/MAKERA",
+    "district": "MASHEGU",
+    "state": "NIGER"
+  },
+  {
+    "lat": "13.5467",
+    "lng": "5.3960",
+    "ward": "DARNA/ SABON GARI",
+    "district": "ILLELA",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "13.5213",
+    "lng": "5.4610",
+    "ward": "DARNE/ TSOLAWO",
+    "district": "ILLELA",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "9.3429",
+    "lng": "5.5161",
+    "ward": "DASSUN",
+    "district": "LAVUN",
+    "state": "NIGER"
+  },
+  {
+    "lat": "8.9722",
+    "lng": "6.3374",
+    "ward": "DAUACI",
+    "district": "AGAIE",
+    "state": "NIGER"
+  },
+  {
+    "lat": "11.9553",
+    "lng": "7.1819",
+    "ward": "DAUKI",
+    "district": "TSAFE",
+    "state": "ZAMFARA"
+  },
+  {
+    "lat": "13.1803",
+    "lng": "4.3244",
+    "ward": "DAURA/SAKKWABE/JARKUKA",
+    "district": "AREWA",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "12.6785",
+    "lng": "6.7576",
+    "ward": "DAURAN / BIRNIN-TSABA",
+    "district": "ZURMI",
+    "state": "ZAMFARA"
+  },
+  {
+    "lat": "9.5871",
+    "lng": "7.0057",
+    "ward": "DAZA",
+    "district": "MUNYA",
+    "state": "NIGER"
+  },
+  {
+    "lat": "11.9830",
+    "lng": "4.1735",
+    "ward": "DENDANE",
+    "district": "SURU",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "12.3571",
+    "lng": "4.0342",
+    "ward": "DIGGI",
+    "district": "KALGO",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "12.7427",
+    "lng": "4.5227",
+    "ward": "DIKKO",
+    "district": "ARGUNGU",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "9.3044",
+    "lng": "7.2198",
+    "ward": "DIKO",
+    "district": "GURARA",
+    "state": "NIGER"
+  },
+  {
+    "lat": "13.3249",
+    "lng": "5.4648",
+    "ward": "DIMBISO",
+    "district": "WURNO",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "13.2298",
+    "lng": "5.4391",
+    "ward": "DINAWA",
+    "district": "WURNO",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "12.9440",
+    "lng": "5.1315",
+    "ward": "DINGYADI/BADAWA",
+    "district": "BODINGA",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "12.4278",
+    "lng": "4.6557",
+    "ward": "DODORU",
+    "district": "GWANDU",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "9.3093",
+    "lng": "7.3108",
+    "ward": "DOGON KURMI",
+    "district": "TAFA",
+    "state": "NIGER"
+  },
+  {
+    "lat": "12.4742",
+    "lng": "4.8417",
+    "ward": "DOGONDAJI/SALA",
+    "district": "TAMBUWAL",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "11.1347",
+    "lng": "5.4232",
+    "ward": "DOKA/BERE",
+    "district": "SAKABA",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "8.9415",
+    "lng": "5.9733",
+    "ward": "DOKO",
+    "district": "LAVUN",
+    "state": "NIGER"
+  },
+  {
+    "lat": "9.0828",
+    "lng": "5.9913",
+    "ward": "DOKODZA",
+    "district": "BIDA",
+    "state": "NIGER"
+  },
+  {
+    "lat": "12.9304",
+    "lng": "6.4263",
+    "ward": "DOLE",
+    "district": "ZURMI",
+    "state": "ZAMFARA"
+  },
+  {
+    "lat": "11.7399",
+    "lng": "3.6618",
+    "ward": "DOLEKAINA",
+    "district": "DANDI",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "10.5126",
+    "lng": "4.4335",
+    "ward": "DUGGA",
+    "district": "BORGU",
+    "state": "NIGER"
+  },
+  {
+    "lat": "11.0890",
+    "lng": "5.0903",
+    "ward": "DUGGE",
+    "district": "RIJAU",
+    "state": "NIGER"
+  },
+  {
+    "lat": "11.1057",
+    "lng": "4.6110",
+    "ward": "DUGU TSOHO/DUGU RAHA",
+    "district": "SHANGA",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "13.7417",
+    "lng": "5.8122",
+    "ward": "DUKAMAJE/ILAH",
+    "district": "GADA",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "11.2744",
+    "lng": "4.8683",
+    "ward": "DUKKU",
+    "district": "RIJAU",
+    "state": "NIGER"
+  },
+  {
+    "lat": "12.5812",
+    "lng": "5.3543",
+    "ward": "DUMA",
+    "district": "TURETA",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "12.2953",
+    "lng": "4.3027",
+    "ward": "DUNBEGU/BAUSARA",
+    "district": "JEGA",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "13.1482",
+    "lng": "5.2244",
+    "ward": "DUNDAYE/GUMBURAWA",
+    "district": "WAMAKKO",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "13.0106",
+    "lng": "4.6659",
+    "ward": "DUNDAYE/KWAIDO/ZAGI/ILLELA",
+    "district": "AUGIE",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "13.0648",
+    "lng": "5.3183",
+    "ward": "DURBAWA",
+    "district": "KWARE",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "11.2132",
+    "lng": "4.3900",
+    "ward": "DUTSIN MARI/DULMERU",
+    "district": "KOKO/BESSE",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "8.9911",
+    "lng": "6.1893",
+    "ward": "DZWAFU",
+    "district": "KATCHA",
+    "state": "NIGER"
+  },
+  {
+    "lat": "8.4805",
+    "lng": "6.5314",
+    "ward": "EBBO/GBACINKU",
+    "district": "LAPAI",
+    "state": "NIGER"
+  },
+  {
+    "lat": "9.2057",
+    "lng": "5.9344",
+    "ward": "EDOKOTA",
+    "district": "GBAKO",
+    "state": "NIGER"
+  },
+  {
+    "lat": "8.8284",
+    "lng": "6.2924",
+    "ward": "EDOTSU",
+    "district": "KATCHA",
+    "state": "NIGER"
+  },
+  {
+    "lat": "9.0527",
+    "lng": "5.8756",
+    "ward": "EDOZHIGI",
+    "district": "GBAKO",
+    "state": "NIGER"
+  },
+  {
+    "lat": "9.3246",
+    "lng": "5.7852",
+    "ward": "EGBAKO",
+    "district": "LAVUN",
+    "state": "NIGER"
+  },
+  {
+    "lat": "9.7787",
+    "lng": "6.8139",
+    "ward": "EGWA/GWADA",
+    "district": "SHIRORO",
+    "state": "NIGER"
+  },
+  {
+    "lat": "9.0119",
+    "lng": "6.3201",
+    "ward": "EKOBADEGGI",
+    "district": "AGAIE",
+    "state": "NIGER"
+  },
+  {
+    "lat": "9.0163",
+    "lng": "6.3050",
+    "ward": "EKOSSA",
+    "district": "AGAIE",
+    "state": "NIGER"
+  },
+  {
+    "lat": "9.0072",
+    "lng": "6.3161",
+    "ward": "EKOWUGI",
+    "district": "AGAIE",
+    "state": "NIGER"
+  },
+  {
+    "lat": "9.0075",
+    "lng": "6.3207",
+    "ward": "EKOWUNA",
+    "district": "AGAIE",
+    "state": "NIGER"
+  },
+  {
+    "lat": "9.1116",
+    "lng": "5.5633",
+    "ward": "ENAGI",
+    "district": "EDATTI",
+    "state": "NIGER"
+  },
+  {
+    "lat": "10.0735",
+    "lng": "6.7126",
+    "ward": "ERANA",
+    "district": "SHIRORO",
+    "state": "NIGER"
+  },
+  {
+    "lat": "9.1345",
+    "lng": "6.2510",
+    "ward": "ESSA",
+    "district": "KATCHA",
+    "state": "NIGER"
+  },
+  {
+    "lat": "12.2592",
+    "lng": "4.0144",
+    "ward": "ETENE",
+    "district": "KALGO",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "9.2405",
+    "lng": "6.0067",
+    "ward": "ETSU AUDU",
+    "district": "GBAKO",
+    "state": "NIGER"
+  },
+  {
+    "lat": "9.0797",
+    "lng": "5.7108",
+    "ward": "ETSU TASHA",
+    "district": "EDATTI",
+    "state": "NIGER"
+  },
+  {
+    "lat": "9.1200",
+    "lng": "6.3197",
+    "ward": "ETSUGAIE",
+    "district": "AGAIE",
+    "state": "NIGER"
+  },
+  {
+    "lat": "8.5379",
+    "lng": "6.6430",
+    "ward": "EVUTI/KPADA",
+    "district": "LAPAI",
+    "state": "NIGER"
+  },
+  {
+    "lat": "11.2220",
+    "lng": "5.4906",
+    "ward": "FADA",
+    "district": "SAKABA",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "12.3403",
+    "lng": "4.5960",
+    "ward": "FAGA/ALASAN",
+    "district": "TAMBUWAL",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "12.7485",
+    "lng": "5.4253",
+    "ward": "FAJALDU",
+    "district": "DANGE/SHUNI",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "11.5207",
+    "lng": "4.9328",
+    "ward": "FAKAI/ZUSSUN",
+    "district": "FAKAI",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "12.6787",
+    "lng": "4.9177",
+    "ward": "FAKKA",
+    "district": "YABO",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "11.6379",
+    "lng": "4.5352",
+    "ward": "FAKKU",
+    "district": "KEBBE",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "12.1503",
+    "lng": "5.2286",
+    "ward": "FALALE",
+    "district": "GUMMI",
+    "state": "ZAMFARA"
+  },
+  {
+    "lat": "12.6196",
+    "lng": "3.8069",
+    "ward": "FALDE",
+    "district": "AREWA",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "11.6765",
+    "lng": "3.8931",
+    "ward": "FANA",
+    "district": "DANDI",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "12.7021",
+    "lng": "6.3071",
+    "ward": "FARU / MAGAMI",
+    "district": "MARADUN",
+    "state": "ZAMFARA"
+  },
+  {
+    "lat": "9.1721",
+    "lng": "5.6301",
+    "ward": "FAZHI",
+    "district": "EDATTI",
+    "state": "NIGER"
+  },
+  {
+    "lat": "12.6851",
+    "lng": "4.5610",
+    "ward": "FELANDE",
+    "district": "ARGUNGU",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "12.2442",
+    "lng": "5.1648",
+    "ward": "FELFELDU / GAMO",
+    "district": "GUMMI",
+    "state": "ZAMFARA"
+  },
+  {
+    "lat": "12.6603",
+    "lng": "3.9295",
+    "ward": "FESKE/JAFFEJI",
+    "district": "AREWA",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "9.6497",
+    "lng": "6.9422",
+    "ward": "FUKA",
+    "district": "MUNYA",
+    "state": "NIGER"
+  },
+  {
+    "lat": "12.5873",
+    "lng": "5.4545",
+    "ward": "FURA GIRKE",
+    "district": "TURETA",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "12.2252",
+    "lng": "6.5724",
+    "ward": "FURFURI/KWAI-KWAI",
+    "district": "BUNGUDU",
+    "state": "ZAMFARA"
+  },
+  {
+    "lat": "13.0987",
+    "lng": "5.2778",
+    "ward": "G. RUGGA",
+    "district": "KWARE",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "13.6041",
+    "lng": "5.4807",
+    "ward": "G/ HAMMA",
+    "district": "ILLELA",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "13.6458",
+    "lng": "5.3038",
+    "ward": "G/ KATTA",
+    "district": "ILLELA",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "13.1447",
+    "lng": "5.3001",
+    "ward": "G/ MODIBBO/ G. AKWARA",
+    "district": "KWARE",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "13.1157",
+    "lng": "5.1785",
+    "ward": "G/BUBU/G/YARO",
+    "district": "WAMAKKO",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "13.1673",
+    "lng": "5.1844",
+    "ward": "G/HAMIDU/G/KAYA",
+    "district": "WAMAKKO",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "8.9117",
+    "lng": "6.0433",
+    "ward": "GABA",
+    "district": "LAVUN",
+    "state": "NIGER"
+  },
+  {
+    "lat": "12.6131",
+    "lng": "6.6888",
+    "ward": "GABAKE",
+    "district": "KAURA NAMODA",
+    "state": "ZAMFARA"
+  },
+  {
+    "lat": "10.4098",
+    "lng": "5.4857",
+    "ward": "GABAS",
+    "district": "KONTAGORA",
+    "state": "NIGER"
+  },
+  {
+    "lat": "13.7520",
+    "lng": "5.6760",
+    "ward": "GADA",
+    "district": "GADA",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "12.2447",
+    "lng": "6.4520",
+    "ward": "GADA / KARAKKAI",
+    "district": "BUNGUDU",
+    "state": "ZAMFARA"
+  },
+  {
+    "lat": "10.4897",
+    "lng": "4.7033",
+    "ward": "GAFARA MACHUPA",
+    "district": "NGASKI",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "13.0383",
+    "lng": "5.2743",
+    "ward": "GAGI \\A\\",
+    "district": "SOKOTO SOUTH",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "13.0147",
+    "lng": "5.2508",
+    "ward": "GAGI \\B\\",
+    "district": "SOKOTO SOUTH",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "13.0318",
+    "lng": "5.2562",
+    "ward": "GAGI \\C\\",
+    "district": "SOKOTO SOUTH",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "13.0485",
+    "lng": "6.3203",
+    "ward": "GALADI",
+    "district": "SHINKAFI",
+    "state": "ZAMFARA"
+  },
+  {
+    "lat": "12.1855",
+    "lng": "6.6427",
+    "ward": "GALADIMA",
+    "district": "GUSAU",
+    "state": "ZAMFARA"
+  },
+  {
+    "lat": "12.7484",
+    "lng": "4.5235",
+    "ward": "GALADIMA",
+    "district": "ARGUNGU",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "12.1971",
+    "lng": "5.8837",
+    "ward": "GALADIMA",
+    "district": "ANKA",
+    "state": "ZAMFARA"
+  },
+  {
+    "lat": "12.5591",
+    "lng": "6.6044",
+    "ward": "GALADIMA DAN GALADIMA",
+    "district": "KAURA NAMODA",
+    "state": "ZAMFARA"
+  },
+  {
+    "lat": "12.8722",
+    "lng": "6.4881",
+    "ward": "GALADIMA/YANRUWA",
+    "district": "ZURMI",
+    "state": "ZAMFARA"
+  },
+  {
+    "lat": "10.1286",
+    "lng": "6.8418",
+    "ward": "GALKOGO",
+    "district": "SHIRORO",
+    "state": "NIGER"
+  },
+  {
+    "lat": "10.7070",
+    "lng": "4.4391",
+    "ward": "GALLAH",
+    "district": "AGWARA",
+    "state": "NIGER"
+  },
+  {
+    "lat": "10.6394",
+    "lng": "5.8926",
+    "ward": "GALMA/WAMBA",
+    "district": "MARIGA",
+    "state": "NIGER"
+  },
+  {
+    "lat": "13.0979",
+    "lng": "4.8431",
+    "ward": "GANDE EAST",
+    "district": "SILAME",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "13.0920",
+    "lng": "4.7816",
+    "ward": "GANDE WEST",
+    "district": "SILAME",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "12.9915",
+    "lng": "5.7448",
+    "ward": "GANDI \\A\\",
+    "district": "RABAH",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "12.9773",
+    "lng": "5.9203",
+    "ward": "GANDI \\B\\",
+    "district": "RABAH",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "12.5796",
+    "lng": "5.0567",
+    "ward": "GANGAM",
+    "district": "SHAGARI",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "13.4060",
+    "lng": "6.3585",
+    "ward": "GANGARA",
+    "district": "S/BIRNI",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "9.3219",
+    "lng": "7.3315",
+    "ward": "GARAM",
+    "district": "TAFA",
+    "state": "NIGER"
+  },
+  {
+    "lat": "9.5033",
+    "lng": "6.4225",
+    "ward": "GARATU",
+    "district": "BOSSO",
+    "state": "NIGER"
+  },
+  {
+    "lat": "12.4069",
+    "lng": "6.1149",
+    "ward": "GARBADU",
+    "district": "TALATA MAFARA",
+    "state": "ZAMFARA"
+  },
+  {
+    "lat": "10.5593",
+    "lng": "4.7546",
+    "ward": "GARIN BAKA/MAKARIN",
+    "district": "NGASKI",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "13.6207",
+    "lng": "5.3602",
+    "ward": "GARU",
+    "district": "ILLELA",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "13.5140",
+    "lng": "6.2720",
+    "ward": "GATAWA",
+    "district": "S/BIRNI",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "13.1049",
+    "lng": "5.3978",
+    "ward": "GAWAKUKE",
+    "district": "RABAH",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "12.5491",
+    "lng": "4.2163",
+    "ward": "GAWASU",
+    "district": "BIRNIN KEBBI",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "13.2156",
+    "lng": "4.8551",
+    "ward": "GAWAZZAI",
+    "district": "BINJI",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "9.2690",
+    "lng": "6.9913",
+    "ward": "GAWU",
+    "district": "GURARA",
+    "state": "NIGER"
+  },
+  {
+    "lat": "12.1148",
+    "lng": "4.8913",
+    "ward": "GAYARI",
+    "district": "GUMMI",
+    "state": "ZAMFARA"
+  },
+  {
+    "lat": "8.9624",
+    "lng": "5.7971",
+    "ward": "GAZHE  I",
+    "district": "EDATTI",
+    "state": "NIGER"
+  },
+  {
+    "lat": "8.9678",
+    "lng": "5.7325",
+    "ward": "GAZHE  II",
+    "district": "EDATTI",
+    "state": "NIGER"
+  },
+  {
+    "lat": "9.1622",
+    "lng": "5.9037",
+    "ward": "GBADAFU",
+    "district": "GBAKO",
+    "state": "NIGER"
+  },
+  {
+    "lat": "9.2668",
+    "lng": "4.8638",
+    "ward": "GBAJIBO/MUWO",
+    "district": "MOKWA",
+    "state": "NIGER"
+  },
+  {
+    "lat": "8.8808",
+    "lng": "6.1972",
+    "ward": "GBAKOGI",
+    "district": "KATCHA",
+    "state": "NIGER"
+  },
+  {
+    "lat": "9.1467",
+    "lng": "5.7690",
+    "ward": "GBANGBAN",
+    "district": "EDATTI",
+    "state": "NIGER"
+  },
+  {
+    "lat": "8.8668",
+    "lng": "5.9672",
+    "ward": "GBARA",
+    "district": "MOKWA",
+    "state": "NIGER"
+  },
+  {
+    "lat": "13.1249",
+    "lng": "6.6064",
+    "ward": "GEBE \\A\\",
+    "district": "ISA",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "13.1977",
+    "lng": "6.5420",
+    "ward": "GEBE \\B\\",
+    "district": "ISA",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "11.3179",
+    "lng": "5.3862",
+    "ward": "GELWASA",
+    "district": "SAKABA",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "10.8799",
+    "lng": "5.1765",
+    "ward": "GENU",
+    "district": "RIJAU",
+    "state": "NIGER"
+  },
+  {
+    "lat": "12.0143",
+    "lng": "3.9017",
+    "ward": "GEZA",
+    "district": "DANDI",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "12.7065",
+    "lng": "6.5051",
+    "ward": "GIDAN GOGA",
+    "district": "MARADUN",
+    "state": "ZAMFARA"
+  },
+  {
+    "lat": "12.5901",
+    "lng": "5.6037",
+    "ward": "GIDAN KARE/BIMASA",
+    "district": "TURETA",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "13.2662",
+    "lng": "5.3192",
+    "ward": "GIDAN KAYA",
+    "district": "GWADABAWA",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "13.2925",
+    "lng": "4.9720",
+    "ward": "GIDAN MADI",
+    "district": "TANGAZA",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "12.9415",
+    "lng": "5.4238",
+    "ward": "GIERE/GAJARA",
+    "district": "DANGE/SHUNI",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "13.4639",
+    "lng": "5.2130",
+    "ward": "GIGANE",
+    "district": "GWADABAWA",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "13.6429",
+    "lng": "5.8753",
+    "ward": "GILBADI",
+    "district": "GADA",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "12.2443",
+    "lng": "4.3321",
+    "ward": "GINDI/NASSARAWA/KYARMI/GALBI",
+    "district": "JEGA",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "12.0473",
+    "lng": "4.1328",
+    "ward": "GINGA",
+    "district": "SURU",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "9.7167",
+    "lng": "6.9389",
+    "ward": "GINI",
+    "district": "MUNYA",
+    "state": "NIGER"
+  },
+  {
+    "lat": "12.0928",
+    "lng": "4.8420",
+    "ward": "GIRKAU",
+    "district": "KEBBE",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "11.7746",
+    "lng": "4.1602",
+    "ward": "GIRO",
+    "district": "SURU",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "12.1326",
+    "lng": "4.3215",
+    "ward": "GIWA TAZO/ZARA",
+    "district": "MAIYAMA",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "13.3465",
+    "lng": "5.5109",
+    "ward": "GIYAWA",
+    "district": "GORONYO",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "12.4631",
+    "lng": "4.2610",
+    "ward": "GODONGAJI",
+    "district": "BIRNIN KEBBI",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "9.1789",
+    "lng": "6.1454",
+    "ward": "GOGATA",
+    "district": "GBAKO",
+    "state": "NIGER"
+  },
+  {
+    "lat": "8.9677",
+    "lng": "5.6421",
+    "ward": "GONAGI",
+    "district": "EDATTI",
+    "state": "NIGER"
+  },
+  {
+    "lat": "12.4377",
+    "lng": "6.7358",
+    "ward": "GORA",
+    "district": "BIRNIN MAGAJI",
+    "state": "ZAMFARA"
+  },
+  {
+    "lat": "12.6755",
+    "lng": "6.1468",
+    "ward": "GORA",
+    "district": "MARADUN",
+    "state": "ZAMFARA"
+  },
+  {
+    "lat": "13.4359",
+    "lng": "5.7233",
+    "ward": "GORONYO",
+    "district": "GORONYO",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "12.5826",
+    "lng": "3.9924",
+    "ward": "GORUN DIKKO",
+    "district": "AREWA",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "10.7115",
+    "lng": "5.4247",
+    "ward": "GULBIN - BOKA",
+    "district": "MARIGA",
+    "state": "NIGER"
+  },
+  {
+    "lat": "11.4826",
+    "lng": "4.8218",
+    "ward": "GULBIN KUKA/MAIJARHULA",
+    "district": "FAKAI",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "12.6450",
+    "lng": "4.3543",
+    "ward": "GULMA",
+    "district": "ARGUNGU",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "12.4181",
+    "lng": "4.5637",
+    "ward": "GULMARE",
+    "district": "GWANDU",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "8.6032",
+    "lng": "6.5707",
+    "ward": "GULU/ANGUWA VATSA",
+    "district": "LAPAI",
+    "state": "NIGER"
+  },
+  {
+    "lat": "12.4077",
+    "lng": "4.3401",
+    "ward": "GULUMBE",
+    "district": "BIRNIN KEBBI",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "13.0230",
+    "lng": "5.1581",
+    "ward": "GUMBI/WAJAKE",
+    "district": "WAMAKKO",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "12.2468",
+    "lng": "4.1982",
+    "ward": "GUMBIN KURE",
+    "district": "MAIYAMA",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "12.3132",
+    "lng": "3.7251",
+    "ward": "GUMUMDAI/RAFIN TSAKA",
+    "district": "AREWA",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "10.8061",
+    "lng": "4.7369",
+    "ward": "GUNGUN SARKI",
+    "district": "YAURI",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "9.7904",
+    "lng": "6.9438",
+    "ward": "GUNI",
+    "district": "MUNYA",
+    "state": "NIGER"
+  },
+  {
+    "lat": "8.3926",
+    "lng": "6.7352",
+    "ward": "GUPA/ABUGI",
+    "district": "LAPAI",
+    "state": "NIGER"
+  },
+  {
+    "lat": "8.8034",
+    "lng": "6.6989",
+    "ward": "GURDI/ZAGO",
+    "district": "LAPAI",
+    "state": "NIGER"
+  },
+  {
+    "lat": "10.0138",
+    "lng": "6.6349",
+    "ward": "GURMANA",
+    "district": "SHIRORO",
+    "state": "NIGER"
+  },
+  {
+    "lat": "12.3522",
+    "lng": "6.8541",
+    "ward": "GUSAMI GARI",
+    "district": "BIRNIN MAGAJI",
+    "state": "ZAMFARA"
+  },
+  {
+    "lat": "12.2973",
+    "lng": "6.8720",
+    "ward": "GUSAMI HAYI",
+    "district": "BIRNIN MAGAJI",
+    "state": "ZAMFARA"
+  },
+  {
+    "lat": "9.9347",
+    "lng": "6.7495",
+    "ward": "GUSSORO",
+    "district": "SHIRORO",
+    "state": "NIGER"
+  },
+  {
+    "lat": "9.0392",
+    "lng": "5.5451",
+    "ward": "GUZAN",
+    "district": "EDATTI",
+    "state": "NIGER"
+  },
+  {
+    "lat": "13.3689",
+    "lng": "5.2536",
+    "ward": "GWADABAWA",
+    "district": "GWADABAWA",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "13.0564",
+    "lng": "5.5852",
+    "ward": "GWADDODI/GIDAN BU WAI",
+    "district": "RABAH",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "12.1756",
+    "lng": "3.8537",
+    "ward": "GWADE",
+    "district": "BUNZA",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "9.4743",
+    "lng": "6.8024",
+    "ward": "GWAM",
+    "district": "PAIKORO",
+    "state": "NIGER"
+  },
+  {
+    "lat": "13.0591",
+    "lng": "5.0297",
+    "ward": "GWAMATSE",
+    "district": "WAMAKKO",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "12.5218",
+    "lng": "4.6337",
+    "ward": "GWANDU MARAFA",
+    "district": "GWANDU",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "12.4673",
+    "lng": "4.6224",
+    "ward": "GWANDU SARKIN FAWA",
+    "district": "GWANDU",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "11.5992",
+    "lng": "5.2247",
+    "ward": "GWANFI/KELE",
+    "district": "WASAGU/DANKO",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "12.2238",
+    "lng": "6.1428",
+    "ward": "GWARAM",
+    "district": "TALATA MAFARA",
+    "state": "ZAMFARA"
+  },
+  {
+    "lat": "9.5916",
+    "lng": "5.9825",
+    "ward": "GWARJIKO",
+    "district": "WUSHISHI",
+    "state": "NIGER"
+  },
+  {
+    "lat": "11.8080",
+    "lng": "5.7903",
+    "ward": "GWASHI",
+    "district": "BUKKUYUM",
+    "state": "ZAMFARA"
+  },
+  {
+    "lat": "13.3852",
+    "lng": "4.3137",
+    "ward": "GWAZANGE/BOTO",
+    "district": "GUDU",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "12.7245",
+    "lng": "4.5744",
+    "ward": "GWAZANGE/KISAWA/U GYAGA",
+    "district": "ARGUNGU",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "12.1350",
+    "lng": "5.0083",
+    "ward": "GYALANGE",
+    "district": "GUMMI",
+    "state": "ZAMFARA"
+  },
+  {
+    "lat": "13.1864",
+    "lng": "5.3226",
+    "ward": "H/ ALI/ MARABAWA",
+    "district": "KWARE",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "9.1758",
+    "lng": "7.1803",
+    "ward": "HASHIMI \\A\\",
+    "district": "SULEJA",
+    "state": "NIGER"
+  },
+  {
+    "lat": "9.1845",
+    "lng": "7.1785",
+    "ward": "HASHIMI \\B\\",
+    "district": "SULEJA",
+    "state": "NIGER"
+  },
+  {
+    "lat": "12.7298",
+    "lng": "5.1648",
+    "ward": "HORO BIRNI",
+    "district": "SHAGARI",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "13.3432",
+    "lng": "5.4327",
+    "ward": "HUCHI",
+    "district": "GWADABAWA",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "9.6037",
+    "lng": "4.9267",
+    "ward": "IBBI",
+    "district": "MASHEGU",
+    "state": "NIGER"
+  },
+  {
+    "lat": "10.4694",
+    "lng": "5.1675",
+    "ward": "IBELU CENTRAL",
+    "district": "MAGAMA",
+    "state": "NIGER"
+  },
+  {
+    "lat": "10.4912",
+    "lng": "5.2809",
+    "ward": "IBELU EAST",
+    "district": "MAGAMA",
+    "state": "NIGER"
+  },
+  {
+    "lat": "10.6230",
+    "lng": "5.1999",
+    "ward": "IBELU NORTH",
+    "district": "MAGAMA",
+    "state": "NIGER"
+  },
+  {
+    "lat": "10.6383",
+    "lng": "4.9853",
+    "ward": "IBELU WEST",
+    "district": "MAGAMA",
+    "state": "NIGER"
+  },
+  {
+    "lat": "10.4946",
+    "lng": "5.9603",
+    "ward": "IGWAMA",
+    "district": "MARIGA",
+    "state": "NIGER"
+  },
+  {
+    "lat": "9.2502",
+    "lng": "7.2659",
+    "ward": "IJA GWARI",
+    "district": "TAFA",
+    "state": "NIGER"
+  },
+  {
+    "lat": "9.2458",
+    "lng": "7.2960",
+    "ward": "IJA KORO",
+    "district": "TAFA",
+    "state": "NIGER"
+  },
+  {
+    "lat": "9.2292",
+    "lng": "7.2222",
+    "ward": "IKU",
+    "district": "TAFA",
+    "state": "NIGER"
+  },
+  {
+    "lat": "9.1084",
+    "lng": "7.2160",
+    "ward": "IKU SOUTH I",
+    "district": "SULEJA",
+    "state": "NIGER"
+  },
+  {
+    "lat": "9.1561",
+    "lng": "7.1969",
+    "ward": "IKU SOUTH II",
+    "district": "SULEJA",
+    "state": "NIGER"
+  },
+  {
+    "lat": "13.7261",
+    "lng": "5.3161",
+    "ward": "ILLELA",
+    "district": "ILLELA",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "11.4259",
+    "lng": "4.4987",
+    "ward": "ILLELA/S/GARI",
+    "district": "KOKO/BESSE",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "12.1939",
+    "lng": "5.0181",
+    "ward": "ILLELAR AWAL",
+    "district": "GUMMI",
+    "state": "ZAMFARA"
+  },
+  {
+    "lat": "11.5357",
+    "lng": "3.8188",
+    "ward": "ILLO/SABON/GARI/YANTAU",
+    "district": "BAGUDO",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "11.6448",
+    "lng": "4.8319",
+    "ward": "INGA(BULU) MAIKENDE",
+    "district": "FAKAI",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "10.1851",
+    "lng": "6.0276",
+    "ward": "INKWAI",
+    "district": "MARIGA",
+    "state": "NIGER"
+  },
+  {
+    "lat": "13.1846",
+    "lng": "4.9774",
+    "ward": "INNAME",
+    "district": "BINJI",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "13.2041",
+    "lng": "6.4074",
+    "ward": "ISA NORTH",
+    "district": "ISA",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "13.1691",
+    "lng": "6.3832",
+    "ward": "ISA SOUTH",
+    "district": "ISA",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "11.5139",
+    "lng": "5.1947",
+    "ward": "ISGOGO /DAGO",
+    "district": "ZURU",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "9.6413",
+    "lng": "7.2510",
+    "ward": "ISHAU",
+    "district": "PAIKORO",
+    "state": "NIGER"
+  },
+  {
+    "lat": "9.2505",
+    "lng": "7.0326",
+    "ward": "IZOM",
+    "district": "GURARA",
+    "state": "NIGER"
+  },
+  {
+    "lat": "9.1394",
+    "lng": "5.1356",
+    "ward": "JA\\AGI",
+    "district": "MOKWA",
+    "state": "NIGER"
+  },
+  {
+    "lat": "12.4384",
+    "lng": "5.0102",
+    "ward": "JABO/KAGARA",
+    "district": "TAMBUWAL",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "11.6385",
+    "lng": "4.2846",
+    "ward": "JADADI",
+    "district": "KOKO/BESSE",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "11.0899",
+    "lng": "5.3422",
+    "ward": "JAMA\\ARE",
+    "district": "RIJAU",
+    "state": "NIGER"
+  },
+  {
+    "lat": "13.2650",
+    "lng": "4.8839",
+    "ward": "JAMMALI",
+    "district": "BINJI",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "12.7053",
+    "lng": "6.2088",
+    "ward": "JANBAKO",
+    "district": "MARADUN",
+    "state": "ZAMFARA"
+  },
+  {
+    "lat": "11.1407",
+    "lng": "5.6218",
+    "ward": "JANBIRNI",
+    "district": "SAKABA",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "12.0392",
+    "lng": "4.5271",
+    "ward": "JANDUTSI/BIRNIN MALAM",
+    "district": "JEGA",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "12.2091",
+    "lng": "6.0686",
+    "ward": "JANGEBE",
+    "district": "TALATA MAFARA",
+    "state": "ZAMFARA"
+  },
+  {
+    "lat": "12.9850",
+    "lng": "6.5104",
+    "ward": "JANGERU",
+    "district": "SHINKAFI",
+    "state": "ZAMFARA"
+  },
+  {
+    "lat": "12.7654",
+    "lng": "5.1133",
+    "ward": "JAREDI",
+    "district": "SHAGARI",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "9.1612",
+    "lng": "4.8209",
+    "ward": "JEBBA NORTH",
+    "district": "MOKWA",
+    "state": "NIGER"
+  },
+  {
+    "lat": "12.2474",
+    "lng": "4.3734",
+    "ward": "JEGA FIRCHIN",
+    "district": "JEGA",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "12.2360",
+    "lng": "4.3913",
+    "ward": "JEGA KOKANI",
+    "district": "JEGA",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "12.2192",
+    "lng": "4.3819",
+    "ward": "JEGA MAGAJI \\A\\",
+    "district": "JEGA",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "12.2788",
+    "lng": "4.3700",
+    "ward": "JEGA MAGAJI \\B\\",
+    "district": "JEGA",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "9.4509",
+    "lng": "6.6752",
+    "ward": "JERE",
+    "district": "PAIKORO",
+    "state": "NIGER"
+  },
+  {
+    "lat": "12.3010",
+    "lng": "4.5299",
+    "ward": "JIGA BIRNI",
+    "district": "ALIERO",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "12.2649",
+    "lng": "4.5348",
+    "ward": "JIGA MAKERA",
+    "district": "ALIERO",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "10.6865",
+    "lng": "4.7065",
+    "ward": "JIJIMA",
+    "district": "YAURI",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "8.9515",
+    "lng": "5.9055",
+    "ward": "JIMA",
+    "district": "LAVUN",
+    "state": "NIGER"
+  },
+  {
+    "lat": "13.0951",
+    "lng": "5.0988",
+    "ward": "K/KIMBA/GEDEWA",
+    "district": "WAMAKKO",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "13.0147",
+    "lng": "5.4209",
+    "ward": "KABANGA",
+    "district": "KWARE",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "10.7272",
+    "lng": "4.1024",
+    "ward": "KABE/PISSA",
+    "district": "BORGU",
+    "state": "NIGER"
+  },
+  {
+    "lat": "9.3900",
+    "lng": "7.2075",
+    "ward": "KABO",
+    "district": "GURARA",
+    "state": "NIGER"
+  },
+  {
+    "lat": "10.1168",
+    "lng": "5.3286",
+    "ward": "KABOJI",
+    "district": "MASHEGU",
+    "state": "NIGER"
+  },
+  {
+    "lat": "9.8738",
+    "lng": "7.1499",
+    "ward": "KABULA",
+    "district": "MUNYA",
+    "state": "NIGER"
+  },
+  {
+    "lat": "13.8255",
+    "lng": "5.5071",
+    "ward": "KADADIN BUDA (KADDI)",
+    "district": "GADA",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "13.6910",
+    "lng": "5.5587",
+    "ward": "KADASSAKA",
+    "district": "GADA",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "13.6365",
+    "lng": "5.7534",
+    "ward": "KADDI",
+    "district": "GADA",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "13.6837",
+    "lng": "5.7138",
+    "ward": "KAFFE",
+    "district": "GADA",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "9.5105",
+    "lng": "7.0569",
+    "ward": "KAFIN KORO",
+    "district": "PAIKORO",
+    "state": "NIGER"
+  },
+  {
+    "lat": "13.3732",
+    "lng": "5.6332",
+    "ward": "KAGARA",
+    "district": "GORONYO",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "12.3195",
+    "lng": "6.0914",
+    "ward": "KAGARA",
+    "district": "TALATA MAFARA",
+    "state": "ZAMFARA"
+  },
+  {
+    "lat": "12.3659",
+    "lng": "6.6774",
+    "ward": "KAGARA",
+    "district": "KAURA NAMODA",
+    "state": "ZAMFARA"
+  },
+  {
+    "lat": "10.2033",
+    "lng": "6.2543",
+    "ward": "KAGARA GARI",
+    "district": "RAFI",
+    "state": "NIGER"
+  },
+  {
+    "lat": "12.5543",
+    "lng": "4.9519",
+    "ward": "KAJIJI",
+    "district": "SHAGARI",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "10.8090",
+    "lng": "5.6801",
+    "ward": "KAKIHUM",
+    "district": "MARIGA",
+    "state": "NIGER"
+  },
+  {
+    "lat": "10.0215",
+    "lng": "6.4336",
+    "ward": "KAKURI",
+    "district": "RAFI",
+    "state": "NIGER"
+  },
+  {
+    "lat": "13.0551",
+    "lng": "5.1866",
+    "ward": "KALAMBAINA/GIRABSHI",
+    "district": "WAMAKKO",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "13.2841",
+    "lng": "5.0309",
+    "ward": "KALANJENI",
+    "district": "TANGAZA",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "12.3379",
+    "lng": "4.1876",
+    "ward": "KALGO",
+    "district": "KALGO",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "13.3626",
+    "lng": "6.3302",
+    "ward": "KALGO",
+    "district": "S/BIRNI",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "13.7102",
+    "lng": "5.2104",
+    "ward": "KALMALO",
+    "district": "ILLELA",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "11.8796",
+    "lng": "3.6602",
+    "ward": "KAMBA / KAMBA",
+    "district": "DANDI",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "12.6038",
+    "lng": "5.2362",
+    "ward": "KAMBAMA",
+    "district": "SHAGARI",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "12.4447",
+    "lng": "4.5360",
+    "ward": "KAMBAZA",
+    "district": "GWANDU",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "10.8212",
+    "lng": "4.9808",
+    "ward": "KAMBUWA/DANMARAYA",
+    "district": "NGASKI",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "12.9978",
+    "lng": "5.0622",
+    "ward": "KAMMATA",
+    "district": "WAMAKKO",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "9.6409",
+    "lng": "6.3846",
+    "ward": "KAMPALA",
+    "district": "BOSSO",
+    "state": "NIGER"
+  },
+  {
+    "lat": "11.5674",
+    "lng": "4.5817",
+    "ward": "KANGI",
+    "district": "FAKAI",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "12.5646",
+    "lng": "3.8175",
+    "ward": "KANGIWA",
+    "district": "AREWA",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "12.1990",
+    "lng": "6.2370",
+    "ward": "KANOMA",
+    "district": "MARU",
+    "state": "ZAMFARA"
+  },
+  {
+    "lat": "12.7132",
+    "lng": "6.6206",
+    "ward": "KANWA",
+    "district": "ZURMI",
+    "state": "ZAMFARA"
+  },
+  {
+    "lat": "9.7333",
+    "lng": "6.0714",
+    "ward": "KANWURI",
+    "district": "WUSHISHI",
+    "state": "NIGER"
+  },
+  {
+    "lat": "11.3474",
+    "lng": "5.7232",
+    "ward": "KANYA",
+    "district": "WASAGU/DANKO",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "11.2184",
+    "lng": "4.0230",
+    "ward": "KAOJE/GWAMBA",
+    "district": "BAGUDO",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "9.9168",
+    "lng": "4.5356",
+    "ward": "KARABONDE",
+    "district": "BORGU",
+    "state": "NIGER"
+  },
+  {
+    "lat": "11.9852",
+    "lng": "4.3221",
+    "ward": "KARAYE/DOGONDAJI",
+    "district": "MAIYAMA",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "12.3806",
+    "lng": "4.2625",
+    "ward": "KARDI/YAMAMA",
+    "district": "BIRNIN KEBBI",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "13.2016",
+    "lng": "4.4595",
+    "ward": "KARFEN CHANA",
+    "district": "GUDU",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "13.3143",
+    "lng": "4.5399",
+    "ward": "KARFEN SARKI",
+    "district": "GUDU",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "10.0182",
+    "lng": "5.8840",
+    "ward": "KASANGA",
+    "district": "MASHEGU",
+    "state": "NIGER"
+  },
+  {
+    "lat": "12.3844",
+    "lng": "4.4816",
+    "ward": "KASHIN ZAMA",
+    "district": "ALIERO",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "10.7053",
+    "lng": "4.5436",
+    "ward": "KASHINI",
+    "district": "AGWARA",
+    "state": "NIGER"
+  },
+  {
+    "lat": "12.9651",
+    "lng": "4.7301",
+    "ward": "KATAMI NORTH",
+    "district": "SILAME",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "12.9272",
+    "lng": "4.7415",
+    "ward": "KATAMI SOUTH",
+    "district": "SILAME",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "12.0932",
+    "lng": "4.4315",
+    "ward": "KATANGA/FAGADA",
+    "district": "JEGA",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "9.3335",
+    "lng": "6.3510",
+    "ward": "KATAREGI",
+    "district": "KATCHA",
+    "state": "NIGER"
+  },
+  {
+    "lat": "8.7665",
+    "lng": "6.3059",
+    "ward": "KATCHA",
+    "district": "KATCHA",
+    "state": "NIGER"
+  },
+  {
+    "lat": "9.8218",
+    "lng": "6.4479",
+    "ward": "KATO",
+    "district": "SHIRORO",
+    "state": "NIGER"
+  },
+  {
+    "lat": "13.1223",
+    "lng": "6.3702",
+    "ward": "KATURU",
+    "district": "SHINKAFI",
+    "state": "ZAMFARA"
+  },
+  {
+    "lat": "11.1132",
+    "lng": "4.4097",
+    "ward": "KAWARA/INGU/SARGO",
+    "district": "SHANGA",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "11.9750",
+    "lng": "4.2723",
+    "ward": "KAWARA/S/SARA/YARKAMBA",
+    "district": "MAIYAMA",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "12.7519",
+    "lng": "6.3878",
+    "ward": "KAYA",
+    "district": "MARADUN",
+    "state": "ZAMFARA"
+  },
+  {
+    "lat": "9.7275",
+    "lng": "7.0704",
+    "ward": "KAZAI",
+    "district": "MUNYA",
+    "state": "NIGER"
+  },
+  {
+    "lat": "12.1347",
+    "lng": "4.7624",
+    "ward": "KEBBE EAST",
+    "district": "KEBBE",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "12.1294",
+    "lng": "4.7039",
+    "ward": "KEBBE WEST",
+    "district": "KEBBE",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "11.5304",
+    "lng": "4.2821",
+    "ward": "KENDE/KURGU",
+    "district": "BAGUDO",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "11.7693",
+    "lng": "6.7740",
+    "ward": "KETA/KIZARA",
+    "district": "TSAFE",
+    "state": "ZAMFARA"
+  },
+  {
+    "lat": "12.8356",
+    "lng": "5.0060",
+    "ward": "KILGORI",
+    "district": "YABO",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "12.0717",
+    "lng": "4.4135",
+    "ward": "KIMBA",
+    "district": "JEGA",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "13.6025",
+    "lng": "5.5721",
+    "ward": "KIRI",
+    "district": "GADA",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "12.4216",
+    "lng": "6.7996",
+    "ward": "KIYAWA",
+    "district": "BIRNIN MAGAJI",
+    "state": "ZAMFARA"
+  },
+  {
+    "lat": "9.5792",
+    "lng": "6.1416",
+    "ward": "KODO",
+    "district": "WUSHISHI",
+    "state": "NIGER"
+  },
+  {
+    "lat": "9.5727",
+    "lng": "6.2506",
+    "ward": "KODO",
+    "district": "BOSSO",
+    "state": "NIGER"
+  },
+  {
+    "lat": "13.4737",
+    "lng": "5.6029",
+    "ward": "KOJIYO",
+    "district": "GORONYO",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "12.7512",
+    "lng": "4.5330",
+    "ward": "KOKANI NORTH",
+    "district": "ARGUNGU",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "12.7463",
+    "lng": "4.5319",
+    "ward": "KOKANI SOUTH",
+    "district": "ARGUNGU",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "11.4272",
+    "lng": "4.5133",
+    "ward": "KOKO FIRCIN",
+    "district": "KOKO/BESSE",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "11.4228",
+    "lng": "4.5180",
+    "ward": "KOKO MAGAJI",
+    "district": "KOKO/BESSE",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "10.6221",
+    "lng": "4.5122",
+    "ward": "KOKOLI",
+    "district": "AGWARA",
+    "state": "NIGER"
+  },
+  {
+    "lat": "12.4693",
+    "lng": "4.1483",
+    "ward": "KOLA /TARASA",
+    "district": "BIRNIN KEBBI",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "10.2734",
+    "lng": "6.3252",
+    "ward": "KONGOMA CENTRAL",
+    "district": "RAFI",
+    "state": "NIGER"
+  },
+  {
+    "lat": "10.3166",
+    "lng": "6.3024",
+    "ward": "KONGOMA WEST",
+    "district": "RAFI",
+    "state": "NIGER"
+  },
+  {
+    "lat": "10.8859",
+    "lng": "4.1281",
+    "ward": "KONKOSO",
+    "district": "BORGU",
+    "state": "NIGER"
+  },
+  {
+    "lat": "11.0299",
+    "lng": "5.9674",
+    "ward": "KONTOKORO",
+    "district": "MARIGA",
+    "state": "NIGER"
+  },
+  {
+    "lat": "9.3283",
+    "lng": "5.2522",
+    "ward": "KPAKI/TAKUMA",
+    "district": "MOKWA",
+    "state": "NIGER"
+  },
+  {
+    "lat": "12.1199",
+    "lng": "4.2583",
+    "ward": "KUBEN RIGIDIGA",
+    "district": "MAIYAMA",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "13.0358",
+    "lng": "4.9952",
+    "ward": "KUBODU NORTH",
+    "district": "SILAME",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "13.0166",
+    "lng": "4.9434",
+    "ward": "KUBODU SOUTH",
+    "district": "SILAME",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "11.7414",
+    "lng": "4.4992",
+    "ward": "KUCHI",
+    "district": "KEBBE",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "9.9070",
+    "lng": "7.0044",
+    "ward": "KUCHI",
+    "district": "MUNYA",
+    "state": "NIGER"
+  },
+  {
+    "lat": "10.3960",
+    "lng": "5.4705",
+    "ward": "KUDU",
+    "district": "KONTAGORA",
+    "state": "NIGER"
+  },
+  {
+    "lat": "9.2951",
+    "lng": "5.3451",
+    "ward": "KUDU",
+    "district": "MOKWA",
+    "state": "NIGER"
+  },
+  {
+    "lat": "9.0436",
+    "lng": "6.5811",
+    "ward": "KUDU/GABAS",
+    "district": "LAPAI",
+    "state": "NIGER"
+  },
+  {
+    "lat": "12.4358",
+    "lng": "3.9795",
+    "ward": "KUKA",
+    "district": "KALGO",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "9.9736",
+    "lng": "4.9872",
+    "ward": "KULHO",
+    "district": "MASHEGU",
+    "state": "NIGER"
+  },
+  {
+    "lat": "10.7044",
+    "lng": "5.6158",
+    "ward": "KUMBASHI",
+    "district": "MARIGA",
+    "state": "NIGER"
+  },
+  {
+    "lat": "9.8808",
+    "lng": "6.0548",
+    "ward": "KUNDU",
+    "district": "RAFI",
+    "state": "NIGER"
+  },
+  {
+    "lat": "12.5890",
+    "lng": "6.5321",
+    "ward": "KUNGURKI",
+    "district": "KAURA NAMODA",
+    "state": "ZAMFARA"
+  },
+  {
+    "lat": "13.5163",
+    "lng": "4.3509",
+    "ward": "KURDULA",
+    "district": "GUDU",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "9.1878",
+    "lng": "7.1647",
+    "ward": "KURMIN SARKI",
+    "district": "SULEJA",
+    "state": "NIGER"
+  },
+  {
+    "lat": "13.4853",
+    "lng": "6.2617",
+    "ward": "KURUWA",
+    "district": "S/BIRNI",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "12.4518",
+    "lng": "5.6836",
+    "ward": "KURUWA",
+    "district": "TURETA",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "12.9745",
+    "lng": "6.6580",
+    "ward": "KURYA",
+    "district": "SHINKAFI",
+    "state": "ZAMFARA"
+  },
+  {
+    "lat": "13.0223",
+    "lng": "5.7222",
+    "ward": "KURYA",
+    "district": "RABAH",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "12.4842",
+    "lng": "6.5429",
+    "ward": "KURYA MADARO",
+    "district": "KAURA NAMODA",
+    "state": "ZAMFARA"
+  },
+  {
+    "lat": "10.4563",
+    "lng": "6.8729",
+    "ward": "KUSHAKA/KUREBE",
+    "district": "SHIRORO",
+    "state": "NIGER"
+  },
+  {
+    "lat": "10.2710",
+    "lng": "6.2444",
+    "ward": "KUSHERKI NORTH",
+    "district": "RAFI",
+    "state": "NIGER"
+  },
+  {
+    "lat": "10.2064",
+    "lng": "6.1401",
+    "ward": "KUSHIRKI SOUTH",
+    "district": "RAFI",
+    "state": "NIGER"
+  },
+  {
+    "lat": "9.0534",
+    "lng": "6.0650",
+    "ward": "KUSOTACHI",
+    "district": "LAVUN",
+    "state": "NIGER"
+  },
+  {
+    "lat": "9.2159",
+    "lng": "5.5813",
+    "ward": "KUTIGI",
+    "district": "LAVUN",
+    "state": "NIGER"
+  },
+  {
+    "lat": "9.1866",
+    "lng": "6.4528",
+    "ward": "KUTIRIKO",
+    "district": "AGAIE",
+    "state": "NIGER"
+  },
+  {
+    "lat": "12.9098",
+    "lng": "6.7508",
+    "ward": "KUTURU/MAYASA",
+    "district": "ZURMI",
+    "state": "ZAMFARA"
+  },
+  {
+    "lat": "11.2648",
+    "lng": "6.3491",
+    "ward": "KUYAN BANA",
+    "district": "MARU",
+    "state": "ZAMFARA"
+  },
+  {
+    "lat": "13.2359",
+    "lng": "5.0131",
+    "ward": "KWACCE-HURU",
+    "district": "TANGAZA",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "12.8671",
+    "lng": "5.2241",
+    "ward": "KWACCIYAR LALLE",
+    "district": "BODINGA",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "9.5796",
+    "lng": "7.1186",
+    "ward": "KWAGANA",
+    "district": "PAIKORO",
+    "state": "NIGER"
+  },
+  {
+    "lat": "11.7066",
+    "lng": "4.2189",
+    "ward": "KWAIFA",
+    "district": "SURU",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "9.3296",
+    "lng": "7.1275",
+    "ward": "KWAKA",
+    "district": "GURARA",
+    "state": "NIGER"
+  },
+  {
+    "lat": "10.2832",
+    "lng": "6.8867",
+    "ward": "KWAKI/CHUKWUBA",
+    "district": "SHIRORO",
+    "state": "NIGER"
+  },
+  {
+    "lat": "11.7201",
+    "lng": "3.7404",
+    "ward": "KWAKKWABA",
+    "district": "DANDI",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "9.4135",
+    "lng": "6.9177",
+    "ward": "KWAKUTI",
+    "district": "PAIKORO",
+    "state": "NIGER"
+  },
+  {
+    "lat": "10.2801",
+    "lng": "4.6575",
+    "ward": "KWAKWARAN",
+    "district": "NGASKI",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "13.5140",
+    "lng": "5.6313",
+    "ward": "KWAKWAZO",
+    "district": "GORONYO",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "12.3584",
+    "lng": "5.7362",
+    "ward": "KWARARE",
+    "district": "TURETA",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "13.2197",
+    "lng": "5.2661",
+    "ward": "KWARE",
+    "district": "KWARE",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "12.9572",
+    "lng": "6.6060",
+    "ward": "KWARE",
+    "district": "SHINKAFI",
+    "state": "ZAMFARA"
+  },
+  {
+    "lat": "11.9138",
+    "lng": "6.7765",
+    "ward": "KWAREN GANUWA",
+    "district": "TSAFE",
+    "state": "ZAMFARA"
+  },
+  {
+    "lat": "13.2880",
+    "lng": "5.5013",
+    "ward": "KWARGABA",
+    "district": "WURNO",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "13.6268",
+    "lng": "5.6611",
+    "ward": "KWARMA",
+    "district": "GADA",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "13.1803",
+    "lng": "5.3730",
+    "ward": "KWASARE/SISAWA",
+    "district": "WURNO",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "12.9516",
+    "lng": "6.9035",
+    "ward": "KWASHBAWA",
+    "district": "ZURMI",
+    "state": "ZAMFARA"
+  },
+  {
+    "lat": "9.7491",
+    "lng": "6.0945",
+    "ward": "KWATA",
+    "district": "WUSHISHI",
+    "state": "NIGER"
+  },
+  {
+    "lat": "9.7961",
+    "lng": "4.6886",
+    "ward": "KWATACHI",
+    "district": "MASHEGU",
+    "state": "NIGER"
+  },
+  {
+    "lat": "12.1553",
+    "lng": "6.8558",
+    "ward": "KWATARKWASHI",
+    "district": "BUNGUDU",
+    "state": "ZAMFARA"
+  },
+  {
+    "lat": "11.6175",
+    "lng": "5.2928",
+    "ward": "KYABU/KANDU",
+    "district": "WASAGU/DANKO",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "13.7372",
+    "lng": "5.5253",
+    "ward": "KYADAWA/HOLAI",
+    "district": "GADA",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "12.4135",
+    "lng": "6.6401",
+    "ward": "KYAM BARAWA",
+    "district": "KAURA NAMODA",
+    "state": "ZAMFARA"
+  },
+  {
+    "lat": "11.9342",
+    "lng": "3.7564",
+    "ward": "KYANGAKWAI",
+    "district": "DANDI",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "11.8513",
+    "lng": "5.4091",
+    "ward": "KYARAM",
+    "district": "BUKKUYUM",
+    "state": "ZAMFARA"
+  },
+  {
+    "lat": "9.0860",
+    "lng": "6.0196",
+    "ward": "KYARI",
+    "district": "BIDA",
+    "state": "NIGER"
+  },
+  {
+    "lat": "12.9455",
+    "lng": "4.8332",
+    "ward": "LABANI",
+    "district": "SILAME",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "9.1463",
+    "lng": "5.3895",
+    "ward": "LABOZHI",
+    "district": "MOKWA",
+    "state": "NIGER"
+  },
+  {
+    "lat": "11.1581",
+    "lng": "4.2541",
+    "ward": "LAFAGU/GANTE",
+    "district": "BAGUDO",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "12.4303",
+    "lng": "4.3829",
+    "ward": "LAGA",
+    "district": "BIRNIN KEBBI",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "9.5804",
+    "lng": "5.4537",
+    "ward": "LAGUN",
+    "district": "LAVUN",
+    "state": "NIGER"
+  },
+  {
+    "lat": "13.2227",
+    "lng": "5.3589",
+    "ward": "LAHODU/G/BANGO",
+    "district": "WURNO",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "12.8045",
+    "lng": "4.4579",
+    "ward": "LAILABA",
+    "district": "ARGUNGU",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "12.9449",
+    "lng": "4.2127",
+    "ward": "LAIMA/JANTULLU",
+    "district": "AREWA",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "13.5860",
+    "lng": "6.1451",
+    "ward": "LAJINGE",
+    "district": "S/BIRNI",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "12.6740",
+    "lng": "5.5517",
+    "ward": "LAMBAR TURETA",
+    "district": "TURETA",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "12.4780",
+    "lng": "5.1729",
+    "ward": "LAMBARA",
+    "district": "SHAGARI",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "9.2727",
+    "lng": "7.0036",
+    "ward": "LAMBATA",
+    "district": "GURARA",
+    "state": "NIGER"
+  },
+  {
+    "lat": "9.0841",
+    "lng": "6.0057",
+    "ward": "LANDZUN",
+    "district": "BIDA",
+    "state": "NIGER"
+  },
+  {
+    "lat": "11.6564",
+    "lng": "4.3627",
+    "ward": "LANI/MANYAN/TAFUKKA/SHIBA",
+    "district": "KOKO/BESSE",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "9.2760",
+    "lng": "6.7524",
+    "ward": "LEFU",
+    "district": "GURARA",
+    "state": "NIGER"
+  },
+  {
+    "lat": "9.3852",
+    "lng": "6.0314",
+    "ward": "LEMU",
+    "district": "GBAKO",
+    "state": "NIGER"
+  },
+  {
+    "lat": "11.7452",
+    "lng": "4.4099",
+    "ward": "LIBA/DANWA/KUKA KOGO",
+    "district": "MAIYAMA",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "10.1740",
+    "lng": "4.6115",
+    "ward": "LIBATA/KWANGIA",
+    "district": "NGASKI",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "9.6209",
+    "lng": "6.5410",
+    "ward": "LIMAWA \\A\\",
+    "district": "CHANCHAGA",
+    "state": "NIGER"
+  },
+  {
+    "lat": "9.6231",
+    "lng": "6.5182",
+    "ward": "LIMAWA \\B\\",
+    "district": "CHANCHAGA",
+    "state": "NIGER"
+  },
+  {
+    "lat": "12.5859",
+    "lng": "5.4452",
+    "ward": "LOFA",
+    "district": "TURETA",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "9.5790",
+    "lng": "6.0518",
+    "ward": "LOKOGOMA",
+    "district": "WUSHISHI",
+    "state": "NIGER"
+  },
+  {
+    "lat": "11.6082",
+    "lng": "3.6463",
+    "ward": "LOLO/GIRIS",
+    "district": "BAGUDO",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "10.7594",
+    "lng": "5.6259",
+    "ward": "MABURYA",
+    "district": "MARIGA",
+    "state": "NIGER"
+  },
+  {
+    "lat": "12.1219",
+    "lng": "6.9890",
+    "ward": "MADA",
+    "district": "GUSAU",
+    "state": "ZAMFARA"
+  },
+  {
+    "lat": "11.3528",
+    "lng": "4.3272",
+    "ward": "MADACCI/FIRINI",
+    "district": "KOKO/BESSE",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "10.3281",
+    "lng": "5.4611",
+    "ward": "MADARA",
+    "district": "KONTAGORA",
+    "state": "NIGER"
+  },
+  {
+    "lat": "12.1822",
+    "lng": "6.6454",
+    "ward": "MADAWAKI",
+    "district": "GUSAU",
+    "state": "ZAMFARA"
+  },
+  {
+    "lat": "12.0844",
+    "lng": "5.9441",
+    "ward": "MAGAJI",
+    "district": "ANKA",
+    "state": "ZAMFARA"
+  },
+  {
+    "lat": "8.9039",
+    "lng": "6.3709",
+    "ward": "MAGAJI",
+    "district": "AGAIE",
+    "state": "NIGER"
+  },
+  {
+    "lat": "12.0769",
+    "lng": "5.1349",
+    "ward": "MAGAJIN GARI",
+    "district": "GUMMI",
+    "state": "ZAMFARA"
+  },
+  {
+    "lat": "13.0709",
+    "lng": "5.2430",
+    "ward": "MAGAJIN GARI \\A\\",
+    "district": "SOKOTO NORTH",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "13.0693",
+    "lng": "5.2327",
+    "ward": "MAGAJIN GARI B",
+    "district": "SOKOTO NORTH",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "13.0631",
+    "lng": "5.2507",
+    "ward": "MAGAJIN RAFI \\A\\",
+    "district": "SOKOTO NORTH",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "13.0597",
+    "lng": "5.2437",
+    "ward": "MAGAJIN RAFI \\B\\",
+    "district": "SOKOTO NORTH",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "10.4077",
+    "lng": "5.4785",
+    "ward": "MAGAJIYA",
+    "district": "KONTAGORA",
+    "state": "NIGER"
+  },
+  {
+    "lat": "9.1772",
+    "lng": "7.1778",
+    "ward": "MAGAJIYA",
+    "district": "SULEJA",
+    "state": "NIGER"
+  },
+  {
+    "lat": "11.6977",
+    "lng": "6.6273",
+    "ward": "MAGAMI",
+    "district": "GUSAU",
+    "state": "ZAMFARA"
+  },
+  {
+    "lat": "13.2924",
+    "lng": "5.4210",
+    "ward": "MAGARYA",
+    "district": "WURNO",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "10.8831",
+    "lng": "4.4637",
+    "ward": "MAGO",
+    "district": "AGWARA",
+    "state": "NIGER"
+  },
+  {
+    "lat": "13.5068",
+    "lng": "4.8330",
+    "ward": "MAGONHO",
+    "district": "TANGAZA",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "11.5740",
+    "lng": "4.9516",
+    "ward": "MAHUTA",
+    "district": "FAKAI",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "12.1040",
+    "lng": "4.0479",
+    "ward": "MAIDAHINI",
+    "district": "BUNZA",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "11.7629",
+    "lng": "3.9030",
+    "ward": "MAIGWAZA",
+    "district": "DANDI",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "11.8413",
+    "lng": "3.6567",
+    "ward": "MAIHAUSAWA",
+    "district": "DANDI",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "13.1611",
+    "lng": "4.9134",
+    "ward": "MAIKULKI",
+    "district": "BINJI",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "9.6840",
+    "lng": "6.4502",
+    "ward": "MAIKUNKELE",
+    "district": "BOSSO",
+    "state": "NIGER"
+  },
+  {
+    "lat": "11.3540",
+    "lng": "4.3589",
+    "ward": "MAIKWARI/ KARAMAR/ DAMBA/ BAKOSHI",
+    "district": "KOKO/BESSE",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "9.6582",
+    "lng": "6.0372",
+    "ward": "MAITO",
+    "district": "WUSHISHI",
+    "state": "NIGER"
+  },
+  {
+    "lat": "9.6173",
+    "lng": "6.6181",
+    "ward": "MAITUMBI",
+    "district": "BOSSO",
+    "state": "NIGER"
+  },
+  {
+    "lat": "12.0829",
+    "lng": "4.3698",
+    "ward": "MAIYAMA",
+    "district": "MAIYAMA",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "9.2338",
+    "lng": "7.1789",
+    "ward": "MAJE NORTH",
+    "district": "SULEJA",
+    "state": "NIGER"
+  },
+  {
+    "lat": "10.5450",
+    "lng": "4.6519",
+    "ward": "MAKAWA ULEIRA",
+    "district": "NGASKI",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "9.6103",
+    "lng": "6.5469",
+    "ward": "MAKERA",
+    "district": "CHANCHAGA",
+    "state": "NIGER"
+  },
+  {
+    "lat": "12.5114",
+    "lng": "4.0980",
+    "ward": "MAKERA",
+    "district": "BIRNIN KEBBI",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "11.0174",
+    "lng": "5.4809",
+    "ward": "MAKUKU",
+    "district": "SAKABA",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "13.5981",
+    "lng": "6.2310",
+    "ward": "MAKUWANA",
+    "district": "S/BIRNI",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "10.1170",
+    "lng": "4.4927",
+    "ward": "MALALE",
+    "district": "BORGU",
+    "state": "NIGER"
+  },
+  {
+    "lat": "12.4103",
+    "lng": "4.7230",
+    "ward": "MALISA",
+    "district": "GWANDU",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "8.9194",
+    "lng": "5.9233",
+    "ward": "MAMBE",
+    "district": "LAVUN",
+    "state": "NIGER"
+  },
+  {
+    "lat": "13.4839",
+    "lng": "5.4915",
+    "ward": "MAMMANDE",
+    "district": "GWADABAWA",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "12.4976",
+    "lng": "4.9110",
+    "ward": "MANDERA",
+    "district": "SHAGARI",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "11.3028",
+    "lng": "5.1895",
+    "ward": "MANGA/USHE",
+    "district": "ZURU",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "9.9447",
+    "lng": "6.4501",
+    "ward": "MANTA",
+    "district": "SHIRORO",
+    "state": "NIGER"
+  },
+  {
+    "lat": "12.5833",
+    "lng": "6.2520",
+    "ward": "MARADUN NORTH",
+    "district": "MARADUN",
+    "state": "ZAMFARA"
+  },
+  {
+    "lat": "12.5581",
+    "lng": "6.2343",
+    "ward": "MARADUN SOUTH",
+    "district": "MARADUN",
+    "state": "ZAMFARA"
+  },
+  {
+    "lat": "13.2902",
+    "lng": "5.4239",
+    "ward": "MARAFA",
+    "district": "WURNO",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "11.5460",
+    "lng": "4.7791",
+    "ward": "MARAFA",
+    "district": "FAKAI",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "13.0119",
+    "lng": "4.7919",
+    "ward": "MARAFA EAST",
+    "district": "SILAME",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "13.0124",
+    "lng": "4.7275",
+    "ward": "MARAFA WEST",
+    "district": "SILAME",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "13.6985",
+    "lng": "4.6112",
+    "ward": "MARAKEN BORI",
+    "district": "GUDU",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "12.1692",
+    "lng": "4.8039",
+    "ward": "MARGAI - A",
+    "district": "KEBBE",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "12.1740",
+    "lng": "4.7363",
+    "ward": "MARGAI - B",
+    "district": "KEBBE",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "12.3162",
+    "lng": "6.3703",
+    "ward": "MARU",
+    "district": "MARU",
+    "state": "ZAMFARA"
+  },
+  {
+    "lat": "12.5079",
+    "lng": "4.7622",
+    "ward": "MARUDA",
+    "district": "GWANDU",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "9.0885",
+    "lng": "6.0092",
+    "ward": "MASABA  II",
+    "district": "BIDA",
+    "state": "NIGER"
+  },
+  {
+    "lat": "9.0891",
+    "lng": "6.0057",
+    "ward": "MASABA I",
+    "district": "BIDA",
+    "state": "NIGER"
+  },
+  {
+    "lat": "9.0922",
+    "lng": "6.0175",
+    "ward": "MASAGA  I",
+    "district": "BIDA",
+    "state": "NIGER"
+  },
+  {
+    "lat": "9.0936",
+    "lng": "6.0127",
+    "ward": "MASAGA II",
+    "district": "BIDA",
+    "state": "NIGER"
+  },
+  {
+    "lat": "12.1293",
+    "lng": "5.5424",
+    "ward": "MASAMA",
+    "district": "BUKKUYUM",
+    "state": "ZAMFARA"
+  },
+  {
+    "lat": "12.5115",
+    "lng": "4.7130",
+    "ward": "MASAMA KWASGARA",
+    "district": "GWANDU",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "9.9362",
+    "lng": "5.7206",
+    "ward": "MASHEGU",
+    "district": "MASHEGU",
+    "state": "NIGER"
+  },
+  {
+    "lat": "13.0565",
+    "lng": "6.6900",
+    "ward": "MASHEM",
+    "district": "ZURMI",
+    "state": "ZAMFARA"
+  },
+  {
+    "lat": "10.5310",
+    "lng": "5.5212",
+    "ward": "MASUGA",
+    "district": "KONTAGORA",
+    "state": "NIGER"
+  },
+  {
+    "lat": "12.0571",
+    "lng": "5.8579",
+    "ward": "MATSERI",
+    "district": "ANKA",
+    "state": "ZAMFARA"
+  },
+  {
+    "lat": "11.4463",
+    "lng": "4.2853",
+    "ward": "MATSINKA/GEZA",
+    "district": "BAGUDO",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "12.5653",
+    "lng": "4.1642",
+    "ward": "MAURIDA /KARYO/UNG. MIJIN-NANA",
+    "district": "BIRNIN KEBBI",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "9.0784",
+    "lng": "6.0049",
+    "ward": "MAYAKI NDAJIYA",
+    "district": "BIDA",
+    "state": "NIGER"
+  },
+  {
+    "lat": "12.1353",
+    "lng": "6.6361",
+    "ward": "MAYANA",
+    "district": "GUSAU",
+    "state": "ZAMFARA"
+  },
+  {
+    "lat": "12.3302",
+    "lng": "6.2617",
+    "ward": "MAYANCHI",
+    "district": "MARU",
+    "state": "ZAMFARA"
+  },
+  {
+    "lat": "11.3218",
+    "lng": "5.4356",
+    "ward": "MAZA/MAZA",
+    "district": "SAKABA",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "10.0349",
+    "lng": "5.0922",
+    "ward": "MAZAKUKA/LIKORO",
+    "district": "MASHEGU",
+    "state": "NIGER"
+  },
+  {
+    "lat": "12.8240",
+    "lng": "5.1611",
+    "ward": "MAZAN GARI/JIRGA MIYO",
+    "district": "BODINGA",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "9.6106",
+    "lng": "6.5408",
+    "ward": "MINNA CENTRAL",
+    "district": "CHANCHAGA",
+    "state": "NIGER"
+  },
+  {
+    "lat": "9.5960",
+    "lng": "6.5259",
+    "ward": "MINNA SOUTH",
+    "district": "CHANCHAGA",
+    "state": "NIGER"
+  },
+  {
+    "lat": "12.5583",
+    "lng": "6.7675",
+    "ward": "MODOMAWA EAST",
+    "district": "BIRNIN MAGAJI",
+    "state": "ZAMFARA"
+  },
+  {
+    "lat": "12.5268",
+    "lng": "6.7015",
+    "ward": "MODOMAWA WEST",
+    "district": "BIRNIN MAGAJI",
+    "state": "ZAMFARA"
+  },
+  {
+    "lat": "9.2934",
+    "lng": "5.0525",
+    "ward": "MOKWA",
+    "district": "MOKWA",
+    "state": "NIGER"
+  },
+  {
+    "lat": "12.3840",
+    "lng": "6.1997",
+    "ward": "MORAI",
+    "district": "TALATA MAFARA",
+    "state": "ZAMFARA"
+  },
+  {
+    "lat": "12.1175",
+    "lng": "4.1433",
+    "ward": "MUNGADI/BOTORO",
+    "district": "MAIYAMA",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "8.8071",
+    "lng": "5.7607",
+    "ward": "MUREGI",
+    "district": "MOKWA",
+    "state": "NIGER"
+  },
+  {
+    "lat": "12.3023",
+    "lng": "4.0089",
+    "ward": "MUTUBARI",
+    "district": "KALGO",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "8.3303",
+    "lng": "6.6171",
+    "ward": "MUYE/EGBA",
+    "district": "LAPAI",
+    "state": "NIGER"
+  },
+  {
+    "lat": "10.3530",
+    "lng": "5.5185",
+    "ward": "NAGWAMATSE",
+    "district": "KONTAGORA",
+    "state": "NIGER"
+  },
+  {
+    "lat": "12.3785",
+    "lng": "6.5423",
+    "ward": "NAHUCE",
+    "district": "BUNGUDU",
+    "state": "ZAMFARA"
+  },
+  {
+    "lat": "11.7139",
+    "lng": "4.4214",
+    "ward": "NASAGUDU",
+    "district": "KEBBE",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "12.0124",
+    "lng": "5.7258",
+    "ward": "NASARAWA",
+    "district": "BUKKUYUM",
+    "state": "ZAMFARA"
+  },
+  {
+    "lat": "12.8028",
+    "lng": "5.7404",
+    "ward": "NASARAWA",
+    "district": "BAKURA",
+    "state": "ZAMFARA"
+  },
+  {
+    "lat": "12.5003",
+    "lng": "6.9177",
+    "ward": "NASARAWA GODAL EAST",
+    "district": "BIRNIN MAGAJI",
+    "state": "ZAMFARA"
+  },
+  {
+    "lat": "12.5424",
+    "lng": "6.7867",
+    "ward": "NASARAWA GODAL WEST",
+    "district": "BIRNIN MAGAJI",
+    "state": "ZAMFARA"
+  },
+  {
+    "lat": "10.5249",
+    "lng": "4.9516",
+    "ward": "NASKO",
+    "district": "MAGAMA",
+    "state": "NIGER"
+  },
+  {
+    "lat": "9.0701",
+    "lng": "6.0175",
+    "ward": "NASSARAFU",
+    "district": "BIDA",
+    "state": "NIGER"
+  },
+  {
+    "lat": "9.9556",
+    "lng": "4.6223",
+    "ward": "NASSARAWA",
+    "district": "MAGAMA",
+    "state": "NIGER"
+  },
+  {
+    "lat": "12.4474",
+    "lng": "4.2104",
+    "ward": "NASSARAWA - I",
+    "district": "BIRNIN KEBBI",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "9.6205",
+    "lng": "6.5503",
+    "ward": "NASSARAWA \\A\\",
+    "district": "CHANCHAGA",
+    "state": "NIGER"
+  },
+  {
+    "lat": "9.6239",
+    "lng": "6.5498",
+    "ward": "NASSARAWA \\B\\",
+    "district": "CHANCHAGA",
+    "state": "NIGER"
+  },
+  {
+    "lat": "9.6367",
+    "lng": "6.5485",
+    "ward": "NASSARAWA \\C\\",
+    "district": "CHANCHAGA",
+    "state": "NIGER"
+  },
+  {
+    "lat": "12.4399",
+    "lng": "4.1861",
+    "ward": "NASSARAWA II",
+    "district": "BIRNIN KEBBI",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "12.4822",
+    "lng": "4.0494",
+    "ward": "NAYILWA",
+    "district": "KALGO",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "9.8751",
+    "lng": "4.5313",
+    "ward": "NEW BUSSA",
+    "district": "BORGU",
+    "state": "NIGER"
+  },
+  {
+    "lat": "9.2833",
+    "lng": "7.3190",
+    "ward": "NEW BWARI",
+    "district": "TAFA",
+    "state": "NIGER"
+  },
+  {
+    "lat": "10.3597",
+    "lng": "4.7989",
+    "ward": "NGASKI",
+    "district": "NGASKI",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "9.3264",
+    "lng": "6.6342",
+    "ward": "NIKUCHI T/MALLAM",
+    "district": "PAIKORO",
+    "state": "NIGER"
+  },
+  {
+    "lat": "9.4805",
+    "lng": "6.0483",
+    "ward": "NUWANKOTA",
+    "district": "GBAKO",
+    "state": "NIGER"
+  },
+  {
+    "lat": "9.4177",
+    "lng": "6.6309",
+    "ward": "PAIKO CENTRAL",
+    "district": "PAIKORO",
+    "state": "NIGER"
+  },
+  {
+    "lat": "10.6139",
+    "lng": "4.4175",
+    "ward": "PAPIRI",
+    "district": "AGWARA",
+    "state": "NIGER"
+  },
+  {
+    "lat": "11.3649",
+    "lng": "5.0538",
+    "ward": "PENIN AMANA/PENIN GABA",
+    "district": "FAKAI",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "9.7633",
+    "lng": "6.6881",
+    "ward": "PINA",
+    "district": "SHIRORO",
+    "state": "NIGER"
+  },
+  {
+    "lat": "13.7782",
+    "lng": "5.4071",
+    "ward": "R. GATI",
+    "district": "ILLELA",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "13.0535",
+    "lng": "5.2451",
+    "ward": "R/DOROWA \\A\\",
+    "district": "SOKOTO SOUTH",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "13.0397",
+    "lng": "5.2388",
+    "ward": "R/DOROWA \\B\\",
+    "district": "SOKOTO SOUTH",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "13.1389",
+    "lng": "5.4990",
+    "ward": "RABAH",
+    "district": "RABAH",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "9.2669",
+    "lng": "5.0842",
+    "ward": "RABBA/NDAYAKO",
+    "district": "MOKWA",
+    "state": "NIGER"
+  },
+  {
+    "lat": "12.2868",
+    "lng": "4.4101",
+    "ward": "RAFIN BAUNA",
+    "district": "ALIERO",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "10.2698",
+    "lng": "5.4015",
+    "ward": "RAFIN GORA",
+    "district": "KONTAGORA",
+    "state": "NIGER"
+  },
+  {
+    "lat": "11.4270",
+    "lng": "4.5693",
+    "ward": "RAFIN KIRYA/TEFKI TARA",
+    "district": "SHANGA",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "11.4305",
+    "lng": "5.2337",
+    "ward": "RAFIN ZURU",
+    "district": "ZURU",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "12.1031",
+    "lng": "4.0990",
+    "ward": "RAHA",
+    "district": "BUNZA",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "13.4354",
+    "lng": "5.1313",
+    "ward": "RAKA",
+    "district": "TANGAZA",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "12.9525",
+    "lng": "5.5975",
+    "ward": "RARA",
+    "district": "RABAH",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "12.3010",
+    "lng": "6.6781",
+    "ward": "RAWAYYA/ BELA",
+    "district": "BUNGUDU",
+    "state": "ZAMFARA"
+  },
+  {
+    "lat": "11.4264",
+    "lng": "5.4633",
+    "ward": "RIBAH/MACHIKA",
+    "district": "WASAGU/DANKO",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "11.1257",
+    "lng": "5.2531",
+    "ward": "RIJAU",
+    "district": "RIJAU",
+    "state": "NIGER"
+  },
+  {
+    "lat": "13.0853",
+    "lng": "5.5017",
+    "ward": "RIJI/MAIKUJERA",
+    "district": "RABAH",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "12.0615",
+    "lng": "6.7502",
+    "ward": "RIJIYA",
+    "district": "GUSAU",
+    "state": "ZAMFARA"
+  },
+  {
+    "lat": "12.9914",
+    "lng": "5.2940",
+    "ward": "RIKINA",
+    "district": "DANGE/SHUNI",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "11.4492",
+    "lng": "5.2549",
+    "ward": "RIKOTO",
+    "district": "ZURU",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "13.4436",
+    "lng": "5.9311",
+    "ward": "RIMAWA",
+    "district": "GORONYO",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "12.7005",
+    "lng": "6.0568",
+    "ward": "RINI",
+    "district": "BAKURA",
+    "state": "ZAMFARA"
+  },
+  {
+    "lat": "9.7696",
+    "lng": "4.5481",
+    "ward": "RIVERINE",
+    "district": "BORGU",
+    "state": "NIGER"
+  },
+  {
+    "lat": "10.7170",
+    "lng": "4.6884",
+    "ward": "ROFIA",
+    "district": "AGWARA",
+    "state": "NIGER"
+  },
+  {
+    "lat": "9.0555",
+    "lng": "5.5019",
+    "ward": "ROKOTA",
+    "district": "EDATTI",
+    "state": "NIGER"
+  },
+  {
+    "lat": "12.1967",
+    "lng": "4.6252",
+    "ward": "ROMON SARKI",
+    "district": "TAMBUWAL",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "12.9013",
+    "lng": "5.2966",
+    "ward": "RUDU/AMANAWA",
+    "district": "DANGE/SHUNI",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "12.9503",
+    "lng": "5.3474",
+    "ward": "RUGGAR GIDADO",
+    "district": "DANGE/SHUNI",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "12.7234",
+    "lng": "5.0687",
+    "ward": "RUGGAR IYA",
+    "district": "YABO",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "12.7419",
+    "lng": "6.8653",
+    "ward": "RUKUDAWA",
+    "district": "ZURMI",
+    "state": "ZAMFARA"
+  },
+  {
+    "lat": "11.4614",
+    "lng": "5.0890",
+    "ward": "RUMU/DABEN/SEME",
+    "district": "ZURU",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "13.7132",
+    "lng": "4.9569",
+    "ward": "RUWA-WURI",
+    "district": "TANGAZA",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "12.5142",
+    "lng": "6.0007",
+    "ward": "RUWAN BORE",
+    "district": "TALATA MAFARA",
+    "state": "ZAMFARA"
+  },
+  {
+    "lat": "12.1930",
+    "lng": "6.9568",
+    "ward": "RUWAN BORE",
+    "district": "GUSAU",
+    "state": "ZAMFARA"
+  },
+  {
+    "lat": "12.1858",
+    "lng": "6.3931",
+    "ward": "RUWAN DORAWA",
+    "district": "MARU",
+    "state": "ZAMFARA"
+  },
+  {
+    "lat": "12.2220",
+    "lng": "5.9810",
+    "ward": "RUWAN GIZO",
+    "district": "TALATA MAFARA",
+    "state": "ZAMFARA"
+  },
+  {
+    "lat": "12.2530",
+    "lng": "5.6592",
+    "ward": "RUWAN JEMA",
+    "district": "BUKKUYUM",
+    "state": "ZAMFARA"
+  },
+  {
+    "lat": "13.0583",
+    "lng": "5.2358",
+    "ward": "S/A/K/ATIKU",
+    "district": "SOKOTO SOUTH",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "13.0577",
+    "lng": "5.2209",
+    "ward": "S/ADAR GANDU",
+    "district": "SOKOTO NORTH",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "13.0687",
+    "lng": "5.2076",
+    "ward": "S/ADAR/G/IGWAI",
+    "district": "SOKOTO NORTH",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "12.5998",
+    "lng": "6.6111",
+    "ward": "S/BAURA/S/MAFARA",
+    "district": "KAURA NAMODA",
+    "state": "ZAMFARA"
+  },
+  {
+    "lat": "13.6009",
+    "lng": "6.3605",
+    "ward": "S/BIRNI EAST",
+    "district": "S/BIRNI",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "13.5573",
+    "lng": "6.3224",
+    "ward": "S/BIRNI WEST",
+    "district": "S/BIRNI",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "13.2832",
+    "lng": "5.2275",
+    "ward": "S/BIRNI/ G. KARMA",
+    "district": "KWARE",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "13.2582",
+    "lng": "5.7838",
+    "ward": "S/GARI DOLE/DAN/TASAKKO",
+    "district": "GORONYO",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "13.0648",
+    "lng": "5.2471",
+    "ward": "S/MUSULMI \\A\\",
+    "district": "SOKOTO NORTH",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "13.0639",
+    "lng": "5.2413",
+    "ward": "S/MUSULMI \\B\\",
+    "district": "SOKOTO NORTH",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "13.0542",
+    "lng": "5.2397",
+    "ward": "S/ZAMFARA \\A\\",
+    "district": "SOKOTO SOUTH",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "13.0479",
+    "lng": "5.2346",
+    "ward": "S/ZAMFARA \\B\\",
+    "district": "SOKOTO SOUTH",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "12.3846",
+    "lng": "4.4217",
+    "ward": "SABIYAL",
+    "district": "ALIERO",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "11.7005",
+    "lng": "6.1264",
+    "ward": "SABON BIRINI",
+    "district": "ANKA",
+    "state": "ZAMFARA"
+  },
+  {
+    "lat": "12.2113",
+    "lng": "4.1180",
+    "ward": "SABON BIRNI",
+    "district": "BUNZA",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "10.1662",
+    "lng": "6.3091",
+    "ward": "SABON GARI",
+    "district": "RAFI",
+    "state": "NIGER"
+  },
+  {
+    "lat": "12.1649",
+    "lng": "6.6667",
+    "ward": "SABON GARI",
+    "district": "GUSAU",
+    "state": "ZAMFARA"
+  },
+  {
+    "lat": "9.6201",
+    "lng": "6.5588",
+    "ward": "SABON GARI",
+    "district": "CHANCHAGA",
+    "state": "NIGER"
+  },
+  {
+    "lat": "9.6883",
+    "lng": "6.1008",
+    "ward": "SABON GARI",
+    "district": "WUSHISHI",
+    "state": "NIGER"
+  },
+  {
+    "lat": "9.8603",
+    "lng": "5.4073",
+    "ward": "SAHO-RAMI",
+    "district": "MASHEGU",
+    "state": "NIGER"
+  },
+  {
+    "lat": "12.6960",
+    "lng": "4.8165",
+    "ward": "SAIDA/GOSHE",
+    "district": "TAMBUWAL",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "11.1319",
+    "lng": "5.5505",
+    "ward": "SAKABA",
+    "district": "SAKABA",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "12.5259",
+    "lng": "6.5140",
+    "ward": "SAKAJIKI",
+    "district": "KAURA NAMODA",
+    "state": "ZAMFARA"
+  },
+  {
+    "lat": "13.5891",
+    "lng": "4.9154",
+    "ward": "SAKKWAI",
+    "district": "TANGAZA",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "9.0828",
+    "lng": "5.6289",
+    "ward": "SAKPE",
+    "district": "EDATTI",
+    "state": "NIGER"
+  },
+  {
+    "lat": "13.4303",
+    "lng": "5.3882",
+    "ward": "SALAME",
+    "district": "GWADABAWA",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "13.5568",
+    "lng": "5.1036",
+    "ward": "SALEWA",
+    "district": "TANGAZA",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "12.1805",
+    "lng": "3.9770",
+    "ward": "SALWAI",
+    "district": "BUNZA",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "13.1596",
+    "lng": "5.0256",
+    "ward": "SAMAMA",
+    "district": "BINJI",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "12.2453",
+    "lng": "6.7592",
+    "ward": "SAMAWA",
+    "district": "BUNGUDU",
+    "state": "ZAMFARA"
+  },
+  {
+    "lat": "12.2554",
+    "lng": "4.2583",
+    "ward": "SAMBAWA/MAYALO",
+    "district": "MAIYAMA",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "9.4249",
+    "lng": "6.1062",
+    "ward": "SAMMAJIKO",
+    "district": "GBAKO",
+    "state": "NIGER"
+  },
+  {
+    "lat": "11.7506",
+    "lng": "4.7443",
+    "ward": "SANGI",
+    "district": "KEBBE",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "12.1595",
+    "lng": "6.7900",
+    "ward": "SANKALAWA",
+    "district": "BUNGUDU",
+    "state": "ZAMFARA"
+  },
+  {
+    "lat": "12.6999",
+    "lng": "4.8600",
+    "ward": "SANYINNA",
+    "district": "TAMBUWAL",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "12.6028",
+    "lng": "4.9131",
+    "ward": "SANYINNAWAL",
+    "district": "SHAGARI",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "11.9958",
+    "lng": "4.3662",
+    "ward": "SARANDOSA/GUBBA",
+    "district": "MAIYAMA",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "12.9372",
+    "lng": "4.3645",
+    "ward": "SARKA/DANTSOHO",
+    "district": "AREWA",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "13.0582",
+    "lng": "5.2315",
+    "ward": "SARKIN ADAR KWANNI",
+    "district": "SOKOTO SOUTH",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "9.9930",
+    "lng": "7.1501",
+    "ward": "SARKIN PAWA",
+    "district": "MUNYA",
+    "state": "NIGER"
+  },
+  {
+    "lat": "12.3669",
+    "lng": "5.9847",
+    "ward": "SAUNA R/ GORA",
+    "district": "TALATA MAFARA",
+    "state": "ZAMFARA"
+  },
+  {
+    "lat": "12.5997",
+    "lng": "4.2795",
+    "ward": "SAUWA/KAURAR SANI",
+    "district": "ARGUNGU",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "11.1061",
+    "lng": "4.6661",
+    "ward": "SAWASHI",
+    "district": "SHANGA",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "11.3003",
+    "lng": "5.2279",
+    "ward": "SENCHI",
+    "district": "ZURU",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "12.6114",
+    "lng": "4.9896",
+    "ward": "SHAGARI",
+    "district": "SHAGARI",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "10.3481",
+    "lng": "4.3561",
+    "ward": "SHAGUNU",
+    "district": "BORGU",
+    "state": "NIGER"
+  },
+  {
+    "lat": "9.4361",
+    "lng": "7.1215",
+    "ward": "SHAKO",
+    "district": "GURARA",
+    "state": "NIGER"
+  },
+  {
+    "lat": "10.9878",
+    "lng": "5.2988",
+    "ward": "SHAMBO",
+    "district": "RIJAU",
+    "state": "NIGER"
+  },
+  {
+    "lat": "13.0960",
+    "lng": "6.4876",
+    "ward": "SHANAWA",
+    "district": "SHINKAFI",
+    "state": "ZAMFARA"
+  },
+  {
+    "lat": "11.2111",
+    "lng": "4.6428",
+    "ward": "SHANGA",
+    "district": "SHANGA",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "11.6035",
+    "lng": "4.2303",
+    "ward": "SHARABI/KWANGUWAI",
+    "district": "BAGUDO",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "9.7344",
+    "lng": "6.5362",
+    "ward": "SHATA",
+    "district": "BOSSO",
+    "state": "NIGER"
+  },
+  {
+    "lat": "9.6259",
+    "lng": "6.7698",
+    "ward": "SHE",
+    "district": "SHIRORO",
+    "state": "NIGER"
+  },
+  {
+    "lat": "11.8188",
+    "lng": "3.8540",
+    "ward": "SHIKO",
+    "district": "DANDI",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "13.5388",
+    "lng": "5.6785",
+    "ward": "SHINAKA",
+    "district": "GORONYO",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "13.0750",
+    "lng": "6.5058",
+    "ward": "SHINKAFI NORTH",
+    "district": "SHINKAFI",
+    "state": "ZAMFARA"
+  },
+  {
+    "lat": "13.0632",
+    "lng": "6.5134",
+    "ward": "SHINKAFI SOUTH",
+    "district": "SHINKAFI",
+    "state": "ZAMFARA"
+  },
+  {
+    "lat": "12.5324",
+    "lng": "6.0522",
+    "ward": "SHIYAR GALADIMA",
+    "district": "TALATA MAFARA",
+    "state": "ZAMFARA"
+  },
+  {
+    "lat": "12.5880",
+    "lng": "6.0958",
+    "ward": "SHIYAR KAYAYE/MATUSGI",
+    "district": "TALATA MAFARA",
+    "state": "ZAMFARA"
+  },
+  {
+    "lat": "12.1313",
+    "lng": "5.0738",
+    "ward": "SHIYAR RAFI",
+    "district": "GUMMI",
+    "state": "ZAMFARA"
+  },
+  {
+    "lat": "12.9285",
+    "lng": "5.2746",
+    "ward": "SHUNI",
+    "district": "DANGE/SHUNI",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "8.9952",
+    "lng": "6.1369",
+    "ward": "SIDI SABA",
+    "district": "KATCHA",
+    "state": "NIGER"
+  },
+  {
+    "lat": "12.8470",
+    "lng": "5.1209",
+    "ward": "SIFAWA/LUKUYAWA",
+    "district": "BODINGA",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "13.0461",
+    "lng": "4.8827",
+    "ward": "SILAME",
+    "district": "SILAME",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "10.9706",
+    "lng": "4.7725",
+    "ward": "SOKAGE/GOLONGO/HUNDEJI",
+    "district": "SHANGA",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "13.1394",
+    "lng": "4.8451",
+    "ward": "SORO GABAS",
+    "district": "BINJI",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "13.1178",
+    "lng": "4.6696",
+    "ward": "SORO YAMMA",
+    "district": "BINJI",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "11.8809",
+    "lng": "4.1929",
+    "ward": "SURU",
+    "district": "SURU",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "10.6358",
+    "lng": "4.6464",
+    "ward": "SUTEKU",
+    "district": "AGWARA",
+    "state": "NIGER"
+  },
+  {
+    "lat": "13.3286",
+    "lng": "4.9930",
+    "ward": "SUTTI",
+    "district": "TANGAZA",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "11.0181",
+    "lng": "5.1840",
+    "ward": "T/BUNU",
+    "district": "RIJAU",
+    "state": "NIGER"
+  },
+  {
+    "lat": "13.2769",
+    "lng": "4.9313",
+    "ward": "T/KOSE",
+    "district": "BINJI",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "11.1692",
+    "lng": "5.3096",
+    "ward": "T/MAGAJIYA",
+    "district": "RIJAU",
+    "state": "NIGER"
+  },
+  {
+    "lat": "13.0583",
+    "lng": "5.2547",
+    "ward": "T/WADA \\A\\",
+    "district": "SOKOTO SOUTH",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "13.0461",
+    "lng": "5.2513",
+    "ward": "T/WADA \\B\\",
+    "district": "SOKOTO SOUTH",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "11.5356",
+    "lng": "5.3670",
+    "ward": "TADURGA",
+    "district": "ZURU",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "8.8520",
+    "lng": "6.4965",
+    "ward": "TAGAGI",
+    "district": "AGAIE",
+    "state": "NIGER"
+  },
+  {
+    "lat": "13.5263",
+    "lng": "5.8150",
+    "ward": "TAKAKUME",
+    "district": "GORONYO",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "12.9105",
+    "lng": "5.1939",
+    "ward": "TAKATUKU/MADORAWA",
+    "district": "BODINGA",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "12.5252",
+    "lng": "6.1244",
+    "ward": "TAKE TSABA/MAKERA",
+    "district": "TALATA MAFARA",
+    "state": "ZAMFARA"
+  },
+  {
+    "lat": "9.2065",
+    "lng": "6.6672",
+    "ward": "TAKUTI/SHAKU",
+    "district": "LAPAI",
+    "state": "NIGER"
+  },
+  {
+    "lat": "11.3233",
+    "lng": "4.5007",
+    "ward": "TAKWARE",
+    "district": "KOKO/BESSE",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "11.3125",
+    "lng": "4.5815",
+    "ward": "TAKWARE",
+    "district": "SHANGA",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "12.3731",
+    "lng": "4.6696",
+    "ward": "TAMBUWAL/SHINFIRI",
+    "district": "TAMBUWAL",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "13.4169",
+    "lng": "4.8850",
+    "ward": "TANGAZA",
+    "district": "TANGAZA",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "13.4761",
+    "lng": "6.3863",
+    "ward": "TARA",
+    "district": "S/BIRNI",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "10.0580",
+    "lng": "6.1277",
+    "ward": "TEGINA GARI",
+    "district": "RAFI",
+    "state": "NIGER"
+  },
+  {
+    "lat": "10.1532",
+    "lng": "6.0754",
+    "ward": "TEGINA WEST",
+    "district": "RAFI",
+    "state": "NIGER"
+  },
+  {
+    "lat": "13.2659",
+    "lng": "6.1009",
+    "ward": "TIDIBALE",
+    "district": "ISA",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "12.7748",
+    "lng": "4.6172",
+    "ward": "TIGGI/AWADE",
+    "district": "AUGIE",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "12.3757",
+    "lng": "3.9299",
+    "ward": "TILLI/HILEMA",
+    "district": "BUNZA",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "12.2425",
+    "lng": "6.8221",
+    "ward": "TOFA",
+    "district": "BUNGUDU",
+    "state": "ZAMFARA"
+  },
+  {
+    "lat": "10.8899",
+    "lng": "4.7490",
+    "ward": "TONDI",
+    "district": "YAURI",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "12.7171",
+    "lng": "4.9250",
+    "ward": "TORANKAWA",
+    "district": "YABO",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "13.2689",
+    "lng": "6.4403",
+    "ward": "TOZAI",
+    "district": "ISA",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "13.6912",
+    "lng": "5.4167",
+    "ward": "TOZAI",
+    "district": "ILLELA",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "13.2464",
+    "lng": "6.2622",
+    "ward": "TSABREN SARKIN DARAI",
+    "district": "ISA",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "12.8853",
+    "lng": "5.3402",
+    "ward": "TSAFANADE",
+    "district": "DANGE/SHUNI",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "11.9435",
+    "lng": "6.8753",
+    "ward": "TSAFE",
+    "district": "TSAFE",
+    "state": "ZAMFARA"
+  },
+  {
+    "lat": "13.0186",
+    "lng": "5.3341",
+    "ward": "TSAKI/ WALAKE\\E",
+    "district": "KWARE",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "13.5516",
+    "lng": "6.1227",
+    "ward": "TSAMAYE",
+    "district": "S/BIRNI",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "12.5711",
+    "lng": "5.4389",
+    "ward": "TSAMIYA",
+    "district": "TURETA",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "12.9283",
+    "lng": "5.7115",
+    "ward": "TSAMIYA",
+    "district": "RABAH",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "12.6045",
+    "lng": "6.2335",
+    "ward": "TSIBIRI",
+    "district": "MARADUN",
+    "state": "ZAMFARA"
+  },
+  {
+    "lat": "13.5519",
+    "lng": "5.7589",
+    "ward": "TSITSE",
+    "district": "GADA",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "11.2575",
+    "lng": "5.4561",
+    "ward": "TUDUN KUKA",
+    "district": "SAKABA",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "12.1484",
+    "lng": "6.7261",
+    "ward": "TUDUN WADA",
+    "district": "GUSAU",
+    "state": "ZAMFARA"
+  },
+  {
+    "lat": "9.5949",
+    "lng": "6.5662",
+    "ward": "TUDUN WADA NORTH",
+    "district": "CHANCHAGA",
+    "state": "NIGER"
+  },
+  {
+    "lat": "9.5920",
+    "lng": "6.5540",
+    "ward": "TUDUN WADA SOUTH",
+    "district": "CHANCHAGA",
+    "state": "NIGER"
+  },
+  {
+    "lat": "9.2214",
+    "lng": "6.8452",
+    "ward": "TUFA",
+    "district": "GURARA",
+    "state": "NIGER"
+  },
+  {
+    "lat": "9.6080",
+    "lng": "5.7935",
+    "ward": "TUKUNJI/YAMIGI",
+    "district": "WUSHISHI",
+    "state": "NIGER"
+  },
+  {
+    "lat": "12.9471",
+    "lng": "5.1450",
+    "ward": "TULLUWA/KULAFASA",
+    "district": "BODINGA",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "13.4623",
+    "lng": "4.3192",
+    "ward": "TULUN DOYA",
+    "district": "GUDU",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "12.2095",
+    "lng": "4.0422",
+    "ward": "TUNGA",
+    "district": "BUNZA",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "13.0705",
+    "lng": "5.4241",
+    "ward": "TUNGA/ MALLAMAWA",
+    "district": "KWARE",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "10.3882",
+    "lng": "5.3740",
+    "ward": "TUNGAN KAWO",
+    "district": "KONTAGORA",
+    "state": "NIGER"
+  },
+  {
+    "lat": "10.3190",
+    "lng": "5.3631",
+    "ward": "TUNGANWAWA",
+    "district": "KONTAGORA",
+    "state": "NIGER"
+  },
+  {
+    "lat": "12.7243",
+    "lng": "4.4133",
+    "ward": "TUNGAR ZAZZAGAWA/RUMBUKI/SARKAWA",
+    "district": "ARGUNGU",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "12.9710",
+    "lng": "5.2506",
+    "ward": "TUNTUBE/TSEHE",
+    "district": "DANGE/SHUNI",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "13.2614",
+    "lng": "6.3450",
+    "ward": "TURBA",
+    "district": "ISA",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "12.6011",
+    "lng": "5.5250",
+    "ward": "TURETA GARI",
+    "district": "TURETA",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "13.1984",
+    "lng": "5.6646",
+    "ward": "TURSA",
+    "district": "RABAH",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "9.4198",
+    "lng": "6.5640",
+    "ward": "TUTUNGO JEDNA",
+    "district": "PAIKORO",
+    "state": "NIGER"
+  },
+  {
+    "lat": "12.1692",
+    "lng": "5.0776",
+    "ward": "UBANDAWAKI",
+    "district": "GUMMI",
+    "state": "ZAMFARA"
+  },
+  {
+    "lat": "9.8481",
+    "lng": "6.6347",
+    "ward": "UBANDOMA",
+    "district": "SHIRORO",
+    "state": "NIGER"
+  },
+  {
+    "lat": "12.5335",
+    "lng": "4.4109",
+    "ward": "UJARIYO",
+    "district": "BIRNIN KEBBI",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "9.0713",
+    "lng": "6.0084",
+    "ward": "UMARU MAJIGI  II",
+    "district": "BIDA",
+    "state": "NIGER"
+  },
+  {
+    "lat": "9.0770",
+    "lng": "6.0099",
+    "ward": "UMARU/MAJIGI  I",
+    "district": "BIDA",
+    "state": "NIGER"
+  },
+  {
+    "lat": "12.0234",
+    "lng": "4.6753",
+    "ward": "UNGUSHI",
+    "district": "KEBBE",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "13.4972",
+    "lng": "6.0779",
+    "ward": "UNGUWAR LALLE",
+    "district": "S/BIRNI",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "10.3161",
+    "lng": "5.6320",
+    "ward": "USALLE",
+    "district": "KONTAGORA",
+    "state": "NIGER"
+  },
+  {
+    "lat": "11.1865",
+    "lng": "5.0950",
+    "ward": "USHE",
+    "district": "RIJAU",
+    "state": "NIGER"
+  },
+  {
+    "lat": "10.5861",
+    "lng": "4.6524",
+    "ward": "UTONO/HOGE",
+    "district": "NGASKI",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "12.8083",
+    "lng": "5.4928",
+    "ward": "WABABE/SALAU",
+    "district": "DANGE/SHUNI",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "9.0901",
+    "lng": "5.9946",
+    "ward": "WADATA",
+    "district": "BIDA",
+    "state": "NIGER"
+  },
+  {
+    "lat": "11.5772",
+    "lng": "5.5030",
+    "ward": "WAJE",
+    "district": "WASAGU/DANKO",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "13.0309",
+    "lng": "5.0989",
+    "ward": "WAMAKKO",
+    "district": "WAMAKKO",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "9.1737",
+    "lng": "7.1779",
+    "ward": "WAMBAI",
+    "district": "SULEJA",
+    "state": "NIGER"
+  },
+  {
+    "lat": "12.0168",
+    "lng": "6.6550",
+    "ward": "WANKE",
+    "district": "GUSAU",
+    "state": "ZAMFARA"
+  },
+  {
+    "lat": "10.2208",
+    "lng": "4.6183",
+    "ward": "WARA",
+    "district": "NGASKI",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "12.1760",
+    "lng": "5.8300",
+    "ward": "WARAMU",
+    "district": "ANKA",
+    "state": "ZAMFARA"
+  },
+  {
+    "lat": "10.9018",
+    "lng": "5.3468",
+    "ward": "WARARI",
+    "district": "RIJAU",
+    "state": "NIGER"
+  },
+  {
+    "lat": "11.4356",
+    "lng": "5.8101",
+    "ward": "WASAGU",
+    "district": "WASAGU/DANKO",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "9.8839",
+    "lng": "4.3952",
+    "ward": "WAWA",
+    "district": "BORGU",
+    "state": "NIGER"
+  },
+  {
+    "lat": "13.0754",
+    "lng": "5.2505",
+    "ward": "WAZIRI \\A\\",
+    "district": "SOKOTO NORTH",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "13.0690",
+    "lng": "5.2523",
+    "ward": "WAZIRI \\B\\",
+    "district": "SOKOTO NORTH",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "13.0704",
+    "lng": "5.2581",
+    "ward": "WAZIRI \\C\\",
+    "district": "SOKOTO NORTH",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "12.2429",
+    "lng": "6.9714",
+    "ward": "WONAKA",
+    "district": "GUSAU",
+    "state": "ZAMFARA"
+  },
+  {
+    "lat": "12.3330",
+    "lng": "4.0245",
+    "ward": "WUROGAURI",
+    "district": "KALGO",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "9.3097",
+    "lng": "7.2411",
+    "ward": "WUSE  EAST",
+    "district": "TAFA",
+    "state": "NIGER"
+  },
+  {
+    "lat": "9.3016",
+    "lng": "7.2408",
+    "ward": "WUSE WEST",
+    "district": "TAFA",
+    "state": "NIGER"
+  },
+  {
+    "lat": "12.0272",
+    "lng": "6.0842",
+    "ward": "WUYA",
+    "district": "ANKA",
+    "state": "ZAMFARA"
+  },
+  {
+    "lat": "12.7002",
+    "lng": "5.0204",
+    "ward": "YABO \\A\\",
+    "district": "YABO",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "12.7121",
+    "lng": "5.0015",
+    "ward": "YABO \\B\\",
+    "district": "YABO",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "9.9226",
+    "lng": "6.1036",
+    "ward": "YAKILA",
+    "district": "RAFI",
+    "state": "NIGER"
+  },
+  {
+    "lat": "11.6144",
+    "lng": "5.2577",
+    "ward": "YALMO/SHINDI",
+    "district": "WASAGU/DANKO",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "10.4045",
+    "lng": "5.4615",
+    "ward": "YAMMA",
+    "district": "KONTAGORA",
+    "state": "NIGER"
+  },
+  {
+    "lat": "12.8336",
+    "lng": "6.6411",
+    "ward": "YAN BUKI/ DUTSI",
+    "district": "ZURMI",
+    "state": "ZAMFARA"
+  },
+  {
+    "lat": "12.0032",
+    "lng": "7.1172",
+    "ward": "YAN KUZO \\\"B\\\"",
+    "district": "TSAFE",
+    "state": "ZAMFARA"
+  },
+  {
+    "lat": "12.0066",
+    "lng": "7.0413",
+    "ward": "YAN WAREN DAJI",
+    "district": "TSAFE",
+    "state": "ZAMFARA"
+  },
+  {
+    "lat": "12.0302",
+    "lng": "6.8622",
+    "ward": "YANDOTON DAJI",
+    "district": "TSAFE",
+    "state": "ZAMFARA"
+  },
+  {
+    "lat": "13.3028",
+    "lng": "6.6400",
+    "ward": "YANFAKO",
+    "district": "ISA",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "12.6517",
+    "lng": "6.5803",
+    "ward": "YANKABA",
+    "district": "KAURA NAMODA",
+    "state": "ZAMFARA"
+  },
+  {
+    "lat": "11.9042",
+    "lng": "7.1009",
+    "ward": "YANKUZO \\\"A\\\"",
+    "district": "TSAFE",
+    "state": "ZAMFARA"
+  },
+  {
+    "lat": "12.6005",
+    "lng": "5.9785",
+    "ward": "YAR GEDA",
+    "district": "BAKURA",
+    "state": "ZAMFARA"
+  },
+  {
+    "lat": "12.6597",
+    "lng": "5.9416",
+    "ward": "YAR KUFOJI",
+    "district": "BAKURA",
+    "state": "ZAMFARA"
+  },
+  {
+    "lat": "12.8587",
+    "lng": "5.7809",
+    "ward": "YAR TSAKUWA",
+    "district": "RABAH",
+    "state": "SOKOTO"
+  },
+  {
+    "lat": "12.1140",
+    "lng": "6.0571",
+    "ward": "YAR\\SABAYA",
+    "district": "ANKA",
+    "state": "ZAMFARA"
+  },
+  {
+    "lat": "11.2432",
+    "lng": "4.5539",
+    "ward": "YARBESSE",
+    "district": "SHANGA",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "12.1709",
+    "lng": "5.6347",
+    "ward": "YASHI",
+    "district": "BUKKUYUM",
+    "state": "ZAMFARA"
+  },
+  {
+    "lat": "12.8076",
+    "lng": "4.2188",
+    "ward": "YELDU",
+    "district": "AREWA",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "10.8370",
+    "lng": "4.7406",
+    "ward": "YELWA CENTRAL",
+    "district": "YAURI",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "10.8283",
+    "lng": "4.7433",
+    "ward": "YELWA EAST",
+    "district": "YAURI",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "10.8477",
+    "lng": "4.7577",
+    "ward": "YELWA NORTH",
+    "district": "YAURI",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "10.8324",
+    "lng": "4.7404",
+    "ward": "YELWA SOUTH",
+    "district": "YAURI",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "10.8267",
+    "lng": "4.7395",
+    "ward": "YELWA WEST",
+    "district": "YAURI",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "12.8596",
+    "lng": "4.5215",
+    "ward": "YOLA",
+    "district": "AUGIE",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "11.5432",
+    "lng": "4.1128",
+    "ward": "ZAGGA/KWASARA",
+    "district": "BAGUDO",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "10.7407",
+    "lng": "4.7192",
+    "ward": "ZAMARE",
+    "district": "YAURI",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "11.3030",
+    "lng": "4.2744",
+    "ward": "ZARIYA KALAKALA/AMIRU",
+    "district": "KOKO/BESSE",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "12.0552",
+    "lng": "5.5320",
+    "ward": "ZARUMMAI",
+    "district": "BUKKUYUM",
+    "state": "ZAMFARA"
+  },
+  {
+    "lat": "12.2165",
+    "lng": "5.3821",
+    "ward": "ZAUMA",
+    "district": "BUKKUYUM",
+    "state": "ZAMFARA"
+  },
+  {
+    "lat": "12.4908",
+    "lng": "4.2955",
+    "ward": "ZAURO",
+    "district": "BIRNIN KEBBI",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "11.4938",
+    "lng": "5.4323",
+    "ward": "ZODI",
+    "district": "ZURU",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "12.2647",
+    "lng": "3.9223",
+    "ward": "ZOGRIMA",
+    "district": "BUNZA",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "12.4040",
+    "lng": "4.0640",
+    "ward": "ZUGURU",
+    "district": "KALGO",
+    "state": "KEBBI"
+  },
+  {
+    "lat": "9.1892",
+    "lng": "7.2217",
+    "ward": "ZUMA EAST",
+    "district": "TAFA",
+    "state": "NIGER"
+  },
+  {
+    "lat": "9.1492",
+    "lng": "7.2277",
+    "ward": "ZUMA WEST",
+    "district": "TAFA",
+    "state": "NIGER"
+  },
+  {
+    "lat": "9.7561",
+    "lng": "6.1840",
+    "ward": "ZUNGERU",
+    "district": "WUSHISHI",
+    "state": "NIGER"
+  },
+  {
+    "lat": "12.7937",
+    "lng": "6.7371",
+    "ward": "ZURMI",
+    "district": "ZURMI",
+    "state": "ZAMFARA"
+  }
+]
