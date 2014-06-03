@@ -54,7 +54,8 @@
 
         <table class="questionsTable">
             <tr>
-                <th>Questions</th>
+                <th>Question Text</th>
+                <th>Summary Text</th>
                 <th>Response Type</th>
                 <th></th>
             </tr>
@@ -62,6 +63,9 @@
                 <tr>
                     <td>
                         <input data-bind="value: text"/>
+                    </td>
+                    <td style="width:150px">
+                        <input data-bind="value: summaryText"/>
                     </td>
                     <td style="width:120px">
                         <select data-bind="value: responseType">

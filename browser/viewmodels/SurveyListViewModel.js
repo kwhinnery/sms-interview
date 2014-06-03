@@ -99,6 +99,7 @@ function SurveyListViewModel() {
     self.addQuestion = function(data, target) {
         self.questions.push({
             text: '',
+            summaryText: '',
             responseType: 'text'
         });
     };

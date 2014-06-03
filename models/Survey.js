@@ -5,6 +5,10 @@ var QuestionSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    summaryText: { // Displayed when summarizing report over SMS and in reports
+        type: String,
+        required: true
+    },
     responseType: { // The type of data expected (text/number/boolean)
         type: String,
         required: true
