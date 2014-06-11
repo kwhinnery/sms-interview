@@ -3,17 +3,37 @@ var Survey = require('../models/Survey'),
 
 // Respond with the appropriate content, depending on the messaging provider
 // Right now, it's either Twilio or Telerivet
-function respond(message, request, response) {
-    // Render appropriate response 
-    response.type('text/xml');
-    response.send('<Response><Message>'+message+'</Message></Response>');
+function respond(message, gateway, request, response) {
+    if (gateway === 'telerivet') {
+        // Telerivet requires JSON response
+        var res = {
+            messages: [ { content: message } ]
+        };
+        response.send(res);
+    } else {
+        // Render Twilio-style response 
+        response.type('text/xml');
+        response.send('<Response><Message>'+message+'</Message></Response>');
+    }
 }
 
 // A webhook to be used by Twilio or Telerivet to build a survey response
 exports.webhook = function(request, response) {
-    var phoneNumber = request.param('From'),
-        messageBody = request.param('Body');
+    var gateway = 'twilio', phoneNumber, messageBody;
 
+    // determine which messaging provider we are dealing with
+    if (request.param('from_number')) {
+        // this is a Telerviet webhook
+        gateway = 'telerivet';
+        phoneNumber = request.param('from_number'),
+        messageBody = request.param('content');
+    } else {
+        // Default is Twilio
+        phoneNumber = request.param('From'),
+        messageBody = request.param('Body');
+    }
+
+    // Find the webhook associated with this phone
     Survey.findById(request.param('id'), function(err, survey) {
         var msg = 'No survey found for this phone number.';
 
@@ -31,7 +51,7 @@ exports.webhook = function(request, response) {
                     if (err) {
                         message = 'There was an error processing your response, please try again.';
                     }
-                    respond(message, request, response);
+                    respond(message, gateway, request, response);
                 }
 
                 // Process from an existing response or create new
