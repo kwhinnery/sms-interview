@@ -27,7 +27,6 @@
     "mongoose": "^3.8.9",
     "angular": "^1.2.16",
     "bcrypt": "^0.7.8",
-    "basic-auth": "0.0.1",
     "request": "^2.36.0",
     "fast-csv": "^0.3.1",
     "levenshtein": "^1.0.4",

@@ -1,5 +1,6 @@
 var util = require('util'),
     mongoose = require('mongoose'),
+    request = require('request'),
     Levenshtein = require('levenshtein'),
     Survey = require('./Survey'),
     Reporter = require('./Reporter'),
@@ -15,6 +16,7 @@ var MESSAGES = {
     chooseLocationError: 'I\'m sorry, I did not understand. Please text a single number for one of the following: %s',
     confirmLocation: 'It looks like you are located in %s. Is that correct? (text "yes" or "no")',
     confirmSurvey: 'Are these answers correct (text "yes" or "no")?\n',
+    comment: 'Is there any other information you would like to share?',
     done: 'Thank you for this information.'
 };
 
@@ -25,7 +27,8 @@ var STATES = {
     confirmLocation:3, // Confirm the user's location, allow them to change
     fillOutSurvey:4, // While in this state, collect answers for all survey questions
     confirmSurvey:5, // Present survey confirmation
-    done:6
+    done:6, // finished state
+    comment:7 // prompting for comment
 };
 
 var QuestionResponseSchema = new mongoose.Schema({
@@ -63,12 +66,69 @@ var SurveyResponseSchema = new mongoose.Schema({
         type: Boolean,
         default: false
     },
-    completedOn: {
-        type: Date
-    },
+    completedOn: Date,
+    commentText: String, // Each survey ends with a comment
     responses: [QuestionResponseSchema]
-
 });
+
+// Save a survey to crisis maps via API
+function pushToCrisisMaps(survey, response, reporter) {
+    // data needed to submit a reply to the Crisis Maps API
+    var sourceUrl = 'http://example.org/';
+    var formData = {
+        source: sourceUrl,
+        author: 'tel:'+response.phoneNumber,
+        id: sourceUrl+'responses/'+response._id,
+        map_id: survey.cmId,
+        topic_ids: [ survey.cmId+'.'+survey.cmTopicId ],
+        published: response.completedOn.getTime()/1000,
+        effective: new Date().getTime()/1000, // TODO: EPI week
+        location: [reporter.locationLat, reporter.locationLng],
+        answers: {}
+    };
+
+    // Format answers
+    for (var i = 0, l = response.responses.length; i<l; i++) {
+        var resp = response.responses[i],
+            cmAnswer = {};
+
+        // Create specially formatted answer key
+        var cmAnswerKey = [
+            survey.cmId, 
+            survey.cmTopicId, 
+            survey.questions[i].cmId
+        ].join('.');
+
+        // Use casted value if present
+        var actualAnswer = resp.textResponse;
+        if (typeof resp.booleanResponse !== 'undefined') {
+            actualAnswer = resp.booleanResponse;
+        } else if (typeof resp.numberResponse !== 'undefined') {
+            actualAnswer = resp.numberResponse;
+        }
+
+        formData.answers[cmAnswerKey] = actualAnswer;
+    }
+
+    // Submit new crisis maps API response
+    console.log(formData);
+    request({
+        method: 'POST',
+        url: 'https://msfcrisismap.appspot.com/.api/reports',
+        qs: {
+            key: survey.cmApiKey
+        },
+        json: [formData]
+    }, function(err, message, apiResponse) {
+        console.log(apiResponse);
+        // For now this is out of band, just log any error or success
+        if (err) { 
+            console.error(err); 
+        } else {
+            console.log('Sent response to Crisis Map, ID was: '+response._id);
+        }
+    });
+}
 
 // Get the closest match to a given input, given a range of possible values
 function getClosest(input, possibleValues) {
@@ -305,14 +365,12 @@ SurveyResponseSchema.methods.processMessage = function(survey, message, number, 
 
         } else if (self.state === STATES.confirmSurvey) {
             
-            // Save and finalize report
+            // Confirm question answers before comment
             if (message.toLowerCase() === MESSAGES.yes) {
 
-                self.state = STATES.done;
-                self.complete = true;
-                self.completedOn = new Date();
+                self.state = STATES.comment;
                 self.save(function(err) {
-                    callback(err, MESSAGES.done);
+                    callback(err, MESSAGES.comment);
                 });
 
             } else {
@@ -324,6 +382,21 @@ SurveyResponseSchema.methods.processMessage = function(survey, message, number, 
                     callback(err, msg);
                 });
             }
+
+        } else if (self.state === STATES.comment) {
+            
+            // Save and finalize report
+            self.commentText = message;
+            self.state = STATES.done;
+            self.complete = true;
+            self.completedOn = new Date();
+            self.save(function(err) {
+                callback(err, MESSAGES.done);
+                // Out of band, save to crisis maps if needed
+                if (survey.cmId) {
+                    pushToCrisisMaps(survey, self, reporter);
+                }
+            });
 
         } else {
             // The absolute default case is to print out the current status

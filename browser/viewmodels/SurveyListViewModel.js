@@ -7,6 +7,27 @@ function SurveyListViewModel() {
     self.selectedSurvey = ko.observable(false);
     self.questions = ko.observableArray();
 
+    // Create a new survey based on data from a Crisis Maps definition
+    self.importFromCrisisMaps = function() {
+        var mapId = prompt('Please enter the Crisis Map ID:');
+        var apiKey = prompt('Please enter your API key:');
+        
+        // Create a new survey from provided crisis maps data
+        $.ajax({
+            url:'/surveys/crisismaps',
+            method:'POST',
+            data: {
+                mapId: mapId,
+                apiKey: apiKey
+            }
+        }).done(function(surveyData) {
+            console.log(surveyData);
+            self.getSurveys();
+        }).fail(function(err) {
+            alert('Error creating new survey from crisis maps data');
+        });
+    };
+
     // Create a new survey
     self.createSurvey = function() {
         $.ajax({

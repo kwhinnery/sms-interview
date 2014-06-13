@@ -27,6 +27,7 @@ module.exports = function(app) {
     app.get('/surveys', auth, surveysController.index);
     app.get('/surveys/all', auth, surveysController.list);
     app.post('/surveys', auth, surveysController.create);
+    app.post('/surveys/crisismaps', auth, surveysController.createFromCrisisMaps);
     app.post('/surveys/:id/deactivate', auth, surveysController.deactivate);
     app.post('/surveys/:id/update', auth, surveysController.update);
 

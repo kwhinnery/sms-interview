@@ -4,7 +4,7 @@
         <form role="form" class="form-inline">
             <div class="form-group">
                 <label class="sr-only" for="newSurveyName">
-                    Email address
+                    New Survey Name
                 </label>
                 <input type="text" class="form-control" 
                     id="newSurveyName" placeholder="New Survey Name"
@@ -15,6 +15,11 @@
                 Add
             </button>
         </form>
+        <p id="import">
+            <a href="#" data-bind="click: importFromCrisisMaps">
+                Import from Crisis Maps
+            </a>
+        </p>
 
         <div class="placeholder"
             data-bind="visible: surveys().length == 0">

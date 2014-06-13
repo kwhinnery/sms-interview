@@ -1,4 +1,5 @@
-var Survey = require('../models/Survey'),
+var twilio = require('twilio'),
+    Survey = require('../models/Survey'),
     SurveyResponse = require('../models/SurveyResponse');
 
 // Respond with the appropriate content, depending on the messaging provider
@@ -12,8 +13,10 @@ function respond(message, gateway, request, response) {
         response.send(res);
     } else {
         // Render Twilio-style response 
+        var twiml = new twilio.TwimlResponse();
+        twiml.message(message);
         response.type('text/xml');
-        response.send('<Response><Message>'+message+'</Message></Response>');
+        response.send(twiml.toString());
     }
 }
 
