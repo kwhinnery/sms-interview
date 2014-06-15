@@ -15,11 +15,14 @@ csv.fromPath(path.join(__dirname, 'wards.csv')).on('record', function(data) {
     }
 
     // Grab relevant data
-    var ward = data[3],
-        wardLng = data[0],
+    var wardLng = data[0],
         wardLat = data[1],
+        ward = data[3],
+        wardCode = data[4],
         state = data[5],
-        district = data[7];
+        stateCode = data[6],
+        district = data[7],
+        districtCode = data[8];
 
     // Add to location list
     locations.push({
@@ -27,7 +30,10 @@ csv.fromPath(path.join(__dirname, 'wards.csv')).on('record', function(data) {
         lng: wardLng,
         ward: ward,
         district: district,
-        state: state
+        state: state,
+        wardCode: wardCode,
+        districtCode: districtCode,
+        stateCode: stateCode
     });
 
     rowsProcessed++;

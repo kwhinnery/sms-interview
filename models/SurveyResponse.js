@@ -84,6 +84,7 @@ function pushToCrisisMaps(survey, response, reporter) {
         published: response.completedOn.getTime()/1000,
         effective: new Date().getTime()/1000, // TODO: EPI week
         location: [reporter.locationLat, reporter.locationLng],
+        place_id: reporter.placeId,
         answers: {}
     };
 
@@ -278,6 +279,9 @@ SurveyResponseSchema.methods.processMessage = function(survey, message, number, 
                     var selectedLocation = self.closestLocations[self.chosenLocationIndex];
                     reporter.locationLat = selectedLocation.lat;
                     reporter.locationLng = selectedLocation.lng;
+                    reporter.placeId = selectedLocation.stateCode + '.' +
+                        selectedLocation.districtCode + '.' +
+                        selectedLocation.wardCode;
                     reporter.admin0 = selectedLocation.ward;
                     reporter.admin1 = selectedLocation.district;
                     reporter.admin2 = selectedLocation.state;
