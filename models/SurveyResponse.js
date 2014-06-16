@@ -84,6 +84,7 @@ function pushToCrisisMaps(survey, response, reporter) {
         published: response.completedOn.getTime()/1000,
         effective: new Date().getTime()/1000, // TODO: EPI week
         location: [reporter.locationLat, reporter.locationLng],
+        place_id: reporter.placeId,
         answers: {}
     };
 
@@ -111,7 +112,7 @@ function pushToCrisisMaps(survey, response, reporter) {
     }
 
     // Submit new crisis maps API response
-    console.log(formData);
+    console.log('[' + response.phoneNumber + '] posting to Crisis Map: ' + formData);
     request({
         method: 'POST',
         url: 'https://msfcrisismap.appspot.com/.api/reports',
@@ -120,12 +121,12 @@ function pushToCrisisMaps(survey, response, reporter) {
         },
         json: [formData]
     }, function(err, message, apiResponse) {
-        console.log(apiResponse);
+        console.log('[' + response.phoneNumber + '] reply from Crisis Map: ' + apiResponse);
         // For now this is out of band, just log any error or success
         if (err) { 
             console.error(err); 
         } else {
-            console.log('Sent response to Crisis Map, ID was: '+response._id);
+            console.log('[' + response.phoneNumber + '] posted to Crisis Map, ID was: '+response._id);
         }
     });
 }
@@ -177,12 +178,14 @@ function printChoices(locationData) {
 // given the current state of this response.
 SurveyResponseSchema.methods.processMessage = function(survey, message, number, callback) {
     var self = this, reporter;
+    console.log('[' + number + '] surveyResponse state: ' + self.state);
 
     // Find an associated reporter, if we have one for this number
     Reporter.findOne({
         phoneNumbers: number
     }, function(err, rep) {
         if (!rep) {
+            console.log('[' + number + '] no reporter found, creating one');
             reporter = new Reporter({
                 phoneNumbers: [number]
             });
@@ -194,6 +197,7 @@ SurveyResponseSchema.methods.processMessage = function(survey, message, number, 
                 }
             });
         } else {
+            console.log('[' + number + '] found reporter: ' + rep._id);
             reporter = rep;
             determineLocation();
         }
@@ -275,6 +279,9 @@ SurveyResponseSchema.methods.processMessage = function(survey, message, number, 
                     var selectedLocation = self.closestLocations[self.chosenLocationIndex];
                     reporter.locationLat = selectedLocation.lat;
                     reporter.locationLng = selectedLocation.lng;
+                    reporter.placeId = selectedLocation.stateCode + '.' +
+                        selectedLocation.districtCode + '.' +
+                        selectedLocation.wardCode;
                     reporter.admin0 = selectedLocation.ward;
                     reporter.admin1 = selectedLocation.district;
                     reporter.admin2 = selectedLocation.state;

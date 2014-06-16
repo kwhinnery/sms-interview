@@ -10,10 +10,13 @@ var ReporterSchema = new mongoose.Schema({
         type: Boolean,
         default: false
     },
-    
+
     // Lat/long of the most specific admin level associated with this reporter
     locationLat: Number,
     locationLng: Number,
+
+    // Place identifier
+    placeId: String,
 
     // May need to generalize this eventually, just track an array of admin
     // levels - separating for now to assist with querying

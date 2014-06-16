@@ -5,6 +5,7 @@ var twilio = require('twilio'),
 // Respond with the appropriate content, depending on the messaging provider
 // Right now, it's either Twilio or Telerivet
 function respond(message, gateway, request, response) {
+    console.log('[...] sending reply: ' + message);
     if (gateway === 'telerivet') {
         // Telerivet requires JSON response
         var res = {
@@ -26,7 +27,7 @@ exports.webhook = function(request, response) {
 
     // determine which messaging provider we are dealing with
     if (request.param('from_number')) {
-        // this is a Telerviet webhook
+        // this is a Telerivet webhook
         gateway = 'telerivet';
         phoneNumber = request.param('from_number'),
         messageBody = request.param('content');
@@ -35,11 +36,10 @@ exports.webhook = function(request, response) {
         phoneNumber = request.param('From'),
         messageBody = request.param('Body');
     }
+    console.log('[' + phoneNumber + '] incoming message: ' + messageBody);
 
     // Find the webhook associated with this phone
     Survey.findById(request.param('id'), function(err, survey) {
-        var msg = 'No survey found for this phone number.';
-
         // If we found the survey, continue
         if (survey) {
             // Find survey response for the current phone number and survey
@@ -75,6 +75,9 @@ exports.webhook = function(request, response) {
                 }
 
             }); // end find survey response
+        } else {
+            console.log('[' + phoneNumber + '] unknown survey: ' + request.param('id'));
+            response.send(404, 'Survey not found.');
         }
     }); // end find survey
 };
