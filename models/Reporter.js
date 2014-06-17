@@ -1,29 +1,5 @@
 var mongoose = require('mongoose');
 
-var LocationSchema = new mongoose.Schema({
-    // Optional lat/long centroid of a location
-    lat: Number,
-    lng: Number,
-    
-    // Array of associated administrative levels for this location, starting
-    // with the least specific at index 0 to the most specific, which is located 
-    // at the lat/long centroid above
-    adminLevels: [{
-        type: String, // the type of admin area, like "state"
-        value: String, // the text of the admin area, like "Minnesota"
-        code: String // any short code associated with it, like "MN"
-    }]
-});
-
-// Return a place ID, which is a concatenation of admin levels
-LocationSchema.virtual('placeId').get(function() {
-    var code = [];
-    this.adminLevels.forEach(function(lvl) {
-        code.push(lvl.code);
-    });
-    return code.join('.');
-});
-
 var ReporterSchema = new mongoose.Schema({
     name: {
         type: String,
@@ -34,8 +10,45 @@ var ReporterSchema = new mongoose.Schema({
         type: Boolean,
         default: false
     },
+
     // Store recent locations for this reporter
-    locations: [LocationSchema]
+    locationHistory: [mongoose.Schema.Types.Mixed]
 });
+
+// Create a new record in the reporter's location history for non-duplicate
+// locations
+ReporterSchema.methods.saveToHistory = function(locationData, callback) {
+    var self = this, duplicate = false;
+
+    // Generate a unique place id that can distinguish one location from another
+    function generatePlaceId(adminLevels) {
+        var id = '';
+        for (var i = 0, l = adminLevels.length; i<l; i++) {
+            var code = adminLevels[i].code;
+            id = id+code;
+            if (i+1 !== adminLevels.length) {
+                id = id+'.';
+            }
+        }
+        return id;
+    }
+
+    // Determine if this is a duplicate of any places in history
+    var newOne = generatePlaceId(locationData);
+    for (var i = 0, l = self.locationHistory.length; i<l; i++) {
+        var current = generatePlaceId(self.locationHistory[i]);
+        if (newOne === current) {
+            duplicate = true;
+            break;
+        }
+    }
+
+    if (!duplicate) {
+        self.locationHistory.push(locationData);
+        self.save(callback);
+    } else {
+        callback(null, self);
+    }
+};
 
 module.exports = mongoose.model('Reporter', ReporterSchema);

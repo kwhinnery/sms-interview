@@ -14,7 +14,7 @@ var MESSAGES = {
     adminLevelReportHelp: 'Text "none" if you are reporting at the %s level.',
     inputError: 'We didn\'t understand that reply.',
     generalError: 'There was a problem recording your response - please try again later.',
-    promptLocation:'Please text the number of the location you are reporting for, or "new" for another location:\n',
+    promptLocation:'Please text the number of the location you are reporting for:\n%s',
     promptLocationError:'We didn\'t understand that response - please text the number of the location you are reporting for, or "new" for another location:',
     chooseLocation: 'Which %s did you mean? Text the number to choose:\n%s',
     chooseLocationError: 'I\'m sorry, I did not understand. Please text a single number for one of the following: %s',
@@ -25,6 +25,7 @@ var MESSAGES = {
     doneInput: 'done',
     done: 'Thank you for this information.',
     noneOfThese: 'None of these are what I meant, let me text the name again.',
+    noneOfTheseLocations: 'None of these - I want to report for a new location.',
     previousLevel: 'None of these, I am reporting for the previous administrative level.'
 };
 
@@ -191,7 +192,7 @@ function getClosest(input, possibleValues) {
 }
 
 // Helper method to format a string of location choices for an interview
-function printChoices(choices) {
+function printChoices(choices, skipPrevious) {
     var choiceString = '\n';
     for (var i = 0; i < choices.length; i++) {
         var choice = choices[i];
@@ -203,6 +204,32 @@ function printChoices(choices) {
     choiceString = choiceString + (choices.length+2) + ': ' + MESSAGES.previousLevel; 
     return choiceString;
 } 
+
+// Print out a selection of historical locations to choose from for quick usage
+function printPastLocations(locationHistory) {
+    var choiceString = '\n', maxChoices = 5;
+    for (var i = 0; i < locationHistory.length; i++) {
+        var locationData = locationHistory[i], 
+            adminHierarchy = '';
+
+        for (var j = locationData.adminLevels.length-1; j >= 0; j--) {
+            adminHierarchy = adminHierarchy + locationData.adminLevels[j].value;
+            if (j-1 >= 0) {
+                adminHierarchy = adminHierarchy + ', ';
+            }
+        }
+        choiceString = choiceString + (i+1) + ': ' + adminHierarchy+'\n';
+
+        if (maxChoices == (i+1)) {
+            break;
+        }
+    }
+
+    // Include choices for "none of these"
+    choiceString = choiceString + (locationHistory.length+1) + ': ' 
+        + MESSAGES.noneOfTheseLocations +'\n';
+    return choiceString;
+}
 
 // Process the given message and determine an appropriate text response,
 // given the current state of this response. TODO: This is a garbage implementation.
@@ -249,7 +276,7 @@ SurveyResponseSchema.methods.processMessage = function(survey, message, number, 
 
         if (!self.state) {
             // Use one of the reporter's last locations
-            if (reporter.locations && reporter.locations.length > 0) {
+            if (reporter.locationHistory && reporter.locationHistory.length > 0) {
                 self.state = STATES.chooseLocation;
                 choosePreviousLocation();
             } else {
@@ -281,7 +308,54 @@ SurveyResponseSchema.methods.processMessage = function(survey, message, number, 
 
     // choose location from previous set of locations
     function choosePreviousLocation() {
-        callback(null, 'choosing previous location...');
+        if (self.state === STATES.chooseLocation) {
+            var reply = util.format(
+                MESSAGES.promptLocation,
+                printPastLocations(reporter.locationHistory)
+            );
+            self.state = STATES.chooseFromPastLocations;
+            self.save(function(err) {
+                if (err) {
+                    doOver(MESSAGES.generalError);
+                } else {
+                    callback(err, reply)
+                }
+            });
+        } else if (self.state === STATES.chooseFromPastLocations) {
+            console.log('['+number+'] processing location from history...');
+
+            // Try to parse a number response
+            var enteredNumber = Number(message);
+            if (isNaN(enteredNumber)) {
+                // If not a number, prompt them to enter again
+                callback(null, util.format(
+                    MESSAGES.inputError + ' ' + MESSAGES.promptLocation,
+                    printPastLocations(reporter.locationHistory)
+                ));
+            } else {
+
+                // If it is a number, grab info about the chosen option
+                if (reporter.locationHistory[enteredNumber-1]) {
+                    self.locationData = reporter.locationHistory[enteredNumber-1];
+                    self.state = STATES.establishTimeframe;
+                    doTimeframe();
+                } else if (enteredNumber === self.locationHistory.length+1) {
+                    // If it's the none response (length+1) interview for location
+                    self.state = STATES.findLocation;
+                    self.adminLevels = [];
+                    interviewForLocation();
+                } else {
+                    // if it's not a recognized choice, have them do it again
+                    callback(null, util.format(
+                        MESSAGES.inputError + ' ' + MESSAGES.promptLocation,
+                        printPastLocations(reporter.locationHistory)
+                    ));
+                }
+            }
+        } else {
+            // The default next step is to establish the timeframe for the survey
+            doTimeframe();
+        }
     }
 
     // manage an interview process to determine and add a new location to a
@@ -474,7 +548,10 @@ SurveyResponseSchema.methods.processMessage = function(survey, message, number, 
 
                 self.state = STATES.establishTimeframe;
                 self.locationData = savedLocationData;
-                self.save(doTimeframe);
+                self.save(function(err) {
+                    // save in history for reporter
+                    reporter.saveToHistory(savedLocationData, doTimeframe);
+                });
             } else {
                 // If not, start the interview process over again
                 self.adminLevels = [];
