@@ -2,8 +2,39 @@ var fs = require('fs'),
     path = require('path'),
     csv = require('fast-csv');
 
-// An object literal with location data
-var locations = [],
+/* 
+An object literal with location data for a administrative hierarchy. Here's
+the format:
+
+{
+    childAdminLevel: 'state',
+    children: {
+        'SOKOTO': {
+            code: 'SO',
+            centroidLat: null,
+            centroidLng: null,
+            childAdminLevel: 'district',
+            children: {
+                'WURNO': {
+                    code: '22',
+                    centroidLat: null,
+                    centroidLng: null,
+                    childAdminLevel: 'ward',
+                    children: {
+                        'ACHIDA': {
+                            code: '8',
+                            centroidLat: 13.1670,
+                            centroidLng: 5.3959
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+*/
+var locations = { childAdminLevel: 'state', children: {} },
     rowsProcessed = 0,
     first = true;
 
@@ -24,17 +55,34 @@ csv.fromPath(path.join(__dirname, 'wards.csv')).on('record', function(data) {
         district = data[7],
         districtCode = data[8];
 
-    // Add to location list
-    locations.push({
-        lat: wardLat,
-        lng: wardLng,
-        ward: ward,
-        district: district,
-        state: state,
-        wardCode: wardCode,
-        districtCode: districtCode,
-        stateCode: stateCode
-    });
+    // Create admin hierarchy
+    if (!locations.children[state]) {
+        locations.children[state] = {
+            code: stateCode,
+            centroidLat: null,
+            centroidLng: null,
+            childAdminLevel: 'district',
+            children: {}
+        };
+    }
+
+    if (!locations.children[state].children[district]) {
+        locations.children[state].children[district] = {
+            code: districtCode,
+            centroidLat: null,
+            centroidLng: null,
+            childAdminLevel: 'ward',
+            children: {}
+        };
+    }
+
+    if (!locations.children[state].children[district].children[ward]) {
+        locations.children[state].children[district].children[ward] = {
+            code: wardCode,
+            centroidLat: Number(wardLat),
+            centroidLng: Number(wardLng)
+        };
+    }
 
     rowsProcessed++;
 }).on('end', function() {

@@ -4,8 +4,8 @@ var twilio = require('twilio'),
 
 // Respond with the appropriate content, depending on the messaging provider
 // Right now, it's either Twilio or Telerivet
-function respond(message, gateway, request, response) {
-    console.log('[...] sending reply: ' + message);
+function respond(message, gateway, request, response, phoneNumber) {
+    console.log('['+phoneNumber+'] sending reply: ' + message);
     if (gateway === 'telerivet') {
         // Telerivet requires JSON response
         var res = {
@@ -54,7 +54,7 @@ exports.webhook = function(request, response) {
                     if (err) {
                         message = 'There was an error processing your response, please try again.';
                     }
-                    respond(message, gateway, request, response);
+                    respond(message, gateway, request, response, phoneNumber);
                 }
 
                 // Process from an existing response or create new

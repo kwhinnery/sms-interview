@@ -10,14 +10,22 @@ var util = require('util'),
 var MESSAGES = {
     yes: 'yes',
     no: 'no',
-    generalError: 'There was a problem recording your response - please try again later',
-    promptLocation:'%s: Please text the name of the ward you are reporting for (example: Adunu):',
-    chooseLocation: 'Which of these locations did you mean? Text the number to choose: %s',
+    findLocation: 'What %s are you reporting for? Example Response: "%s".',
+    adminLevelReportHelp: 'Text "none" if you are reporting at the %s level.',
+    inputError: 'We didn\'t understand that reply.',
+    generalError: 'There was a problem recording your response - please try again later.',
+    promptLocation:'Please text the number of the location you are reporting for, or "new" for another location:\n',
+    promptLocationError:'We didn\'t understand that response - please text the number of the location you are reporting for, or "new" for another location:',
+    chooseLocation: 'Which %s did you mean? Text the number to choose:\n%s',
     chooseLocationError: 'I\'m sorry, I did not understand. Please text a single number for one of the following: %s',
-    confirmLocation: 'It looks like you are located in %s. Is that correct? (text "yes" or "no")',
+    confirmLocation: 'Here is the information we have for your current location:\n%s\nIs that correct? (text "yes" or "no")',
     confirmSurvey: 'Are these answers correct (text "yes" or "no")?\n',
     comment: 'Is there any other information you would like to share?',
-    done: 'Thank you for this information.'
+    doneWithLocation: 'Or text "done" if you are reporting for %s.',
+    doneInput: 'done',
+    done: 'Thank you for this information.',
+    noneOfThese: 'None of these are what I meant, let me text the name again.',
+    previousLevel: 'None of these, I am reporting for the previous administrative level.'
 };
 
 // Interview states
@@ -28,7 +36,13 @@ var STATES = {
     fillOutSurvey:4, // While in this state, collect answers for all survey questions
     confirmSurvey:5, // Present survey confirmation
     done:6, // finished state
-    comment:7 // prompting for comment
+    comment:7, // prompting for comment
+    findLocation: 8,
+    parseLocation: 9,
+    chooseFromPastLocations: 10,
+    choosePossibleLocation: 11,
+    acceptLocation:12,
+    establishTimeframe:13
 };
 
 var QuestionResponseSchema = new mongoose.Schema({
@@ -55,12 +69,17 @@ var SurveyResponseSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    preLocated: { // whether or not to use the reporter's existing info
-        type:Boolean,
-        default:false
-    },
+
+    // a hierarchy of admin levels the person is reporting for - this is used
+    adminLevels: [mongoose.Schema.Types.Mixed],
+
     closestLocations: mongoose.Schema.Types.Mixed,
-    chosenLocationIndex: Number,
+    currentSearchAdminLevel:String,
+
+    // final location information about the interview
+    locationData: mongoose.Schema.Types.Mixed,
+
+    // For dynamic survey questions
     _currentQuestionId: mongoose.Schema.Types.ObjectId,
     complete: {
         type: Boolean,
@@ -133,12 +152,12 @@ function pushToCrisisMaps(survey, response, reporter) {
 
 // Get the closest match to a given input, given a range of possible values
 function getClosest(input, possibleValues) {
-    var matches = [], maxMatches = 3;
+    var matches = [], maxMatches = 5;
 
     for (var i = 0, l = possibleValues.length; i<l; i++) {
         var possibleLocation = possibleValues[i];
-        possibleLocation.levDistance = new Levenshtein(
-            possibleLocation.ward.toLowerCase().trim(), 
+        var levDistance = new Levenshtein(
+            possibleLocation.toLowerCase().trim(), 
             input.toLowerCase().trim()
         ).distance;
 
@@ -147,35 +166,49 @@ function getClosest(input, possibleValues) {
             var currentMatch = matches[j];
             if (currentMatch) {
                 // Test to see if this one is better than the top ones
-                if (possibleLocation.levDistance < currentMatch.levDistance) {
-                    matches.splice(j,0,possibleLocation);
+                if (levDistance < currentMatch.levDistance) {
+                    matches.splice(j,0, {
+                        value: possibleLocation,
+                        levDistance: levDistance
+                    });
                     matches = matches.slice(0,maxMatches);
                     break;
                 }
             } else {
                 // If there is no better match, throw it in at the current index
-                matches.splice(j,0,possibleLocation);
+                matches.splice(j,0,{
+                    value: possibleLocation,
+                    levDistance: levDistance
+                });
                 break;
             }
         }
     }
 
-    return matches;
+    return matches.map(function(el) {
+        return el.value;
+    });
 }
 
-// Helper method to format a string of location choices
-function printChoices(locationData) {
-    var choices = '\n';
-    for (var i = 0; i < locationData.length; i++) {
-        choices = choices + (i+1)+': ' + locationData[i].ward
-            + ' (' + locationData[i].district + ', '
-            + locationData[i].state + ')\n';
+// Helper method to format a string of location choices for an interview
+function printChoices(choices) {
+    var choiceString = '\n';
+    for (var i = 0; i < choices.length; i++) {
+        var choice = choices[i];
+        choiceString = choiceString + (i+1)+': '+choice+'\n';
     }
-    return choices;
+
+    // Include choices for "none of these"
+    choiceString = choiceString + (choices.length+1) + ': ' + MESSAGES.noneOfThese +'\n';
+    choiceString = choiceString + (choices.length+2) + ': ' + MESSAGES.previousLevel; 
+    return choiceString;
 } 
 
 // Process the given message and determine an appropriate text response,
-// given the current state of this response.
+// given the current state of this response. TODO: This is a garbage implementation.
+// A better approach would be a stack of "middleware" that could be applied for
+// a given survey. Each would be responsible for updating its own part of the
+// SurveyResponse state before passing control on to the next middleware.
 SurveyResponseSchema.methods.processMessage = function(survey, message, number, callback) {
     var self = this, reporter;
     console.log('[' + number + '] surveyResponse state: ' + self.state);
@@ -184,22 +217,28 @@ SurveyResponseSchema.methods.processMessage = function(survey, message, number, 
     Reporter.findOne({
         phoneNumbers: number
     }, function(err, rep) {
-        if (!rep) {
-            console.log('[' + number + '] no reporter found, creating one');
-            reporter = new Reporter({
-                phoneNumbers: [number]
-            });
-            reporter.save(function(err) {
-                if (err) {
-                    callback(err, MESSAGES.generalError);
-                } else {
-                    determineLocation();
-                }
-            });
+        if (err) {
+            // There's a problem with the data store, nuke this response and
+            // start over
+            doOver(MESSAGES.generalError);
         } else {
-            console.log('[' + number + '] found reporter: ' + rep._id);
-            reporter = rep;
-            determineLocation();
+            if (!rep) {
+                console.log('[' + number + '] no reporter found, creating one');
+                reporter = new Reporter({
+                    phoneNumbers: [number]
+                });
+                reporter.save(function(err) {
+                    if (err) {
+                        callback(err, MESSAGES.generalError);
+                    } else {
+                        determineLocation();
+                    }
+                });
+            } else {
+                console.log('[' + number + '] found reporter: ' + rep._id);
+                reporter = rep;
+                determineLocation();
+            }
         }
     });
 
@@ -208,112 +247,252 @@ SurveyResponseSchema.methods.processMessage = function(survey, message, number, 
     function determineLocation() {
         self._reporterId = reporter._id;
 
-        // If the response has not been started, determine location
         if (!self.state) {
-            // Use the reporter's location (if we have it)
-            if (reporter.locationLat && reporter.locationLng) {
-                self.state = STATES.confirmLocation;
-                self.preLocated = true;
-                self.save(function(err) {
-                    var msg = util.format(
-                        MESSAGES.confirmLocation,
-                        reporter.admin0
-                    );
-                    callback(err, msg);
-                });
+            // Use one of the reporter's last locations
+            if (reporter.locations && reporter.locations.length > 0) {
+                self.state = STATES.chooseLocation;
+                choosePreviousLocation();
             } else {
                 // Otherwise, prompt the reporter to tell us where they are 
                 // reporting from
-                self.state = STATES.promptLocation;
-                self.preLocated = false;
-                self.save(function(err) {
-                    var msg = util.format(MESSAGES.promptLocation, survey.name);
-                    callback(err, msg);
-                });
+                self.state = STATES.findLocation;
+                interviewForLocation();
             }
-        } else if (self.state === STATES.promptLocation) {
-            // handle location input - Levenshtein distance of top 3
-            var closest = getClosest(message.trim(), locations);
-            self.state = STATES.chooseLocation;
-            self.closestLocations = closest;
-            self.save(function(err) {
-                var choices = printChoices(closest);
-                var msg = util.format(MESSAGES.chooseLocation, choices);
-                callback(err, msg);
-            });
-        } else if (self.state === STATES.chooseLocation) {
-            // Process selection of location
-            var choice = Number(message);
-            if (!isNaN(choice) && choice <= self.closestLocations.length) {
-                self.chosenLocationIndex = choice-1;
-                self.state = STATES.confirmLocation;
-                self.save(function(err) {
-                    var msg = util.format(
-                        MESSAGES.confirmLocation,
-                        self.closestLocations[self.chosenLocationIndex].ward
-                    );
-                    callback(err, msg);
-                });
-            } else {
-                // If it's not something we can work with, ask them to choose again
-                var choices = printChoices(self.closestLocations);
-                var msg = util.format(MESSAGES.chooseLocationError, choices);
-                callback(null, msg);
-            }
-        } else if (self.state === STATES.confirmLocation) {
-            // After the reporter location is all set, continue
-            function updateWithLocation() {
-                // then go through the survey questions
-                self.state = STATES.fillOutSurvey;
-                self.save(function(err) {
-                    doSurvey();
-                });
-            }
-
-            if (message.toLowerCase() === MESSAGES.yes) {
-                // If the reporter is already located, just update the interview
-                // state
-                if (self.preLocated) {
-                    updateWithLocation();
-                } else {
-                    var selectedLocation = self.closestLocations[self.chosenLocationIndex];
-                    reporter.locationLat = selectedLocation.lat;
-                    reporter.locationLng = selectedLocation.lng;
-                    reporter.placeId = selectedLocation.stateCode + '.' +
-                        selectedLocation.districtCode + '.' +
-                        selectedLocation.wardCode;
-                    reporter.admin0 = selectedLocation.ward;
-                    reporter.admin1 = selectedLocation.district;
-                    reporter.admin2 = selectedLocation.state;
-                    reporter.save(function(err) {
-                        if (err) {
-                            self.state = STATES.promptLocation;
-                            self.save(function(err2) {
-                                callback(err, STATES.promptLocation, MESSAGES.generalError);
-                            });
-                        } else {
-                            // then go through the survey questions
-                            updateWithLocation();
-                        }
-                    });
-                }
-            } else {
-                // If no or anything but yes, start location process over
-                self.state = STATES.promptLocation;
-                self.preLocated = false;
-                self.closestLocations = null;
-                self.chosenLocationIndex = null;
-                self.save(function(err) {
-                    var msg = util.format(MESSAGES.promptLocation, survey.name);
-                    callback(err, msg);
-                });
-            }
+        }  else if (
+            self.state === STATES.chooseLocation ||
+            self.state === STATES.chooseFromPastLocations
+        ) {
+            // Choose a previous location, react to location choice
+            choosePreviousLocation();
+        } else if (
+            self.state === STATES.findLocation ||
+            self.state === STATES.choosePossibleLocation ||
+            self.state === STATES.parseLocation ||
+            self.state === STATES.confirmLocation ||
+            self.state === STATES.acceptLocation
+        ) {
+            // conduct/continue an interview process to get a new location
+            interviewForLocation();
         } else {
-            doSurvey();
+            // The default next step is to establish the timeframe for the survey
+            doTimeframe();
         }
     }
 
-    // Fill out survey questions
+    // choose location from previous set of locations
+    function choosePreviousLocation() {
+        callback(null, 'choosing previous location...');
+    }
+
+    // manage an interview process to determine and add a new location to a
+    // reporter's history
+    function interviewForLocation() {
+        if (self.state === STATES.findLocation) {
+            console.log('['+number+'] prompting for location data...');
+
+            if (!self.adminLevels || self.adminLevels.length === 0) {
+                // find the root admin level and ask for one of those
+                var rootAdminLevel = locations.childAdminLevel,
+                    example = Object.keys(locations.children)[0];
+
+                var reply = util.format(
+                    MESSAGES.findLocation,
+                    rootAdminLevel,
+                    example
+                );
+                self.adminLevels = [];
+                self.state = STATES.parseLocation;
+                self.save(function(err) {
+                    callback(err, reply);
+                });
+            } else {
+                var searchObject = locations;
+                for (var i = 0; i < self.adminLevels.length; i++) {
+                    if (searchObject.children) {
+                        searchObject = searchObject.children[self.adminLevels[i]];
+                    }
+                }
+
+                if (searchObject.children) {
+                    // if the lowest admin level still has children, ask them to
+                    // drill down
+                    var reply = util.format(
+                        MESSAGES.findLocation,
+                        searchObject.childAdminLevel,
+                        Object.keys(searchObject.children)[0]
+                    );
+
+                    // Allow people to text "done" if they are reporting for
+                    // the last admin level
+                    var instructions = util.format(
+                        MESSAGES.doneWithLocation,
+                        self.adminLevels[self.adminLevels.length-1]
+                    );
+                    reply = reply+' '+instructions;
+
+                    self.state = STATES.parseLocation;
+                    self.save(function(err) {
+                        callback(err, reply);
+                    });
+                } else {
+                    // If there are no more admin levels, move to confirm location
+                    self.state = STATES.confirmLocation;
+                    interviewForLocation();
+                }
+            }
+        } else if (self.state === STATES.parseLocation) {
+            console.log('['+number+'] parsing entered location...');
+
+            if (message.toLowerCase().trim() === MESSAGES.doneInput) {
+                // If they text done, we assume they have no more location info
+                // to offer
+                self.state = STATES.confirmLocation;
+                interviewForLocation();
+            } else {
+                // deal with location input from the previous interview step. Figure out
+                // which admin level to search against...
+                var searchObject = locations;
+                for (var i = 0; i < self.adminLevels.length; i++) {
+                    searchObject = searchObject.children[self.adminLevels[i]];
+                }
+                var searchSet = Object.keys(searchObject.children);
+
+                // Get closest matches for input
+                var closest = getClosest(message, searchSet);
+
+                // If we have an exact match, go ahead and use that
+                var match;
+                for (var i = 0, l = closest.length; i<l; i++) {
+                    var test = closest[i];
+                    if (test.toLowerCase().trim() === message.toLowerCase().trim()) {
+                        match = test;
+                        break;
+                    }
+                }
+                if (match) {
+                    self.state = STATES.findLocation;
+                    self.adminLevels.push(match);
+                    interviewForLocation();
+                } else {
+                    // If we don't have a 100% match, ask the user which one is them
+                    self.state = STATES.choosePossibleLocation;
+                    self.currentSearchAdminLevel = searchObject.childAdminLevel;
+                    self.closestLocations = closest;
+                    self.save(function(err) {
+                        if (err) {
+                            doOver(MESSAGES.generalError);
+                        } else {
+                            var reply = util.format(
+                                MESSAGES.chooseLocation,
+                                searchObject.childAdminLevel,
+                                printChoices(closest)
+                            );
+                            callback(err, reply);
+                        }
+                    });
+                }
+            }
+
+        } else if (self.state === STATES.choosePossibleLocation) {
+            console.log('['+number+'] processing location choice...');
+
+            // Try to parse a number response
+            var enteredNumber = Number(message);
+            if (isNaN(enteredNumber)) {
+                // If not a number, prompt them to enter again
+                callback(null, util.format(
+                    MESSAGES.inputError + ' ' + MESSAGES.chooseLocation,
+                    self.currentSearchAdminLevel,
+                    printChoices(self.closestLocations)
+                ));
+            } else {
+
+                // If it is a number, grab info about the chosen admin level
+                if (self.closestLocations[enteredNumber-1]) {
+                    self.adminLevels.push(self.closestLocations[enteredNumber-1]);
+                    self.state = STATES.findLocation;
+                    interviewForLocation();
+                } else if (enteredNumber === self.closestLocations.length+1) {
+                    // If it's the none response (length+1) prompt again
+                    self.state = STATES.findLocation;
+                    self.adminLevels = [];
+                    interviewForLocation();
+                } else if (enteredNumber === self.closestLocations.length+2) {
+                    // If we're cool at the current admin level (length+2),
+                    // That's fine - we can move on
+                    self.state = STATES.confirmLocation;
+                    interviewForLocation();
+                } else {
+                    // bad state
+                    doOver(MESSAGES.generalError);
+                }
+            }
+
+        } else if (self.state === STATES.confirmLocation) {
+            // Print back and confirm the location being used 
+            var locationSummary = '', locationObject = locations;
+            for (var i = 0; i < self.adminLevels.length; i++) {
+                var adminLevel = self.adminLevels[i];
+                var adminLevelLabel = locationObject.childAdminLevel;
+                locationSummary = locationSummary + adminLevelLabel +
+                    ': ' + adminLevel + '\n';
+                locationObject = locationObject.children[adminLevel];
+            }
+
+            var reply = util.format(MESSAGES.confirmLocation, locationSummary);
+            self.state = STATES.acceptLocation;
+            self.save(function(err) {
+                if (err) {
+                    doOver(MESSAGES.generalError);
+                } else {
+                    callback(err, reply);
+                }
+            });
+        } else if (self.state === STATES.acceptLocation) {
+            // process user input, confirming/rejecting location interview data
+            if (message.toLowerCase().trim() === MESSAGES.yes) {
+                // Save the current location to the history for the reporter,
+                // and to the location info field for the response
+                var savedLocationData = { adminLevels: [] };
+
+                var locationObject = locations;
+                for (var i = 0; i < self.adminLevels.length; i++) {
+                    var adminLevel = self.adminLevels[i],
+                        adminLevelInfo = locationObject.children[adminLevel],
+                        savedAdminLevelData = {
+                            type: locationObject.childAdminLevel,
+                            value: adminLevel,
+                            code: adminLevelInfo.code
+                        };
+
+                    savedLocationData.centroidLat = adminLevelInfo.centroidLat;
+                    savedLocationData.centroidLng = adminLevelInfo.centroidLng;
+                    savedLocationData.adminLevels.push(savedAdminLevelData);
+
+                    locationObject = locationObject.children[adminLevel];
+                }
+
+                self.state = STATES.establishTimeframe;
+                self.locationData = savedLocationData;
+                self.save(doTimeframe);
+            } else {
+                // If not, start the interview process over again
+                self.adminLevels = [];
+                self.state = STATES.findLocation;
+                interviewForLocation();
+            }
+        } else {
+            // This is a bad state, prompt to start over
+            doOver(MESSAGES.generalError);
+        }
+    }
+
+    // establish the timeframe (EPI week) for the current report
+    function doTimeframe() {
+        callback(null, 'establishing timeframe...');
+    }
+
+    // Fill out dynamic survey questions
     function doSurvey() {
         if (self.state === STATES.fillOutSurvey) {
             // Determine if processing a question  response is needed
@@ -449,6 +628,14 @@ SurveyResponseSchema.methods.processMessage = function(survey, message, number, 
                 // Update survey state
                 printSurvey();
             }
+        }
+
+        // do over and reset interview state
+        function doOver(doOverMessage) {
+            console.log('[' + number + '] deleting interview with message: '+doOverMessage);
+            self.remove(function(err, doc) {
+                callback(err, doOverMessage);
+            });
         }
     }
 };
