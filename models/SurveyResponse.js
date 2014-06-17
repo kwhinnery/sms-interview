@@ -20,7 +20,7 @@ var MESSAGES = {
     chooseLocationError: 'I\'m sorry, I did not understand. Please text a single number for one of the following: %s',
     confirmLocation: 'Here is the information we have for your current location:\n%s\nIs that correct? (text "yes" or "no")',
     confirmSurvey: 'Are these answers correct (text "yes" or "no")?\n',
-    comment: 'Is there any other information you would like to share?',
+    comment: 'Any other diseases or comments (please specify disease and number)?',
     doneWithLocation: 'Or text "done" if you are reporting for %s.',
     doneInput: 'done',
     done: 'Thank you for this information.',
