@@ -21,12 +21,12 @@ ReporterSchema.methods.saveToHistory = function(locationData, callback) {
     var self = this, duplicate = false;
 
     // Generate a unique place id that can distinguish one location from another
-    function generatePlaceId(adminLevels) {
+    function generatePlaceId(location) {
         var id = '';
-        for (var i = 0, l = adminLevels.length; i<l; i++) {
-            var code = adminLevels[i].code;
+        for (var i = 0, l = location.adminLevels.length; i<l; i++) {
+            var code = location.adminLevels[i].code;
             id = id+code;
-            if (i+1 !== adminLevels.length) {
+            if (i+1 !== location.adminLevels.length) {
                 id = id+'.';
             }
         }

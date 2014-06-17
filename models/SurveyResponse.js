@@ -42,8 +42,7 @@ var STATES = {
     parseLocation: 9,
     chooseFromPastLocations: 10,
     choosePossibleLocation: 11,
-    acceptLocation:12,
-    establishTimeframe:13
+    acceptLocation:12
 };
 
 var QuestionResponseSchema = new mongoose.Schema({
@@ -301,8 +300,8 @@ SurveyResponseSchema.methods.processMessage = function(survey, message, number, 
             // conduct/continue an interview process to get a new location
             interviewForLocation();
         } else {
-            // The default next step is to establish the timeframe for the survey
-            doTimeframe();
+            // The default next step is to complete the interview
+            doSurvey();
         }
     }
 
@@ -337,9 +336,9 @@ SurveyResponseSchema.methods.processMessage = function(survey, message, number, 
                 // If it is a number, grab info about the chosen option
                 if (reporter.locationHistory[enteredNumber-1]) {
                     self.locationData = reporter.locationHistory[enteredNumber-1];
-                    self.state = STATES.establishTimeframe;
+                    self.state = STATES.fillOutSurvey;
                     doTimeframe();
-                } else if (enteredNumber === self.locationHistory.length+1) {
+                } else if (enteredNumber === reporter.locationHistory.length+1) {
                     // If it's the none response (length+1) interview for location
                     self.state = STATES.findLocation;
                     self.adminLevels = [];
@@ -354,7 +353,7 @@ SurveyResponseSchema.methods.processMessage = function(survey, message, number, 
             }
         } else {
             // The default next step is to establish the timeframe for the survey
-            doTimeframe();
+            doSurvey();
         }
     }
 
@@ -546,7 +545,7 @@ SurveyResponseSchema.methods.processMessage = function(survey, message, number, 
                     locationObject = locationObject.children[adminLevel];
                 }
 
-                self.state = STATES.establishTimeframe;
+                self.state = STATES.fillOutSurvey;
                 self.locationData = savedLocationData;
                 self.save(function(err) {
                     // save in history for reporter
@@ -564,9 +563,13 @@ SurveyResponseSchema.methods.processMessage = function(survey, message, number, 
         }
     }
 
-    // establish the timeframe (EPI week) for the current report
+    // TODO: establish the timeframe (EPI week) for the current report - for
+    // now, capture the epi week as part of the survey
     function doTimeframe() {
-        callback(null, 'establishing timeframe...');
+        self.state = STATES.fillOutSurvey;
+        self.save(function() {
+            doSurvey();
+        });
     }
 
     // Fill out dynamic survey questions
@@ -636,14 +639,17 @@ SurveyResponseSchema.methods.processMessage = function(survey, message, number, 
                     callback(err, MESSAGES.comment);
                 });
 
-            } else {
-                // If no or anything but yes, start the whole process over!
-                self.state = STATES.promptLocation;
+            } else if (message.toLowerCase() === MESSAGES.no) {
+                // If no, start the survey process over
+                self.state = STATES.fillOutSurvey;
                 self.responses = [];
+                self._currentQuestionId = null;
                 self.save(function(err) {
-                    var msg = util.format(MESSAGES.promptLocation, survey.name);
-                    callback(err, msg);
+                    doSurvey();
                 });
+            } else {
+                // ask for clarification and reprint survey if it's not one of those
+                printSurvey();
             }
 
         } else if (self.state === STATES.comment) {
