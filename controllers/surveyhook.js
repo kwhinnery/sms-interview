@@ -62,7 +62,7 @@ exports.webhook = function(request, response) {
 
     if (command) {
         var commandInput = message.replace(commandText, '').trim();
-        command(phoneNumber, commandInput, function(err, responseMessage) {
+        command(phoneNumber, commandInput, request.param('id'), function(err, responseMessage) {
             respond(responseMessage, gateway, request, response, phoneNumber);
         });
     } else {
