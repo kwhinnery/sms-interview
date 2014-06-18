@@ -30,6 +30,7 @@ module.exports = function(app) {
     app.post('/surveys/crisismaps', auth, surveysController.createFromCrisisMaps);
     app.post('/surveys/:id/deactivate', auth, surveysController.deactivate);
     app.post('/surveys/:id/update', auth, surveysController.update);
+    app.post('/surveys/:id/settings', auth, surveysController.updateSettings);
 
     // Survey webhook
     app.post('/surveys/:id', webhookController.webhook);

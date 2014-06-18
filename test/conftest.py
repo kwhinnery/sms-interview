@@ -30,7 +30,7 @@ def phone3():
 # params could be ['telerivet', 'twilio']
 @pytest.fixture(scope='module', params=['telerivet'])
 def empty_survey(request):
-    return survey_client.SurveyClient('empty', [], request.param)
+    return survey_client.SurveyClient('empty', [], client_type=request.param)
 
 @pytest.fixture(scope='module', params=['telerivet'])
 def simple_survey(request):
@@ -38,32 +38,38 @@ def simple_survey(request):
         'text': 'What is your name?',
         'summaryText': 'Name',
         'responseType': 'text'
-    }], request.param)
+    }], client_type=request.param)
 
 @pytest.fixture(scope='module', params=['telerivet'])
 def disease_survey(request):
     return survey_client.SurveyClient('disease', [{
         'text': 'How many new measles cases for that week?',
         'summaryText': 'Measles cases',
-        'responseType': 'number'
+        'responseType': 'number',
+        'cmId': 'q1'
     }, {
         'text': 'How many measles deaths for that week?',
         'summaryText': 'Measles deaths',
-        'responseType': 'number'
+        'responseType': 'number',
+        'cmId': 'q2'
     }, {
         'text': 'How many new meningitis cases for that week?',
         'summaryText': 'Meningitis cases',
-        'responseType': 'number'
+        'responseType': 'number',
+        'cmId': 'q3'
     }, {
         'text': 'How many meningitis deaths for that week?',
         'summaryText': 'Meningitis deaths',
-        'responseType': 'number'
+        'responseType': 'number',
+        'cmId': 'q4'
     }, {
         'text': 'How many new gastroenteritis cases for that week?',
         'summaryText': 'GE cases',
-        'responseType': 'number'
+        'responseType': 'number',
+        'cmId': 'q5'
     }, {
         'text': 'How many gastroenteritis deaths for that week?',
         'summaryText': 'GE deaths',
-        'responseType': 'number'
-    }], request.param)
+        'responseType': 'number',
+        'cmId': 'q6'
+    }], 'map1', 'topic1', 'key1', client_type=request.param)
