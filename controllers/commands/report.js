@@ -70,6 +70,7 @@ function pushToCrisisMap(survey, response, reporter) {
         effective: new Date().getTime()/1000, // TODO: EPI week
         location: [location.centroidLat, location.centroidLng],
         place_id: response.placeId,
+        text: response.commentText,
         answers: {}
     };
 
