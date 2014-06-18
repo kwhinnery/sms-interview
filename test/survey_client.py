@@ -30,6 +30,9 @@ class SurveyClient:
 
     def __init__(self, name, questions, client_type='telerivet'):
         self.id = create_survey(name, questions)
+        file = open('/tmp/%s.id' % name, 'w')
+        print >>file, self.id
+        file.close()
         self.hook_url = SERVER_URL + '/surveys/' + self.id
         if client_type == 'twilio':
             self.send = self.twilio_send

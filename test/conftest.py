@@ -40,3 +40,30 @@ def simple_survey(request):
         'responseType': 'text'
     }], request.param)
 
+@pytest.fixture(scope='module', params=['telerivet'])
+def disease_survey(request):
+    return survey_client.SurveyClient('disease', [{
+        'text': 'How many new measles cases for that week?',
+        'summaryText': 'Measles cases',
+        'responseType': 'number'
+    }, {
+        'text': 'How many measles deaths for that week?',
+        'summaryText': 'Measles deaths',
+        'responseType': 'number'
+    }, {
+        'text': 'How many new meningitis cases for that week?',
+        'summaryText': 'Meningitis cases',
+        'responseType': 'number'
+    }, {
+        'text': 'How many meningitis deaths for that week?',
+        'summaryText': 'Meningitis deaths',
+        'responseType': 'number'
+    }, {
+        'text': 'How many new gastroenteritis cases for that week?',
+        'summaryText': 'GE cases',
+        'responseType': 'number'
+    }, {
+        'text': 'How many gastroenteritis deaths for that week?',
+        'summaryText': 'GE deaths',
+        'responseType': 'number'
+    }], request.param)
