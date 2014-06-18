@@ -72,3 +72,19 @@ Please enter data for DANWARAI, Week 25 in order:
 Measles, Measles deaths, CSM, CSM deaths, GE, GE deaths.
 For unknowns enter "U".
 ''')
+
+def test_location_selection(simple_survey, phone1):
+    s, p1 = simple_survey, phone1
+    s.send(p1, 'register kb.1.1 kb.1.4 kb.1.6')
+    assert norm_spaces(s.send(p1, 'report')) == norm_spaces('''
+Which location are you reporting for? Reply with a number:
+1: ALIERO DANGALADIMA I, 2: ALIERO S/FADA II, 3: JIGA BIRNI
+''')
+    assert norm_spaces(s.send(p1, 'a')) == norm_spaces('''
+Please reply with a number in this list:
+1: ALIERO DANGALADIMA I, 2: ALIERO S/FADA II, 3: JIGA BIRNI
+''')
+    assert norm_spaces(s.send(p1, '  2 extra')) == norm_spaces('''
+Please enter data for ALIERO S/FADA II, Week 25 in order: Name.
+For unknowns enter "U".
+''')

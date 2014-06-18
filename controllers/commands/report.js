@@ -10,10 +10,10 @@ var MESSAGES = {
     noSurveyFound: 'No survey found for this phone number.',
     notRegistered: 'Your phone number has not been registered. Please use a registered phone or call the hotline for help.',
     survey: 'Please enter data for %s, %s in order: %s. For unknowns enter "U".',
-    chooseLocation: 'What location would you like to report for? Text the number in front of the name to choose:\n',
+    chooseLocation: 'Which location are you reporting for? Reply with a number:\n%s',
     commaSeparatedFieldsRequired: 'Please enter data for %s, %s as %d items with a comma after each: %s. For unknowns enter "U".',
     numberRequired: 'A number (or "U" for unknown) is required for %s. Please enter data for %s, %s in order: %s.',
-    locationNumberError: 'Error: Please choose a valid number from these choices:\n',
+    locationNumberRequired: 'Please reply with a number in this list:\n%s',
     anyOtherDiseases: 'Any other diseases to report? Please provide details.',
     confirmReport: 'For %s, %s we have:\n%s.\nIs this correct? Reply "yes" or "no".',
     generalError: 'Sorry, there was a problem with the system. Please try again.',
@@ -143,8 +143,8 @@ module.exports = function(number, step, message, survey, reporter, callback) {
             // fall through to step 2
         } else {
             // Ask the user to choose their location
-            callback(null, 
-                MESSAGES.chooseLocation+printLocations(reporter.placeIds), 1);
+            callback(null, util.format(MESSAGES.chooseLocation,
+                printLocations(reporter.placeIds)), 1);
             return;
         }
     }
@@ -153,10 +153,9 @@ module.exports = function(number, step, message, survey, reporter, callback) {
         // grab the chosen place ID
         var words = message.replace(/[^\w\s]/g, '').trim().split(/\s+/);
         var placeIndex = Number(words[0]);
-        if (isNaN(placeIndex) || placeIndex > reporter.placeIds.length) {
-            var msg = MESSAGES.locationNumberError +
-                printLocations(reporter.placeIds);
-            callback(null, msg, 1);
+        if (!(placeIndex >= 1 && placeIndex <= reporter.placeIds.length)) {
+            callback(null, util.format(MESSAGES.locationNumberRequired,
+                printLocations(reporter.placeIds)), 1);
             return;
         }
         reporter.currentPlaceId = reporter.placeIds[placeIndex-1];
