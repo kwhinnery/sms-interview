@@ -51,10 +51,6 @@ exports.report = function(number, message, surveyId, callback) {
 
         // Attempt to grab responses from a comma separated list
         var answerInputs = message.split(',');
-
-        console.log('[' + number + '] inputs: ' + answerInputs.length);
-        console.log('[' + number + '] questions: ' + survey.questions.length);
-
         if (answerInputs.length === survey.questions.length) {
             // try to use these answers for the actual report
             var responses = [];
@@ -64,11 +60,15 @@ exports.report = function(number, message, surveyId, callback) {
 
                 if (question.responseType === 'number') {
                     var casted = Number(answerText);
+                    if (answerText.toUpperCase() === 'U') {
+                        // let users enter "u" to mean "unknown"
+                        casted = null;
+                    }
                     if (!isNaN(casted)) {
                         responses.push({
                             _questionId: question._id,
                             textResponse: answerText,
-                            numberResponse: casted
+                            numberResponse: casted  // a number or null
                         });
                     } else {
                         callback(null, util.format(
