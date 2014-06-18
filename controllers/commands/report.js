@@ -17,6 +17,9 @@ var MESSAGES = {
     thanks: 'Your report has been submitted. Thank you!',
 };
 
+var SOURCE_URL = 'http://sms-interview-msf.herokuapp.com/';
+var CRISIS_MAP_API_URL = 'https://msfcrisismap.appspot.com/.api/reports';
+
 // print out question responses
 function printResponses(questions, responses) {
     var answers = [];
@@ -31,12 +34,66 @@ function printResponses(questions, responses) {
     return answers.join(',\n');
 }
 
+// Submit a survey response to Crisis Map using its API.
+function pushToCrisisMap(survey, response, reporter) {
+    // data needed to submit a reply to the Crisis Map API
+    var formData = {
+        source: SOURCE_URL,
+        author: 'tel:' + response.phoneNumber,
+        id: SOURCE_URL + 'responses/' + response._id,
+        map_id: survey.cmId,
+        topic_ids: [survey.cmId + '.' + survey.cmTopicId],
+        submitted: response.completedOn.getTime()/1000,
+        effective: new Date().getTime()/1000, // TODO: EPI week
+        location: [reporter.locationLat, reporter.locationLng], // TODO
+        place_id: reporter.placeId, // TODO
+        answers: {}
+    };
+
+    // Format answers
+    for (var i = 0, l = response.responses.length; i<l; i++) {
+        var resp = response.responses[i];
+
+        // Create specially formatted answer key
+        var cmAnswerKey = [
+            survey.cmId,
+            survey.cmTopicId,
+            survey.questions[i].cmId
+        ].join('.');
+
+        // Use the type appropriate for the question
+        var actualAnswer = resp.textResponse;
+        if (survey.questions[i].responseType === 'number') {
+            actualAnswer = resp.numberResponse;
+        }
+
+        formData.answers[cmAnswerKey] = actualAnswer;
+    }
+
+    // Submit new crisis maps API response
+    console.log('[' + response.phoneNumber + '] posting to Crisis Map: ',
+        formData);
+    request({
+        method: 'POST',
+        url: CRISIS_MAP_API_URL,
+        qs: {key: survey.cmApiKey},
+        json: [formData]
+    }, function(err, message, apiResponse) {
+        console.log('[' + response.phoneNumber + '] reply from Crisis Map: ',
+            apiResponse);
+        // For now this is out of band, just log any error or success
+        if (err) {
+            console.error(err);
+        }
+    });
+}
+
 // Report submission workflow.
 // Step 0: Instruct the reporter to enter disease data.
 // Step 1: Receive disease data, ask for confirmation.
 // Step 2: Receive confirmation, ask for other comments.
 // Step 3: Save completed report.
-exports.report = function(number, step, message, survey, reporter, callback) {
+module.exports = function(number, step, message, survey, reporter, callback) {
     var survey;
     // Defaults to current epi week, need to make this configurable
     var interval = epi(moment().tz('Africa/Lagos').toDate());
@@ -150,11 +207,9 @@ exports.report = function(number, step, message, survey, reporter, callback) {
                     return;
                 }
                 callback(err, MESSAGES.thanks);
-                /*
                 if (survey.cmId) {
-                    pushToCrisisMaps(survey, sr, reporter);
+                    pushToCrisisMap(survey, sr, reporter);
                 }
-                */
             });
         });
     }
