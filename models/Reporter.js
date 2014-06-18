@@ -10,6 +10,7 @@ var ReporterSchema = new mongoose.Schema({
         type: Boolean,
         default: false
     },
+    currentPlaceId: String, // current place ID we're reporting for
     placeIds: [String], // placeIds of locations associated with this reporter
     surveyResponseId: String, // survey response in progress
     currentCommand: String, // command name, if a command is in progress

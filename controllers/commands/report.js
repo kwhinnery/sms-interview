@@ -10,7 +10,9 @@ var MESSAGES = {
     noSurveyFound: 'No survey found for this phone number.',
     registerFirst: 'This phone number has not been registered. Please use a registered phone or call the hotline for help.',
     questions: '[MSF]: Please enter data for %s, %s:',
+    chooseLocation: 'What location would you like to report for? Text the number in front of the name to choose:\n',
     numericInputRequired: 'Error: numeric input required for %s.',
+    locationNumberError: 'Error: Please choose a valid number from these choices:\n',
     anyOtherDiseases: 'Any other diseases to report? Please provide details.',
     confirmReport: 'Please review your report for %s, %s:\n%s.\nIs this correct? Text "yes" or "no".',
     generalError: 'Sorry, there was a problem with the system. Please try again.',
@@ -30,6 +32,16 @@ function printResponses(questions, responses) {
             tr = 'Unknown';
         }
         answers.push(q.summaryText + ': ' + tr);
+    }
+    return answers.join(',\n');
+}
+
+// print location choices
+function printLocations(placeIds) {
+    var answers = [];
+    for (var i = 0; i < placeIds.length; i++) {
+        var p = placeIds[i];
+        answers.push((i+1) + ': ' + locations.all[p].name);
     }
     return answers.join(',\n');
 }
@@ -94,12 +106,9 @@ function pushToCrisisMap(survey, response, reporter) {
 // Step 2: Receive confirmation, ask for other comments.
 // Step 3: Save completed report.
 module.exports = function(number, step, message, survey, reporter, callback) {
-    var survey;
     // Defaults to current epi week, need to make this configurable
     var interval = epi(moment().tz('Africa/Lagos').toDate());
 
-    // TODO: also determine which place we're currently reporting for, currently
-    // hard coded for the first place associated with a user
     if (!survey) {
         callback(null, MESSAGES.noSurveyFound);
         return;
@@ -110,11 +119,37 @@ module.exports = function(number, step, message, survey, reporter, callback) {
     };
 
     if (step === 0) {
-        callback(null, printSurvey(), 1);
+        // determine the current place ID
+        if (reporter.placeIds.length === 1) {
+            // If the user only has one, set it and move on
+            reporter.currentPlaceId = reporter.placeIds[0];
+            step = 2;
+        } else {
+            // Ask the user to choose their location
+            callback(null, 
+                MESSAGES.chooseLocation+printLocations(reporter.placeIds), 1);
+        }
         return;
     }
 
     if (step === 1) {
+        // grab the chosen place ID
+        var words = message.replace(/[^\w\s]/g, '').trim().split(/\s+/);
+        console.log(words);
+        var placeIndex = Number(words[0]);
+        if (isNaN(placeIndex) || placeIndex > reporter.placeIds.length) {
+            var msg = MESSAGES.locationNumberError +
+                printLocations(reporter.placeIds);
+            callback(null, msg, 1);
+            return;
+        } else {
+            reporter.currentPlaceId = reporter.placeIds[placeIndex-1];
+            callback(null, printSurvey(), 2);
+            return;
+        }
+    }
+
+    if (step === 2) {
         // Receive comma-separated data, ask for confirmation.
         var answerInputs = message.split(',');
         if (answerInputs.length === survey.questions.length) {
@@ -140,7 +175,7 @@ module.exports = function(number, step, message, survey, reporter, callback) {
                         callback(null, util.format(
                             MESSAGES.numericInputRequired,
                             question.summaryText
-                        ) + ' ' + printSurvey(), 1);
+                        ) + ' ' + printSurvey(), 2);
                         return;
                     }
                 } else {
@@ -157,45 +192,45 @@ module.exports = function(number, step, message, survey, reporter, callback) {
 
         } else {
             // otherwise, print out current questions
-            callback(null, printSurvey(), 1);
+            callback(null, printSurvey(), 2);
         }
         return;
     }
 
-    if (step === 2) {
+    if (step === 3) {
         // Receive yes/no confirmation, ask for comments.
         var words = message.replace(/[^\w\s]/g, '').trim().split(/\s+/);
         if (words[0].toLowerCase() === 'yes') {
-            callback(null, MESSAGES.anyOtherDiseases, 3);
+            callback(null, MESSAGES.anyOtherDiseases, 4);
         } else if (words[0].toLowerCase() === 'no') {
-            callback(null, printSurvey(), 1);
+            callback(null, printSurvey(), 2);
         } else {
             SurveyResponse.findOne({
                 _surveyId: survey._id,
                 _reporterId: reporter._id,
-                placeId: reporter.placeIds[0],
+                placeId: reporter.currentPlaceId,
                 interval: interval
             }, function(err, sr) {
                 if (err || !sr) {
-                    callback(err || 'missing sr', printSurvey(), 1);
+                    callback(err || 'missing sr', printSurvey(), 2);
                     return;
                 }
                 callback(null, util.format(
                     MESSAGES.confirmReport,
-                    locations.all[reporter.placeIds[0]].name,
+                    locations.all[reporter.currentPlaceId].name,
                     'Week ' + interval.week,
                     printResponses(survey.questions, sr.responses)
-                ), 2);
+                ), 3);
             });
         }
     }
 
-    if (step === 3) {
+    if (step === 4) {
         // Last step, receive comments.
         SurveyResponse.findOne({
             _surveyId: survey._id,
             _reporterId: reporter._id,
-            placeId: reporter.placeIds[0],
+            placeId: reporter.currentPlaceId,
             interval: interval
         }, function(err, sr) {
             sr.commentText = message;
@@ -221,7 +256,7 @@ module.exports = function(number, step, message, survey, reporter, callback) {
         });
         var baseMessage = util.format(
             MESSAGES.questions,
-            locations.all[reporter.placeIds[0]].name,
+            locations.all[reporter.currentPlaceId].name,
             'Week ' + interval.week
         );
         return baseMessage + '\n' + dataList.join(',\n');
@@ -233,13 +268,13 @@ module.exports = function(number, step, message, survey, reporter, callback) {
         SurveyResponse.findOne({
             _surveyId: survey._id,
             _reporterId: reporter._id,
-            placeId: reporter.placeIds[0],
+            placeId: reporter.currentPlaceId,
             interval: interval
         }, function(err, sr) {
             sr = sr || new SurveyResponse({
                 _surveyId: survey._id,
                 _reporterId: reporter._id,
-                placeId: reporter.placeIds[0],
+                placeId: reporter.currentPlaceId,
                 interval: interval
             });
             sr.phoneNumber = number;
@@ -253,10 +288,10 @@ module.exports = function(number, step, message, survey, reporter, callback) {
                 } else {
                     callback(null, util.format(
                         MESSAGES.confirmReport,
-                        locations.all[reporter.placeIds[0]].name,
+                        locations.all[reporter.currentPlaceId].name,
                         'Week ' + interval.week,
                         printResponses(survey.questions, sr.responses)
-                    ), 2);
+                    ), 3);
                 }
             });
         });
