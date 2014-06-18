@@ -2,37 +2,40 @@ var util = require('util'),
     moment = require('moment-timezone'),
     epi = require('epi-week'),
     request = require('request'),
+    locations = require('../../data/locations.json'),
     Reporter = require('../../models/Reporter'),
     SurveyResponse = require('../../models/SurveyResponse');
 
 var MESSAGES = {
     noSurveyFound: 'No survey found for this phone number.',
     registerFirst: 'This phone number has not been registered. Please use a registered phone or call the hotline for help.',
-    questions: '[MSF]: Please enter the following data for %s in %s:',
+    questions: '[MSF]: Please enter data for %s, %s:',
     numericInputRequired: 'Error: numeric input required for %s.',
-    confirm: 'Please review your report for %s in %s:\n%s\nIs this correct? Text "yes" or "no".',
-    generalError: 'Sorry, there was a problem with the system.  Please try again.',
-    thanks: 'Your report has been submitted.  Thank you!',
+    anyOtherDiseases: 'Any other diseases to report? Please provide details.',
+    confirmReport: 'Please review your report for %s, %s:\n%s.\nIs this correct? Text "yes" or "no".',
+    generalError: 'Sorry, there was a problem with the system. Please try again.',
+    thanks: 'Your report has been submitted. Thank you!',
 };
 
 // print out question responses
 function printResponses(questions, responses) {
-    var str = '';
+    var answers = [];
     for (var i = 0; i < responses.length; i++) {
         var q = questions[i], r = responses[i];
         var tr = r.textResponse;
         if (q.responseType === 'number' && r.numberResponse === null) {
             tr = 'Unknown';
         }
-        str = str + q.summaryText + ': ' + tr +'\n';
+        answers.push(q.summaryText + ': ' + tr);
     }
-    return str;
+    return answers.join(',\n');
 }
 
 // Report submission workflow.
 // Step 0: Instruct the reporter to enter disease data.
 // Step 1: Receive disease data, ask for confirmation.
-// TODO: Add a step to ask for any other diseases to report.
+// Step 2: Receive confirmation, ask for other comments.
+// Step 3: Save completed report.
 exports.report = function(number, step, message, survey, reporter, callback) {
     var survey;
     // Defaults to current epi week, need to make this configurable
@@ -55,7 +58,7 @@ exports.report = function(number, step, message, survey, reporter, callback) {
     }
 
     if (step === 1) {
-        // Attempt to grab responses from a comma separated list
+        // Receive comma-separated data, ask for confirmation.
         var answerInputs = message.split(',');
         if (answerInputs.length === survey.questions.length) {
             // try to use these answers for the actual report
@@ -80,7 +83,7 @@ exports.report = function(number, step, message, survey, reporter, callback) {
                         callback(null, util.format(
                             MESSAGES.numericInputRequired,
                             question.summaryText
-                        )+' '+printSurvey());
+                        ) + ' ' + printSurvey(), 1);
                         return;
                     }
                 } else {
@@ -103,9 +106,10 @@ exports.report = function(number, step, message, survey, reporter, callback) {
     }
 
     if (step === 2) {
+        // Receive yes/no confirmation, ask for comments.
         var words = message.replace(/[^\w\s]/g, '').trim().split(/\s+/);
         if (words[0].toLowerCase() === 'yes') {
-            finalizeSurveyResponse();
+            callback(null, MESSAGES.anyOtherDiseases, 3);
         } else if (words[0].toLowerCase() === 'no') {
             callback(null, printSurvey(), 1);
         } else {
@@ -117,15 +121,42 @@ exports.report = function(number, step, message, survey, reporter, callback) {
             }, function(err, sr) {
                 if (err || !sr) {
                     callback(err || 'missing sr', printSurvey(), 1);
+                    return;
                 }
                 callback(null, util.format(
-                    MESSAGES.confirm,
-                    reporter.placeIds[0],
-                    'Epi Week '+interval.week+' ('+interval.year+')',
+                    MESSAGES.confirmReport,
+                    locations.all[reporter.placeIds[0]].name,
+                    'Week ' + interval.week,
                     printResponses(survey.questions, sr.responses)
                 ), 2);
             });
         }
+    }
+
+    if (step === 3) {
+        // Last step, receive comments.
+        SurveyResponse.findOne({
+            _surveyId: survey._id,
+            _reporterId: reporter._id,
+            placeId: reporter.placeIds[0],
+            interval: interval
+        }, function(err, sr) {
+            sr.commentText = message;
+            sr.complete = true;
+            sr.completedOn = new Date();
+            sr.save(function(err) {
+                if (err) {
+                    callback(err, MESSAGES.generalError);
+                    return;
+                }
+                callback(err, MESSAGES.thanks);
+                /*
+                if (survey.cmId) {
+                    pushToCrisisMaps(survey, sr, reporter);
+                }
+                */
+            });
+        });
     }
 
     // print out survey questions
@@ -135,8 +166,8 @@ exports.report = function(number, step, message, survey, reporter, callback) {
         });
         var baseMessage = util.format(
             MESSAGES.questions,
-            reporter.placeIds[0],
-            'Epi Week ' + interval.week + ' (' + interval.year + ')'
+            locations.all[reporter.placeIds[0]].name,
+            'Week ' + interval.week
         );
         return baseMessage + '\n' + dataList.join(',\n');
     }
@@ -165,45 +196,13 @@ exports.report = function(number, step, message, survey, reporter, callback) {
                     console.log(err);
                     callback(err, MESSAGES.generalError);
                 } else {
-                    var msg = util.format(
-                        MESSAGES.confirm,
-                        reporter.placeIds[0],
-                        'Epi Week '+interval.week+' ('+interval.year+')',
-                        printResponses(survey.questions, responses)
-                    );
-                    callback(null, msg, 2);
+                    callback(null, util.format(
+                        MESSAGES.confirmReport,
+                        locations.all[reporter.placeIds[0]].name,
+                        'Week ' + interval.week,
+                        printResponses(survey.questions, sr.responses)
+                    ), 2);
                 }
-            });
-        });
-    }
-
-    // Upon receiving confirmation, close out a pending response.
-    function finalizeSurveyResponse() {
-        // Find pending survey response
-        SurveyResponse.findOne({
-            _surveyId: survey._id,
-            _reporterId: reporter._id,
-            placeId: reporter.placeIds[0],
-            interval: interval
-        }, function(err, sr) {
-            if (!sr) {
-                callback(err, MESSAGES.noResponse);
-                return;
-            }
-            sr.complete = true;
-            sr.completedOn = new Date();
-            sr.commentText = message;
-            sr.save(function(err) {
-                if (err) {
-                    callback(err, MESSAGES.generalError);
-                    return;
-                }
-                callback(err, MESSAGES.thanks);
-                /*
-                if (survey.cmId) {
-                    pushToCrisisMaps(survey, sr, reporter);
-                }
-                */
             });
         });
     }
