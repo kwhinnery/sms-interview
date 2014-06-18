@@ -33,7 +33,10 @@
     "jquery": "^2.1.1",
     "knockout": "^3.1.0",
     "express-ejs-layouts": "^0.3.1",
-    "http-auth": "^2.1.7"
+    "http-auth": "^2.1.7",
+    "moment": "^2.7.0",
+    "moment-timezone": "^0.0.6",
+    "epi-week": "0.0.1"
   },
   "devDependencies": {
     "mocha": "^1.18.2"

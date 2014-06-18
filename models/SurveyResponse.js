@@ -66,6 +66,11 @@ var SurveyResponseSchema = new mongoose.Schema({
         required: true
     },
     _reporterId: mongoose.Schema.Types.ObjectId,
+    interval: {
+        week: Number,
+        year: Number
+    },
+    placeId: String,
     state: Number, // state of the interview process
     phoneNumber: { // phone number of the reporter
         type: String,

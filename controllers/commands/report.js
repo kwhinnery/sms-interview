@@ -1,4 +1,6 @@
 var util = require('util'),
+    moment = require('moment-timezone'),
+    epi = require('epi-week'),
     Reporter = require('../../models/Reporter'),
     Survey = require('../../models/Survey'),
     SurveyResponse = require('../../models/SurveyResponse');
@@ -6,17 +8,21 @@ var util = require('util'),
 var MESSAGES = {
     noSurveyFound: 'No survey found for this phone number.',
     registerFirst: 'This phone number has not yet been registered - text the "register" command to sign up.',
-    questions: '[MSF]: Please enter the following data for ACHIDA in epi week 25:',
+    questions: '[MSF]: Please enter the following data for %s in %s:',
     numericInputRequired: 'Error: numeric input required for %s.',
-    confirm: 'Submit this report for ',
+    confirm: 'About to submit the following data for %s in %s:%s \nText "confirm <any comments>" to confirm and submit this data.',
     generalError: 'Sorry, there was a problem with the system.  Please try again.'
 };
 
 // Handle a command to create a new report 
 exports.report = function(number, message, surveyId, callback) {
     var survey, reporter;
+    // Defaults to current epi week, need to make this configurable
+    var interval = epi(moment().tz('Africa/Lagos').toDate());
 
-    // Determine which survey we're working with...
+    // Determine which survey, reporter we're working with...
+    // TODO: also determine which place we're currently reporting for, currently
+    // hard coded for the first place associated with a user
     Survey.findById(surveyId, function(err, doc) {
         if (err || !doc) {
             console.log(err);
@@ -43,7 +49,12 @@ exports.report = function(number, message, surveyId, callback) {
         var dataList = survey.questions.map(function(question) {
             return question.summaryText;
         });
-        return MESSAGES.questions + '\n' + dataList.join(',\n');
+        var baseMessage = util.format(
+            MESSAGES.questions,
+            reporter.placeIds[0],
+            'Week: '+interval.week+', Year: '+interval.year
+        );
+        return baseMessage + '\n' + dataList.join(',\n');
     }
 
     // process user command input
@@ -100,14 +111,14 @@ exports.report = function(number, message, surveyId, callback) {
         var sr = new SurveyResponse({
             _surveyId: surveyId,
             _reporterId: reporter._id,
+            placeId: reporter.placeIds[0],
+            interval: interval,
             phoneNumber: number,
-            complete: true,
-            completedOn: new Date(),
+            complete: false,
             commentText: '',
             responses: responses
         });
-        // TODO: Ask for confirmation before saving the response.
-        // TODO: Push the response to Crisis Map.
+        
         sr.save(function(err) {
             if (err) {
                 console.log(err);
