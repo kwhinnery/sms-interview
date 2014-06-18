@@ -88,15 +88,15 @@ exports.webhook = function(request, response) {
                     if (err) {
                         console.error(err);
                     }
-                    respond(message, gateway, request, response, number);
                     reporter.currentCommand = nextStep ? commandName : null;
                     reporter.nextStep = nextStep || 0;
                     reporter.save(function (err) {
                         if (err) console.error(err);
-                        console.log('[' + number + '] step completed:' +
-                            ' command=' + reporter.currentCommand +
-                            ' nextStep=' + reporter.nextStep);
                     });
+                    console.log('[' + number + '] step completed:' +
+                        ' command=' + reporter.currentCommand +
+                        ' nextStep=' + reporter.nextStep);
+                    respond(message, gateway, request, response, number);
                 }
             );
         } else {
