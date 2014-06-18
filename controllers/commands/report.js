@@ -11,65 +11,9 @@ var MESSAGES = {
     registerFirst: 'This phone number has not yet been registered - text the "register" command to sign up.',
     questions: '[MSF]: Please enter the following data for %s in %s:',
     numericInputRequired: 'Error: numeric input required for %s.',
-    confirm: 'About to submit the following data for %s in %s:%s \nText "confirm <any comments>" to confirm and submit this data.',
+    confirm: 'About to submit the following data for %s in %s:\n%s \nText "confirm <any comments>" to confirm and submit this data.',
     generalError: 'Sorry, there was a problem with the system.  Please try again.'
 };
-
-var SOURCE_URL = 'http://sms-interview-msf.herokuapp.com/';
-
-// Submit a survey response to Crisis Map using its API.
-function pushToCrisisMaps(survey, response, reporter) {
-    // data needed to submit a reply to the Crisis Map API
-    var formData = {
-        source: SOURCE_URL,
-        author: 'tel:' + response.phoneNumber,
-        id: SOURCE_URL + 'responses/' + response._id,
-        map_id: survey.cmId,
-        topic_ids: [survey.cmId + '.' + survey.cmTopicId],
-        submitted: response.completedOn.getTime()/1000,
-        effective: new Date().getTime()/1000, // TODO: EPI week
-        location: [reporter.locationLat, reporter.locationLng], // TODO
-        place_id: reporter.placeId, // TODO
-        answers: {}
-    };
-
-    // Format answers
-    for (var i = 0, l = response.responses.length; i<l; i++) {
-        var resp = response.responses[i];
-
-        // Create specially formatted answer key
-        var cmAnswerKey = [
-            survey.cmId,
-            survey.cmTopicId,
-            survey.questions[i].cmId
-        ].join('.');
-
-        // Use the type appropriate for the question
-        var actualAnswer = resp.textResponse;
-        if (survey.questions[i].responseType === 'number') {
-            actualAnswer = resp.numberResponse;
-        }
-
-        formData.answers[cmAnswerKey] = actualAnswer;
-    }
-
-    // Submit new crisis maps API response
-    console.log('[' + response.phoneNumber + '] posting to Crisis Map: ',
-        formData);
-    request({
-        method: 'POST',
-        url: 'https://msfcrisismap.appspot.com/.api/reports',
-        qs: {key: survey.cmApiKey},
-        json: [formData]
-    }, function(err, message, apiResponse) {
-        console.log('[' + response.phoneNumber + '] reply from Crisis Map: ',
-            apiResponse);
-        // For now this is out of band, just log any error or success
-        if (err) {
-            console.error(err);
-        }
-    });
-}
 
 // Handle a command to create a new report 
 exports.report = function(number, message, surveyId, callback) {
@@ -109,9 +53,23 @@ exports.report = function(number, message, surveyId, callback) {
         var baseMessage = util.format(
             MESSAGES.questions,
             reporter.placeIds[0],
-            'Week: '+interval.week+', Year: '+interval.year
+            'Epi Week '+interval.week+' ('+interval.year+')'
         );
         return baseMessage + '\n' + dataList.join(',\n');
+    }
+
+    // print out question responses
+    function printResponses(questions, responses) {
+        var str = '';
+        for (var i = 0; i < responses.length; i++) {
+            var q = questions[i], r = responses[i];
+            var tr = r.textResponse;
+            if (q.responseType === 'number' && r.numberResponse === null) {
+                tr = 'Unknown';
+            }
+            str = str + q.summaryText + ': ' + tr +'\n';
+        }
+        return str;
     }
 
     // process user command input
@@ -165,31 +123,50 @@ exports.report = function(number, message, surveyId, callback) {
 
     // With current data collected, create and save a SurveyResponse
     function createSurveyResponse(responses) {
-        var sr = new SurveyResponse({
+        var sr;
+
+        // Create new or update pending response
+        SurveyResponse.findOne({
             _surveyId: surveyId,
             _reporterId: reporter._id,
             placeId: reporter.placeIds[0],
-            interval: interval,
-            phoneNumber: number,
-            complete: false,
-            commentText: '',
-            responses: responses
-        });
-        
-        sr.save(function(err) {
-            if (err) {
-                console.log(err);
-                callback(err, MESSAGES.generalError);
+            interval: interval
+        }, function(err, doc) {
+            if (doc) {
+                console.log()
+                sr = doc;
+                updateResponse();
             } else {
-                callback(null, 'Your report has been successfully completed.  Thank you for this information.');
-                if (survey.cmId) {
-                    pushToCrisisMaps(survey, sr, reporter);
-                }
+                sr = new SurveyResponse({
+                    _surveyId: surveyId,
+                    _reporterId: reporter._id,
+                    placeId: reporter.placeIds[0],
+                    interval: interval
+                });
+                updateResponse();
             }
         });
-    }
-};
 
-exports.change = function(number, message, surveyId, callback) {
-    callback(null, 'testing change...');
+        // Update response with inputs
+        function updateResponse() {
+            sr.phoneNumber = number;
+            sr.complete = false;
+            sr.commentText = '';
+            sr.responses = responses;
+            sr.save(function(err) {
+                if (err) {
+                    console.log(err);
+                    callback(err, MESSAGES.generalError);
+                } else {
+                    var msg = util.format(
+                        MESSAGES.confirm,
+                        reporter.placeIds[0],
+                        'Epi Week '+interval.week+' ('+interval.year+')',
+                        printResponses(survey.questions, responses)
+                    );
+                    callback(null, msg);
+                }
+            });
+        }
+    }
 };

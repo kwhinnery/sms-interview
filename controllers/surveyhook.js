@@ -52,12 +52,8 @@ exports.webhook = function(request, response) {
         command = commands.register;
     } else if (commandTextCompare === 'report') {
         command = commands.report;
-    } else if (commandTextCompare === 'change') {
-        command = commands.change;
-    } else if (commandTextCompare === 'ok') {
-        command = commands.ok;
-    } else if (commandTextCompare === 'comment') {
-        command = commands.comment;
+    } else if (commandTextCompare === 'confirm') {
+        command = commands.confirm;
     }
 
     if (command) {
