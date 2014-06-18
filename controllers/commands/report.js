@@ -128,14 +128,13 @@ module.exports = function(number, step, message, survey, reporter, callback) {
             // Ask the user to choose their location
             callback(null, 
                 MESSAGES.chooseLocation+printLocations(reporter.placeIds), 1);
+            return;
         }
-        return;
     }
 
     if (step === 1) {
         // grab the chosen place ID
         var words = message.replace(/[^\w\s]/g, '').trim().split(/\s+/);
-        console.log(words);
         var placeIndex = Number(words[0]);
         if (isNaN(placeIndex) || placeIndex > reporter.placeIds.length) {
             var msg = MESSAGES.locationNumberError +
