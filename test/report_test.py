@@ -88,3 +88,43 @@ Please reply with a number in this list:
 Please enter data for ALIERO S/FADA II, Week 25 in order: Name.
 For unknowns enter "U".
 ''')
+
+def test_interrupt_report(disease_survey, phone1):
+    s, p1 = disease_survey, phone1
+    s.send(p1, 'register kb.1.5')
+    assert norm_spaces(s.send(p1, 'report')) == norm_spaces('''
+Please enter data for DANWARAI, Week 25 in order:
+Measles, Measles deaths, CSM, CSM deaths, GE, GE deaths.
+For unknowns enter "U".
+''')
+    s.send(p1, '1,2,3,4,5,6')
+    assert norm_spaces(s.send(p1, 'yes')) == norm_spaces('''
+Any other diseases to report? Please provide details.
+''')
+    # Now in locked mode, the word "register" should be part of the comment.
+    assert norm_spaces(s.send(p1, 'register')) == norm_spaces('''
+Your report has been submitted. Thank you!''')
+
+    # Start another report.
+    assert norm_spaces(s.send(p1, 'report')) == norm_spaces('''
+Please enter data for DANWARAI, Week 25 in order:
+Measles, Measles deaths, CSM, CSM deaths, GE, GE deaths.
+For unknowns enter "U".
+''')
+    # Instead of producing an error message about the report, this registers.
+    assert norm_spaces(s.send(p1, 'register so.22.8 kb.1.5')) == norm_spaces('''
+You are now registered for 2 locations:
+Ward: ACHIDA, WURNO, SOKOTO;
+Ward: DANWARAI, ALIERO, KEBBI''')
+
+    # Start another report.
+    assert norm_spaces(s.send(p1, 'report')) == norm_spaces('''
+Which location are you reporting for? Reply with a number:
+1: ACHIDA, 2: DANWARAI
+''')
+    # Instead of an error message about the location, this restarts.
+    assert norm_spaces(s.send(p1, 'report')) == norm_spaces('''
+Which location are you reporting for? Reply with a number:
+1: ACHIDA, 2: DANWARAI
+''')
+    s.send(p1, '1')

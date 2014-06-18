@@ -74,13 +74,14 @@ exports.webhook = function(request, response) {
     // Invoke the appropriate step of the appropriate command.
     function dispatchCommand(number, message, survey, reporter) {
         var step = 0;
-        if (reporter.currentCommand) {
+        var commandName = message.split(' ')[0].toLowerCase();
+        if (commands[commandName] && !reporter.lockCurrentCommand) {
+            message = message.substr(commandName.length).trim();
+        } else {
             commandName = reporter.currentCommand;
             step = reporter.nextStep;
-        } else {
-            var commandName = message.split(' ')[0].toLowerCase();
-            message = message.substr(commandName.length).trim();
         }
+        reporter.lockCurrentCommand = false; // a lock lasts for only one step
         var command = commands[commandName];
         if (command) {
             command(number, step, message, survey, reporter,

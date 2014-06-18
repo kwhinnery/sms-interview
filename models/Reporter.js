@@ -13,6 +13,10 @@ var ReporterSchema = new mongoose.Schema({
     currentPlaceId: String, // current place ID we're reporting for
     placeIds: [String], // placeIds of locations associated with this reporter
     surveyResponseId: String, // survey response in progress
+    lockCurrentCommand: {  // for the next reply, ignore other commands
+        type: Boolean,
+        default: false
+    },
     currentCommand: String, // command name, if a command is in progress
     nextStep: Number // 0 if no command is in progress
 });

@@ -238,6 +238,9 @@ module.exports = function(number, step, message, survey, reporter, callback) {
         // Receive yes/no confirmation, ask for comments.
         var words = message.replace(/[^\w\s]/g, '').trim().split(/\s+/);
         if (words[0].toLowerCase() === 'yes') {
+            // Even if the next message starts with "report" or "register",
+            // treat it as part of the comment.
+            reporter.lockCurrentCommand = true;
             return callback(null, MESSAGES.anyOtherDiseases, EXPECT_COMMENT);
         }
         if (words[0].toLowerCase() === 'no') {
