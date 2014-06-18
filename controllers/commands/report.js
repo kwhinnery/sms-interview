@@ -9,16 +9,23 @@ var util = require('util'),
 var MESSAGES = {
     noSurveyFound: 'No survey found for this phone number.',
     notRegistered: 'Your phone number has not been registered. Please use a registered phone or call the hotline for help.',
-    survey: 'Please enter data for %s, %s in this order: %s. For any unknown items, enter "U".',
-    chooseLocation: 'What location would you like to report for? Text the number in front of the name to choose:\n',
-    commaSeparatedFieldsRequired: 'Please enter data for %s, %s as %d items with a comma after each: %s. For any unknown items, enter "U".',
-    numberRequired: 'A number (or "U" for unknown) is required for %s. Please enter data for %s, %s in this order: %s.',
-    locationNumberError: 'Error: Please choose a valid number from these choices:\n',
+    survey: 'Please enter data for %s, %s in order: %s. For unknowns enter "U".',
+    chooseLocation: 'Which location are you reporting for? Reply with a number:\n%s',
+    fieldsRequired: 'Please enter data for %s, %s as %d items with a comma after each: %s. For unknowns enter "U".',
+    numberRequired: 'A number (or "U" for unknown) is required for %s. Please enter data for %s, %s in order: %s.',
+    locationNumberRequired: 'Please reply with a number in this list:\n%s',
     anyOtherDiseases: 'Any other diseases to report? Please provide details.',
-    confirmReport: 'Please review your report for %s, %s:\n%s.\nIs this correct? Reply "yes" or "no".',
+    confirmReport: 'For %s, %s we have:\n%s.\nIs this correct? Reply "yes" or "no".',
     generalError: 'Sorry, there was a problem with the system. Please try again.',
     thanks: 'Your report has been submitted. Thank you!',
 };
+
+// Steps
+var GIVE_INSTRUCTIONS = 0;
+var EXPECT_LOCATION = 1;
+var EXPECT_DATA = 2;
+var EXPECT_CONFIRMATION = 3;
+var EXPECT_COMMENT = 4;
 
 var SOURCE_URL = 'http://sms-interview-msf.herokuapp.com/';
 var CRISIS_MAP_API_URL = 'https://msfcrisismap.appspot.com/.api/reports';
@@ -63,6 +70,7 @@ function pushToCrisisMap(survey, response, reporter) {
         effective: new Date().getTime()/1000, // TODO: EPI week
         location: [location.centroidLat, location.centroidLng],
         place_id: response.placeId,
+        text: response.commentText,
         answers: {}
     };
 
@@ -115,12 +123,10 @@ module.exports = function(number, step, message, survey, reporter, callback) {
     var intervalName = 'Week ' + interval.week;
 
     if (!survey) {
-        callback(null, MESSAGES.noSurveyFound);
-        return;
+        return callback(null, MESSAGES.noSurveyFound);
     }
     if (!reporter.placeIds || !reporter.placeIds.length) {
-        callback(null, MESSAGES.notRegistered);
-        return;
+        return callback(null, MESSAGES.notRegistered);
     };
 
     var dataList = survey.questions.map(function(q) { return q.summaryText; });
@@ -133,45 +139,38 @@ module.exports = function(number, step, message, survey, reporter, callback) {
             MESSAGES.survey, getPlaceName(), intervalName, questionList);
     }
 
-    if (step === 0) {
+    if (step === GIVE_INSTRUCTIONS) {
         // determine the current place ID
         if (reporter.placeIds.length === 1) {
             // If the user only has one, set it and move on
             reporter.currentPlaceId = reporter.placeIds[0];
-            callback(null, printSurvey(), 2);
-            return;
-            // fall through to step 2
+            return callback(null, printSurvey(), EXPECT_DATA);
         } else {
             // Ask the user to choose their location
-            callback(null, 
-                MESSAGES.chooseLocation+printLocations(reporter.placeIds), 1);
-            return;
+            return callback(null, util.format(MESSAGES.chooseLocation,
+                printLocations(reporter.placeIds)), EXPECT_LOCATION);
         }
     }
 
-    if (step === 1) {
+    if (step === EXPECT_LOCATION) {
         // grab the chosen place ID
         var words = message.replace(/[^\w\s]/g, '').trim().split(/\s+/);
         var placeIndex = Number(words[0]);
-        if (isNaN(placeIndex) || placeIndex > reporter.placeIds.length) {
-            var msg = MESSAGES.locationNumberError +
-                printLocations(reporter.placeIds);
-            callback(null, msg, 1);
-            return;
+        if (!(placeIndex >= 1 && placeIndex <= reporter.placeIds.length)) {
+            return callback(null, util.format(MESSAGES.locationNumberRequired,
+                printLocations(reporter.placeIds)), EXPECT_LOCATION);
         }
         reporter.currentPlaceId = reporter.placeIds[placeIndex-1];
-        callback(null, printSurvey(), 2);
-        return;
+        return callback(null, printSurvey(), EXPECT_DATA);
     }
 
-    if (step === 2) {
+    if (step === EXPECT_DATA) {
         // Receive comma-separated data, ask for confirmation.
         var answerInputs = message.split(',');
         if (answerInputs.length < survey.questions.length) {
-            callback(null, util.format(MESSAGES.commaSeparatedFieldsRequired,
+            return callback(null, util.format(MESSAGES.fieldsRequired,
                 getPlaceName(), intervalName, survey.questions.length,
-                questionList), 2);
-            return;
+                questionList), EXPECT_DATA);
         }
 
         var responses = [];
@@ -186,10 +185,9 @@ module.exports = function(number, step, message, survey, reporter, callback) {
                     numericValue = null;
                 }
                 if (isNaN(numericValue)) {
-                    callback(null, util.format(MESSAGES.numberRequired,
+                    return callback(null, util.format(MESSAGES.numberRequired,
                         question.summaryText, getPlaceName(), intervalName,
-                        questionList), 2);
-                    return;
+                        questionList), EXPECT_DATA);
                 }
                 responses.push({
                     _questionId: question._id,
@@ -225,28 +223,25 @@ module.exports = function(number, step, message, survey, reporter, callback) {
             sr.save(function(err) {
                 if (err) {
                     console.log(err);
-                    callback(err, MESSAGES.generalError);
-                    return;
+                    return callback(err, MESSAGES.generalError);
                 }
-                callback(null, util.format(
+                return callback(null, util.format(
                     MESSAGES.confirmReport, getPlaceName(), intervalName,
                     printResponses(survey.questions, sr.responses)
-                ), 3);
+                ), EXPECT_CONFIRMATION);
             });
         });
         return;
     }
 
-    if (step === 3) {
+    if (step === EXPECT_CONFIRMATION) {
         // Receive yes/no confirmation, ask for comments.
         var words = message.replace(/[^\w\s]/g, '').trim().split(/\s+/);
         if (words[0].toLowerCase() === 'yes') {
-            callback(null, MESSAGES.anyOtherDiseases, 4);
-            return;
+            return callback(null, MESSAGES.anyOtherDiseases, EXPECT_COMMENT);
         }
         if (words[0].toLowerCase() === 'no') {
-            callback(null, printSurvey(), 2);
-            return;
+            return callback(null, printSurvey(), EXPECT_DATA);
         }
         SurveyResponse.findOne({
             _surveyId: survey._id,
@@ -255,18 +250,17 @@ module.exports = function(number, step, message, survey, reporter, callback) {
             interval: interval
         }, function(err, sr) {
             if (err || !sr) {
-                callback(err || 'missing sr', printSurvey(), 2);
-                return;
+                return callback(err || 'missing sr', printSurvey(), EXPECT_DATA);
             }
-            callback(null, util.format(
+            return callback(null, util.format(
                 MESSAGES.confirmReport, getPlaceName(), intervalName,
                 printResponses(survey.questions, sr.responses)
-            ), 3);
+            ), EXPECT_CONFIRMATION);
         });
         return;
     }
 
-    if (step === 4) {
+    if (step === EXPECT_COMMENT) {
         // Last step, receive comments.
         SurveyResponse.findOne({
             _surveyId: survey._id,
@@ -279,13 +273,12 @@ module.exports = function(number, step, message, survey, reporter, callback) {
             sr.completedOn = new Date();
             sr.save(function(err) {
                 if (err) {
-                    callback(err, MESSAGES.generalError);
-                    return;
+                    return callback(err, MESSAGES.generalError);
                 }
-                callback(err, MESSAGES.thanks);
                 if (survey.cmId) {
                     pushToCrisisMap(survey, sr, reporter);
                 }
+                return callback(err, MESSAGES.thanks);
             });
         });
     }

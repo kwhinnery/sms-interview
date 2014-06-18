@@ -11,8 +11,8 @@ var MESSAGES = {
 
 // Respond with the appropriate content, depending on the messaging provider
 // Right now, it's either Twilio or Telerivet
-function respond(message, gateway, request, response, phoneNumber) {
-    console.log('['+phoneNumber+'] sending reply: ' + message);
+function respond(message, gateway, request, response, number) {
+    console.log('[' + number + '] sending ' + message.length + 'c: ' + message);
     if (gateway === 'telerivet') {
         // Telerivet requires JSON response
         var res = {
