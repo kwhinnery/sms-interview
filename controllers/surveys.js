@@ -62,6 +62,24 @@ exports.update = function(request, response) {
     }); 
 };
 
+exports.updateSettings = function(request, response) {
+    var id = request.param('id'),
+        mapId = request.param('mapId'),
+        topicId = request.param('topicId'),
+        apiKey = request.param('apiKey');
+    Survey.findByIdAndUpdate(id, {
+        cmId: mapId,
+        cmTopicId: topicId,
+        cmApiKey: apiKey
+    }, function(err, doc) {
+        if (err) {
+            response.send(500, err);
+        } else {
+            response.send(doc);
+        }
+    }); 
+};
+
 // Import and save a survey from crisis maps data
 exports.createFromCrisisMaps = function(request, response) {
     var mapId = request.param('mapId'),

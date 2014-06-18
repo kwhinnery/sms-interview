@@ -1,6 +1,7 @@
 var util = require('util'),
     moment = require('moment-timezone'),
     epi = require('epi-week'),
+    request = require('request'),
     Reporter = require('../../models/Reporter'),
     Survey = require('../../models/Survey'),
     SurveyResponse = require('../../models/SurveyResponse');
@@ -13,6 +14,62 @@ var MESSAGES = {
     confirm: 'About to submit the following data for %s in %s:%s \nText "confirm <any comments>" to confirm and submit this data.',
     generalError: 'Sorry, there was a problem with the system.  Please try again.'
 };
+
+var SOURCE_URL = 'http://sms-interview-msf.herokuapp.com/';
+
+// Submit a survey response to Crisis Map using its API.
+function pushToCrisisMaps(survey, response, reporter) {
+    // data needed to submit a reply to the Crisis Map API
+    var formData = {
+        source: SOURCE_URL,
+        author: 'tel:' + response.phoneNumber,
+        id: SOURCE_URL + 'responses/' + response._id,
+        map_id: survey.cmId,
+        topic_ids: [survey.cmId + '.' + survey.cmTopicId],
+        submitted: response.completedOn.getTime()/1000,
+        effective: new Date().getTime()/1000, // TODO: EPI week
+        location: [reporter.locationLat, reporter.locationLng], // TODO
+        place_id: reporter.placeId, // TODO
+        answers: {}
+    };
+
+    // Format answers
+    for (var i = 0, l = response.responses.length; i<l; i++) {
+        var resp = response.responses[i];
+
+        // Create specially formatted answer key
+        var cmAnswerKey = [
+            survey.cmId,
+            survey.cmTopicId,
+            survey.questions[i].cmId
+        ].join('.');
+
+        // Use the type appropriate for the question
+        var actualAnswer = resp.textResponse;
+        if (survey.questions[i].responseType === 'number') {
+            actualAnswer = resp.numberResponse;
+        }
+
+        formData.answers[cmAnswerKey] = actualAnswer;
+    }
+
+    // Submit new crisis maps API response
+    console.log('[' + response.phoneNumber + '] posting to Crisis Map: ',
+        formData);
+    request({
+        method: 'POST',
+        url: 'https://msfcrisismap.appspot.com/.api/reports',
+        qs: {key: survey.cmApiKey},
+        json: [formData]
+    }, function(err, message, apiResponse) {
+        console.log('[' + response.phoneNumber + '] reply from Crisis Map: ',
+            apiResponse);
+        // For now this is out of band, just log any error or success
+        if (err) {
+            console.error(err);
+        }
+    });
+}
 
 // Handle a command to create a new report 
 exports.report = function(number, message, surveyId, callback) {
@@ -125,6 +182,9 @@ exports.report = function(number, message, surveyId, callback) {
                 callback(err, MESSAGES.generalError);
             } else {
                 callback(null, 'Your report has been successfully completed.  Thank you for this information.');
+                if (survey.cmId) {
+                    pushToCrisisMaps(survey, sr, reporter);
+                }
             }
         });
     }
