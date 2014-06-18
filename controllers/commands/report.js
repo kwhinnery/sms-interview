@@ -3,78 +3,58 @@ var util = require('util'),
     epi = require('epi-week'),
     request = require('request'),
     Reporter = require('../../models/Reporter'),
-    Survey = require('../../models/Survey'),
     SurveyResponse = require('../../models/SurveyResponse');
 
 var MESSAGES = {
     noSurveyFound: 'No survey found for this phone number.',
-    registerFirst: 'This phone number has not yet been registered - text the "register" command to sign up.',
+    registerFirst: 'This phone number has not been registered. Please use a registered phone or call the hotline for help.',
     questions: '[MSF]: Please enter the following data for %s in %s:',
     numericInputRequired: 'Error: numeric input required for %s.',
-    confirm: 'About to submit the following data for %s in %s:\n%s \nText "confirm <any comments>" to confirm and submit this data.',
-    generalError: 'Sorry, there was a problem with the system.  Please try again.'
+    confirm: 'Please review your report for %s in %s:\n%s\nIs this correct? Text "yes" or "no".',
+    generalError: 'Sorry, there was a problem with the system.  Please try again.',
+    thanks: 'Your report has been submitted.  Thank you!',
 };
 
-// Handle a command to create a new report 
-exports.report = function(number, message, surveyId, callback) {
-    var survey, reporter;
+// print out question responses
+function printResponses(questions, responses) {
+    var str = '';
+    for (var i = 0; i < responses.length; i++) {
+        var q = questions[i], r = responses[i];
+        var tr = r.textResponse;
+        if (q.responseType === 'number' && r.numberResponse === null) {
+            tr = 'Unknown';
+        }
+        str = str + q.summaryText + ': ' + tr +'\n';
+    }
+    return str;
+}
+
+// Report submission workflow.
+// Step 0: Instruct the reporter to enter disease data.
+// Step 1: Receive disease data, ask for confirmation.
+// TODO: Add a step to ask for any other diseases to report.
+exports.report = function(number, step, message, survey, reporter, callback) {
+    var survey;
     // Defaults to current epi week, need to make this configurable
     var interval = epi(moment().tz('Africa/Lagos').toDate());
 
-    // Determine which survey, reporter we're working with...
     // TODO: also determine which place we're currently reporting for, currently
     // hard coded for the first place associated with a user
-    Survey.findById(surveyId, function(err, doc) {
-        if (err || !doc) {
-            console.log(err);
-            callback(err, MESSAGES.noSurveyFound);
-        } else {
-            survey = doc;
-            // Now find the reporter
-            Reporter.findOne({
-                phoneNumbers: number
-            }, function(err, rep) {
-                if (!rep) {
-                    callback(err, MESSAGES.registerFirst);
-                } else {
-                    console.log('[' + number + '] found reporter: ' + rep._id);
-                    reporter = rep;
-                    processInput();
-                }
-            });
-        }
-    });
+    if (!survey) {
+        callback(null, MESSAGES.noSurveyFound);
+        return;
+    }
+    if (!reporter.placeIds || !reporter.placeIds.length) {
+        callback(null, MESSAGES.registerFirst);
+        return;
+    };
 
-    // print out survey questions
-    function printSurvey() {
-        var dataList = survey.questions.map(function(question) {
-            return question.summaryText;
-        });
-        var baseMessage = util.format(
-            MESSAGES.questions,
-            reporter.placeIds[0],
-            'Epi Week '+interval.week+' ('+interval.year+')'
-        );
-        return baseMessage + '\n' + dataList.join(',\n');
+    if (step === 0) {
+        callback(null, printSurvey(), 1);
+        return;
     }
 
-    // print out question responses
-    function printResponses(questions, responses) {
-        var str = '';
-        for (var i = 0; i < responses.length; i++) {
-            var q = questions[i], r = responses[i];
-            var tr = r.textResponse;
-            if (q.responseType === 'number' && r.numberResponse === null) {
-                tr = 'Unknown';
-            }
-            str = str + q.summaryText + ': ' + tr +'\n';
-        }
-        return str;
-    }
-
-    // process user command input
-    function processInput() {
-
+    if (step === 1) {
         // Attempt to grab responses from a comma separated list
         var answerInputs = message.split(',');
         if (answerInputs.length === survey.questions.length) {
@@ -113,42 +93,69 @@ exports.report = function(number, message, surveyId, callback) {
             }
 
             // Now that we have answers processed, create a survey response
-            createSurveyResponse(responses);
+            updateSurveyResponse(responses);
 
         } else {
             // otherwise, print out current questions
-            callback(null, printSurvey());
+            callback(null, printSurvey(), 1);
+        }
+        return;
+    }
+
+    if (step === 2) {
+        var words = message.replace(/[^\w\s]/g, '').trim().split(/\s+/);
+        if (words[0].toLowerCase() === 'yes') {
+            finalizeSurveyResponse();
+        } else if (words[0].toLowerCase() === 'no') {
+            callback(null, printSurvey(), 1);
+        } else {
+            SurveyResponse.findOne({
+                _surveyId: survey._id,
+                _reporterId: reporter._id,
+                placeId: reporter.placeIds[0],
+                interval: interval
+            }, function(err, sr) {
+                if (err || !sr) {
+                    callback(err || 'missing sr', printSurvey(), 1);
+                }
+                callback(null, util.format(
+                    MESSAGES.confirm,
+                    reporter.placeIds[0],
+                    'Epi Week '+interval.week+' ('+interval.year+')',
+                    printResponses(survey.questions, sr.responses)
+                ), 2);
+            });
         }
     }
 
-    // With current data collected, create and save a SurveyResponse
-    function createSurveyResponse(responses) {
-        var sr;
+    // print out survey questions
+    function printSurvey() {
+        var dataList = survey.questions.map(function(question) {
+            return question.summaryText;
+        });
+        var baseMessage = util.format(
+            MESSAGES.questions,
+            reporter.placeIds[0],
+            'Epi Week ' + interval.week + ' (' + interval.year + ')'
+        );
+        return baseMessage + '\n' + dataList.join(',\n');
+    }
 
+    // Save the current data to a new or existing SurveyResponse.
+    function updateSurveyResponse(responses) {
         // Create new or update pending response
         SurveyResponse.findOne({
-            _surveyId: surveyId,
+            _surveyId: survey._id,
             _reporterId: reporter._id,
             placeId: reporter.placeIds[0],
             interval: interval
-        }, function(err, doc) {
-            if (doc) {
-                console.log()
-                sr = doc;
-                updateResponse();
-            } else {
-                sr = new SurveyResponse({
-                    _surveyId: surveyId,
-                    _reporterId: reporter._id,
-                    placeId: reporter.placeIds[0],
-                    interval: interval
-                });
-                updateResponse();
-            }
-        });
-
-        // Update response with inputs
-        function updateResponse() {
+        }, function(err, sr) {
+            sr = sr || new SurveyResponse({
+                _surveyId: survey._id,
+                _reporterId: reporter._id,
+                placeId: reporter.placeIds[0],
+                interval: interval
+            });
             sr.phoneNumber = number;
             sr.complete = false;
             sr.commentText = '';
@@ -164,9 +171,40 @@ exports.report = function(number, message, surveyId, callback) {
                         'Epi Week '+interval.week+' ('+interval.year+')',
                         printResponses(survey.questions, responses)
                     );
-                    callback(null, msg);
+                    callback(null, msg, 2);
                 }
             });
-        }
+        });
+    }
+
+    // Upon receiving confirmation, close out a pending response.
+    function finalizeSurveyResponse() {
+        // Find pending survey response
+        SurveyResponse.findOne({
+            _surveyId: survey._id,
+            _reporterId: reporter._id,
+            placeId: reporter.placeIds[0],
+            interval: interval
+        }, function(err, sr) {
+            if (!sr) {
+                callback(err, MESSAGES.noResponse);
+                return;
+            }
+            sr.complete = true;
+            sr.completedOn = new Date();
+            sr.commentText = message;
+            sr.save(function(err) {
+                if (err) {
+                    callback(err, MESSAGES.generalError);
+                    return;
+                }
+                callback(err, MESSAGES.thanks);
+                /*
+                if (survey.cmId) {
+                    pushToCrisisMaps(survey, sr, reporter);
+                }
+                */
+            });
+        });
     }
 };
