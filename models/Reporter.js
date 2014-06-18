@@ -10,9 +10,7 @@ var ReporterSchema = new mongoose.Schema({
         type: Boolean,
         default: false
     },
-
-    // Store locations for this reporter
-    locations: [mongoose.Schema.Types.Mixed]
+    placeIds: [String] // placeIds of locations associated with this reporter
 });
 
 // Create a new record in the reporter's location history for non-duplicate

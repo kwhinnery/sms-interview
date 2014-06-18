@@ -34,7 +34,7 @@ the format:
 }
 
 */
-var locations = { childAdminLevel: 'state', children: {} },
+var locations = { childAdminLevel: 'state', children: {}, all: {} },
     rowsProcessed = 0,
     first = true;
 
@@ -64,6 +64,13 @@ csv.fromPath(path.join(__dirname, 'wards.csv')).on('record', function(data) {
             childAdminLevel: 'district',
             children: {}
         };
+        var placeId = stateCode;
+        locations.all[placeId] = {
+            placeId: placeId,
+            name: state,
+            allNames: [state],
+            levelName: 'State'
+        };
     }
 
     if (!locations.children[state].children[district]) {
@@ -74,11 +81,29 @@ csv.fromPath(path.join(__dirname, 'wards.csv')).on('record', function(data) {
             childAdminLevel: 'ward',
             children: {}
         };
+        var placeId = locations.children[state].code + '.' + districtCode;
+        locations.all[placeId] = {
+            placeId: placeId,
+            name: district,
+            allNames: [district, state],
+            levelName: 'LGA'
+        };
     }
 
     if (!locations.children[state].children[district].children[ward]) {
         locations.children[state].children[district].children[ward] = {
             code: wardCode,
+            centroidLat: Number(wardLat),
+            centroidLng: Number(wardLng)
+        };
+        var placeId = locations.children[state].code + '.' +
+                      locations.children[state].children[district].code + '.' +
+                      wardCode;
+        locations.all[placeId] = {
+            placeId: placeId,
+            name: ward,
+            allNames: [ward, district, state],
+            levelName: 'Ward',
             centroidLat: Number(wardLat),
             centroidLng: Number(wardLng)
         };
