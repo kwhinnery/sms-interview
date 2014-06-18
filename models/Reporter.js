@@ -10,7 +10,10 @@ var ReporterSchema = new mongoose.Schema({
         type: Boolean,
         default: false
     },
-    placeIds: [String] // placeIds of locations associated with this reporter
+    placeIds: [String], // placeIds of locations associated with this reporter
+    surveyResponseId: String, // survey response in progress
+    currentCommand: String, // command name, if a command is in progress
+    nextStep: Number // 0 if no command is in progress
 });
 
 // Create a new record in the reporter's location history for non-duplicate

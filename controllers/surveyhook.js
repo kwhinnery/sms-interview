@@ -1,5 +1,8 @@
-var twilio = require('twilio'),
-    commands = require('./commands');
+var twilio = require('twilio');
+var commands = require('./commands');
+var Reporter = require('../models/Reporter');
+var Survey = require('../models/Survey');
+
 
 // Will require localization
 var MESSAGES = {
@@ -27,41 +30,78 @@ function respond(message, gateway, request, response, phoneNumber) {
 
 // A webhook to be used by Twilio or Telerivet to build a survey response
 exports.webhook = function(request, response) {
-    var gateway = 'twilio', phoneNumber, messageBody;
+    var gateway = 'twilio', number, message;
 
     // determine which messaging provider we are dealing with
     if (request.param('from_number')) {
         // this is a Telerivet webhook
         gateway = 'telerivet';
-        phoneNumber = request.param('from_number'),
-        messageBody = request.param('content');
+        number = request.param('from_number'),
+        message = request.param('content');
     } else {
         // Default is Twilio
-        phoneNumber = request.param('From'),
-        messageBody = request.param('Body');
+        number = request.param('From'),
+        message = request.param('Body');
     }
-    console.log('[' + phoneNumber + '] incoming message: ' + messageBody);
+    console.log('[' + number + '] incoming message: ' + message);
 
-    // Parse command and delegate to proper command
-    var message = messageBody.trim(),
-        commandText = message.split(' ')[0], 
-        commandTextCompare = commandText.toLowerCase(),
-        command;
-
-    if (commandTextCompare === 'register') {
-        command = commands.register;
-    } else if (commandTextCompare === 'report') {
-        command = commands.report;
-    } else if (commandTextCompare === 'confirm') {
-        command = commands.confirm;
-    }
-
-    if (command) {
-        var commandInput = message.replace(commandText, '').trim();
-        command(phoneNumber, commandInput, request.param('id'), function(err, responseMessage) {
-            respond(responseMessage, gateway, request, response, phoneNumber);
+    // Get the Survey and Reporter associated with the sender's phone number.
+    Survey.findById(request.param('id'), function(err, survey) {
+        if (err) {
+            console.error(err);
+            return;
+        }
+        Reporter.findOne({
+            phoneNumbers: number
+        }, function(err, reporter) {
+            if (err) {
+                console.error(err);
+                return;
+            }
+            reporter = reporter || new Reporter({
+                phoneNumbers: [number],
+                placeIds: [],
+                currentCommand: null,
+                nextStep: 0
+            });
+            console.log('[' + number + '] command=' + reporter.currentCommand +
+                ' nextStep=' + reporter.nextStep +
+                ' placeIds=[' + reporter.placeIds + ']');
+            dispatchCommand(number, message.trim(), survey, reporter);
         });
-    } else {
-        respond(MESSAGES.commandNotRecognized, gateway, request, response, phoneNumber);
+    });
+
+    // Invoke the appropriate step of the appropriate command.
+    function dispatchCommand(number, message, survey, reporter) {
+        var step = 0;
+        if (reporter.currentCommand) {
+            commandName = reporter.currentCommand;
+            step = reporter.nextStep;
+        } else {
+            var commandName = message.split(' ')[0].toLowerCase();
+            message = message.substr(commandName.length).trim();
+        }
+        var command = commands[commandName];
+        if (command) {
+            command(number, step, message, survey, reporter,
+                function(err, message, nextStep) {
+                    if (err) {
+                        console.error(err);
+                    }
+                    respond(message, gateway, request, response, number);
+                    reporter.currentCommand = nextStep ? commandName : null;
+                    reporter.nextStep = nextStep || 0;
+                    reporter.save(function (err) {
+                        if (err) console.error(err);
+                        console.log('[' + number + '] step completed:' +
+                            ' command=' + reporter.currentCommand +
+                            ' nextStep=' + reporter.nextStep);
+                    });
+                }
+            );
+        } else {
+            respond(MESSAGES.commandNotRecognized, gateway, request,
+                response, number);
+        }
     }
 };
