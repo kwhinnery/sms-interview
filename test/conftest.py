@@ -44,7 +44,7 @@ def simple_survey(request):
 def disease_survey(request):
     return survey_client.SurveyClient('disease', [{
         'text': 'How many new measles cases for that week?',
-        'summaryText': 'Measles cases',
+        'summaryText': 'Measles',
         'responseType': 'number',
         'cmId': 'q1'
     }, {
@@ -53,22 +53,22 @@ def disease_survey(request):
         'responseType': 'number',
         'cmId': 'q2'
     }, {
-        'text': 'How many new meningitis cases for that week?',
-        'summaryText': 'Meningitis cases',
+        'text': 'How many new CSM cases for that week?',
+        'summaryText': 'CSM',
         'responseType': 'number',
         'cmId': 'q3'
     }, {
-        'text': 'How many meningitis deaths for that week?',
-        'summaryText': 'Meningitis deaths',
+        'text': 'How many CSM deaths for that week?',
+        'summaryText': 'CSM deaths',
         'responseType': 'number',
         'cmId': 'q4'
     }, {
-        'text': 'How many new gastroenteritis cases for that week?',
-        'summaryText': 'GE cases',
+        'text': 'How many new GE cases for that week?',
+        'summaryText': 'GE',
         'responseType': 'number',
         'cmId': 'q5'
     }, {
-        'text': 'How many gastroenteritis deaths for that week?',
+        'text': 'How many GE deaths for that week?',
         'summaryText': 'GE deaths',
         'responseType': 'number',
         'cmId': 'q6'
