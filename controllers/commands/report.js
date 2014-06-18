@@ -2,32 +2,33 @@ var util = require('util'),
     moment = require('moment-timezone'),
     epi = require('epi-week'),
     request = require('request'),
+    locations = require('../../data/locations.json'),
     Reporter = require('../../models/Reporter'),
     SurveyResponse = require('../../models/SurveyResponse');
 
 var MESSAGES = {
     noSurveyFound: 'No survey found for this phone number.',
     registerFirst: 'This phone number has not been registered. Please use a registered phone or call the hotline for help.',
-    questions: '[MSF]: Please enter the following data for %s in %s:',
+    questions: '[MSF]: Please enter data for %s, %s:',
     numericInputRequired: 'Error: numeric input required for %s.',
     anyOtherDiseases: 'Any other diseases to report? Please provide details.',
-    confirmReport: 'Please review your report for %s in %s:\n%s\nIs this correct? Text "yes" or "no".',
+    confirmReport: 'Please review your report for %s, %s:\n%s.\nIs this correct? Text "yes" or "no".',
     generalError: 'Sorry, there was a problem with the system. Please try again.',
     thanks: 'Your report has been submitted. Thank you!',
 };
 
 // print out question responses
 function printResponses(questions, responses) {
-    var str = '';
+    var answers = [];
     for (var i = 0; i < responses.length; i++) {
         var q = questions[i], r = responses[i];
         var tr = r.textResponse;
         if (q.responseType === 'number' && r.numberResponse === null) {
             tr = 'Unknown';
         }
-        str = str + q.summaryText + ': ' + tr +'\n';
+        answers.push(q.summaryText + ': ' + tr);
     }
-    return str;
+    return answers.join(',\n');
 }
 
 // Report submission workflow.
@@ -120,11 +121,12 @@ exports.report = function(number, step, message, survey, reporter, callback) {
             }, function(err, sr) {
                 if (err || !sr) {
                     callback(err || 'missing sr', printSurvey(), 1);
+                    return;
                 }
                 callback(null, util.format(
                     MESSAGES.confirmReport,
-                    reporter.placeIds[0],
-                    'Epi Week '+interval.week+' ('+interval.year+')',
+                    locations.all[reporter.placeIds[0]].name,
+                    'Week ' + interval.week,
                     printResponses(survey.questions, sr.responses)
                 ), 2);
             });
@@ -164,8 +166,8 @@ exports.report = function(number, step, message, survey, reporter, callback) {
         });
         var baseMessage = util.format(
             MESSAGES.questions,
-            reporter.placeIds[0],
-            'Epi Week ' + interval.week + ' (' + interval.year + ')'
+            locations.all[reporter.placeIds[0]].name,
+            'Week ' + interval.week
         );
         return baseMessage + '\n' + dataList.join(',\n');
     }
@@ -196,8 +198,8 @@ exports.report = function(number, step, message, survey, reporter, callback) {
                 } else {
                     callback(null, util.format(
                         MESSAGES.confirmReport,
-                        reporter.placeIds[0],
-                        'Epi Week '+interval.week+' ('+interval.year+')',
+                        locations.all[reporter.placeIds[0]].name,
+                        'Week ' + interval.week,
                         printResponses(survey.questions, sr.responses)
                     ), 2);
                 }
