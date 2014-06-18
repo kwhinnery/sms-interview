@@ -121,11 +121,9 @@ function pushToCrisisMaps(survey, response, reporter) {
             survey.questions[i].cmId
         ].join('.');
 
-        // Use casted value if present
+        // Use the type appropriate for the question
         var actualAnswer = resp.textResponse;
-        if (typeof resp.booleanResponse !== 'undefined') {
-            actualAnswer = resp.booleanResponse;
-        } else if (typeof resp.numberResponse !== 'undefined') {
+        if (survey.questions[i].responseType === 'number') {
             actualAnswer = resp.numberResponse;
         }
 
