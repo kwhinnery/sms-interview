@@ -1,0 +1,52 @@
+<%- contentFor('main') %>
+<div class="row">
+    <div class="col-md-3">
+        <form role="form" class="form-inline">
+            <div class="form-group">
+                <label class="sr-only" for="newLocationName">
+                    New Location Name
+                </label>
+                <input type="text" class="form-control" 
+                    id="newLocationName" placeholder="New Location Name"
+                    data-bind="value: newLocationName">
+            </div>
+            <button type="submit" class="btn btn-primary"
+                data-bind="click: createLocation">
+                Add
+            </button>
+        </form>
+
+        <div class="placeholder"
+            data-bind="visible: locations().length == 0">
+            No locations to display - create a new one!
+        </div>
+
+        <div id="surveyList" style="display:none"
+            data-bind="visible: locations().length > 0, foreach: location">
+            <a href="#" data-bind="click: $parent.selectLocation, text: name"></a>                    
+        </div>
+    </div>
+
+    <div class="col-md-9 main-content"
+        data-bind="visible: selectedLocation">
+
+        <div id="locationActions">
+            <button class="btn btn-default"
+                data-bind="click: save">Save</button>
+            <button class="btn btn-danger"
+                data-bind="click: delete">Delete</button>
+        </div>
+
+        <h1>Location Details</h1>
+
+        <p>
+            <input type="text" data-bind="value: selectedLocation().name"/>
+        </p>
+
+        <p>
+            <textarea data-bind="value: selectedLocation().adminLevels"></textarea>
+        </p>
+
+    </div>
+
+</div>

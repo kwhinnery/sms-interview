@@ -1,6 +1,10 @@
 var twilio = require('twilio'),
-    Survey = require('../models/Survey'),
-    SurveyResponse = require('../models/SurveyResponse');
+    commands = require('./commands');
+
+// Will require localization
+var MESSAGES = {
+    commandNotRecognized: 'We didn\'t recognize that command - use "report" to start a report or "register" to get started.'
+};
 
 // Respond with the appropriate content, depending on the messaging provider
 // Right now, it's either Twilio or Telerivet
@@ -38,46 +42,30 @@ exports.webhook = function(request, response) {
     }
     console.log('[' + phoneNumber + '] incoming message: ' + messageBody);
 
-    // Find the webhook associated with this phone
-    Survey.findById(request.param('id'), function(err, survey) {
-        // If we found the survey, continue
-        if (survey) {
-            // Find survey response for the current phone number and survey
-            SurveyResponse.findOne({
-                _surveyId: survey._id,
-                phoneNumber: phoneNumber,
-                complete: false
-            }, function(err, surveyResponse) {
-                // The message to be returned to the user after the latest
-                // input
-                function processed(err, message) {
-                    if (err) {
-                        message = 'There was an error processing your response, please try again.';
-                    }
-                    respond(message, gateway, request, response, phoneNumber);
-                }
+    // Parse command and delegate to proper command
+    var message = messageBody.trim(),
+        commandText = message.split(' ')[0], 
+        commandTextCompare = commandText.toLowerCase(),
+        command;
 
-                // Process from an existing response or create new
-                if (surveyResponse) {
-                    surveyResponse.processMessage(survey, messageBody, phoneNumber, processed);
-                } else {
-                    var newSurveyResponse = new SurveyResponse({
-                        phoneNumber: phoneNumber,
-                        _surveyId: survey._id
-                    });
-                    newSurveyResponse.save(function(err, nsr) {
-                        if (nsr) {
-                            nsr.processMessage(survey, messageBody, phoneNumber, processed);
-                        } else {
-                            processed(true);
-                        }
-                    });
-                }
+    if (commandTextCompare === 'register') {
+        command = commands.register;
+    } else if (commandTextCompare === 'report') {
+        command = commands.report;
+    } else if (commandTextCompare === 'change') {
+        command = commands.change;
+    } else if (commandTextCompare === 'ok') {
+        command = commands.ok;
+    } else if (commandTextCompare === 'comment') {
+        command = commands.comment;
+    }
 
-            }); // end find survey response
-        } else {
-            console.log('[' + phoneNumber + '] unknown survey: ' + request.param('id'));
-            response.send(404, 'Survey not found.');
-        }
-    }); // end find survey
+    if (command) {
+        var commandInput = message.replace(commandText, '').trim();
+        command(phoneNumber, commandInput, function(err, responseMessage) {
+            respond(responseMessage, gateway, request, response, phoneNumber);
+        });
+    } else {
+        respond(MESSAGES.commandNotRecognized, gateway, request, response, phoneNumber);
+    }
 };

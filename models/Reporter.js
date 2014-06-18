@@ -11,12 +11,13 @@ var ReporterSchema = new mongoose.Schema({
         default: false
     },
 
-    // Store recent locations for this reporter
-    locationHistory: [mongoose.Schema.Types.Mixed]
+    // Store locations for this reporter
+    locations: [mongoose.Schema.Types.Mixed]
 });
 
 // Create a new record in the reporter's location history for non-duplicate
 // locations
+// Ping - this may not be needed.
 ReporterSchema.methods.saveToHistory = function(locationData, callback) {
     var self = this, duplicate = false;
 

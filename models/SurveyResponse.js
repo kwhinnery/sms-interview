@@ -26,7 +26,9 @@ var MESSAGES = {
     done: 'Thank you for this information.',
     noneOfThese: 'None of these are what I meant, let me text the name again.',
     noneOfTheseLocations: 'None of these - I want to report for a new location.',
-    previousLevel: 'None of these, I am reporting for the previous administrative level.'
+    previousLevel: 'None of these, I am reporting for the previous administrative level.',
+    numericRequired: 'We did\'nt understand that reply - please text in a single number to answer this question.',
+    yesNoRequired: 'We did\'nt understand that reply - please text in either "yes" or "no" to answer this question.'
 };
 
 // Interview states
@@ -231,7 +233,9 @@ function printPastLocations(locationHistory) {
 }
 
 // Process the given message and determine an appropriate text response,
-// given the current state of this response. TODO: This is a garbage implementation.
+// given the current state of this response. 
+// 
+// TODO: This implementation is complete and utter garbage.
 // A better approach would be a stack of "middleware" that could be applied for
 // a given survey. Each would be responsible for updating its own part of the
 // SurveyResponse state before passing control on to the next middleware.
@@ -595,28 +599,39 @@ SurveyResponseSchema.methods.processMessage = function(survey, message, number, 
                     };
 
                     // Try and cast to number, if needed
+                    var errorMessage;
                     if (question.responseType === 'number') {
                         var n = Number(message);
                         if (!isNaN(n)) {
                             questionResponse.numberResponse = n;
                         } else {
-                            // TODO: Error when the response is wrong
+                            errorMessage = MESSAGES.numericRequired;
                         }
                     } else if (question.responseType === 'boolean') {
-                        var b = message.trim().toLowerCase() === MESSAGES.yes;
-                        questionResponse.booleanResponse = b;
+                        var bVal = message.trim().toLowerCase();
+                        if (bVal === MESSAGES.yes || bVal === MESSAGES.no) {
+                            var b = message.trim().toLowerCase() === MESSAGES.yes;
+                            questionResponse.booleanResponse = b;
+                        } else {
+                            errorMessage = MESSAGES.yesNoRequired;
+                        }
                     }
 
-                    // Save in responses array
-                    self.responses.push(questionResponse);
-                    self._currentQuestionId = null;
-                    self.save(function(err) {
-                        if (err) {
-                            callback(err, MESSAGES.generalError);
-                        } else {
-                            askOrFinish();
-                        }
-                    });
+                    // If we have a casting error, re-ask question
+                    if (errorMessage) {
+
+                    } else {
+                        // Save in responses array
+                        self.responses.push(questionResponse);
+                        self._currentQuestionId = null;
+                        self.save(function(err) {
+                            if (err) {
+                                callback(err, MESSAGES.generalError);
+                            } else {
+                                askOrFinish();
+                            }
+                        });
+                    }
 
                 } else {
                     self._currentQuestionId = null;
