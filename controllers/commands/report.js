@@ -128,8 +128,8 @@ module.exports = function(number, step, message, survey, reporter, callback) {
             // Ask the user to choose their location
             callback(null, 
                 MESSAGES.chooseLocation+printLocations(reporter.placeIds), 1);
+            return;
         }
-        return;
     }
 
     if (step === 1) {
