@@ -17,23 +17,23 @@ def test_report_invalid(disease_survey, phone1):
     s.send(p1, 'register kb.1.5')
     # hard coded epi week - this will break the test soon
     assert norm_spaces(s.send(p1, 'report extra stuff')) == norm_spaces('''
-Please enter data for DANWARAI, Week 25 in this order:
+Please enter data for DANWARAI, Week 25 in order:
 Measles, Measles deaths, CSM, CSM deaths, GE, GE deaths.
-For any unknown items, enter "U".
+For unknowns enter "U".
 ''')
     assert norm_spaces(s.send(p1, 'foo')) == norm_spaces('''
 Please enter data for DANWARAI, Week 25 as 6 items
 with a comma after each:
 Measles, Measles deaths, CSM, CSM deaths, GE, GE deaths.
-For any unknown items, enter "U".
+For unknowns enter "U".
 ''')
     assert norm_spaces(s.send(p1, '1,2,3,a,5,6')) == norm_spaces('''
 A number (or "U" for unknown) is required for CSM deaths.
-Please enter data for DANWARAI, Week 25 in this order:
+Please enter data for DANWARAI, Week 25 in order:
 Measles, Measles deaths, CSM, CSM deaths, GE, GE deaths.
 ''')
     assert norm_spaces(s.send(p1, '1,2,3,4,5,6')) == norm_spaces('''
-Please review your report for DANWARAI, Week 25:
+For DANWARAI, Week 25 we have:
 Measles: 1, Measles deaths: 2, CSM: 3, CSM deaths: 4, GE: 5, GE deaths: 6.
 Is this correct? Reply "yes" or "no".
 ''')
@@ -43,12 +43,12 @@ def test_report_valid(disease_survey, phone1):
     s.send(p1, 'register kb.1.5')
     s.send(p1, 'report extra stuff');
     assert norm_spaces(s.send(p1, '1,2,3,4,5,6 extra stuff')) == norm_spaces('''
-Please review your report for DANWARAI, Week 25:
+For DANWARAI, Week 25 we have:
 Measles: 1, Measles deaths: 2, CSM: 3, CSM deaths: 4, GE: 5, GE deaths: 6.
 Is this correct? Reply "yes" or "no".
 ''')
     assert norm_spaces(s.send(p1, 'maybe extra stuff')) == norm_spaces('''
-Please review your report for DANWARAI, Week 25:
+For DANWARAI, Week 25 we have:
 Measles: 1, Measles deaths: 2, CSM: 3, CSM deaths: 4, GE: 5, GE deaths: 6.
 Is this correct? Reply "yes" or "no".
 ''')
@@ -63,12 +63,12 @@ def test_report_with_unknown_answer(disease_survey, phone1):
     s.send(p1, 'register kb.1.5')
     s.send(p1, 'report');
     assert norm_spaces(s.send(p1, '1,2,u,4,U,6')) == norm_spaces('''
-Please review your report for DANWARAI, Week 25:
+For DANWARAI, Week 25 we have:
 Measles: 1, Measles deaths: 2, CSM: Unknown, CSM deaths: 4, GE: Unknown, GE deaths: 6.
 Is this correct? Reply "yes" or "no".
 ''')
     assert norm_spaces(s.send(p1, 'no, sorry...')) == norm_spaces('''
-Please enter data for DANWARAI, Week 25 in this order:
+Please enter data for DANWARAI, Week 25 in order:
 Measles, Measles deaths, CSM, CSM deaths, GE, GE deaths.
-For any unknown items, enter "U".
+For unknowns enter "U".
 ''')
