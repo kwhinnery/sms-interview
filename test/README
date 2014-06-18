@@ -1,0 +1,20 @@
+To run the tests:
+
+1. Set up the environment variables BASIC_UN, BASIC_PW, and SERVER_URL.
+2. Stop any existing mongod instances.
+3. Wipe out the data directory for mongod.
+4. Start mongod.
+5. Start node on app.js.
+6. Execute py.test in this directory.
+
+
+I use these shell commands for steps 1 to 5:
+
+export BASIC_UN=user
+export BASIC_PW=pass
+export SERVER_URL=http://localhost:3000/
+export MONGODB_URL=mongodb://localhost:27017/
+killall mongod
+rm -r /local/data/db/*
+mongod --fork --logpath /tmp/mongod.log --dbpath /local/data/db
+node app.js

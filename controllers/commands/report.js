@@ -8,12 +8,13 @@ var MESSAGES = {
     registerFirst: 'This phone number has not yet been registered - text the "register" command to sign up.',
     questions: '[MSF]: Please enter the following data for ACHIDA in epi week 25:',
     numericInputRequired: 'Error: numeric input required for %s.',
-    confirm: 'Submit this report for '
+    confirm: 'Submit this report for ',
+    generalError: 'Sorry, there was a problem with the system.  Please try again.'
 };
 
 // Handle a command to create a new report 
 exports.report = function(number, message, surveyId, callback) {
-    var survey, reporter, answers = [];
+    var survey, reporter;
 
     // Determine which survey we're working with...
     Survey.findById(surveyId, function(err, doc) {
@@ -42,7 +43,7 @@ exports.report = function(number, message, surveyId, callback) {
         var dataList = survey.questions.map(function(question) {
             return question.summaryText;
         });
-        return [MESSAGES.questions].concat(dataList).join('\n');
+        return MESSAGES.questions + '\n' + dataList.join(',\n');
     }
 
     // process user command input
@@ -51,8 +52,12 @@ exports.report = function(number, message, surveyId, callback) {
         // Attempt to grab responses from a comma separated list
         var answerInputs = message.split(',');
 
+        console.log('[' + number + '] inputs: ' + answerInputs.length);
+        console.log('[' + number + '] questions: ' + survey.questions.length);
+
         if (answerInputs.length === survey.questions.length) {
             // try to use these answers for the actual report
+            var responses = [];
             for (var i = 0; i<answerInputs.length; i++) {
                 var answerText = answerInputs[i].trim(),
                     question = survey.questions[i];
@@ -60,7 +65,11 @@ exports.report = function(number, message, surveyId, callback) {
                 if (question.responseType === 'number') {
                     var casted = Number(answerText);
                     if (!isNaN(casted)) {
-                        answers.push(casted);
+                        responses.push({
+                            _questionId: question._id,
+                            textResponse: answerText,
+                            numberResponse: casted
+                        });
                     } else {
                         callback(null, util.format(
                             MESSAGES.numericInputRequired,
@@ -70,12 +79,15 @@ exports.report = function(number, message, surveyId, callback) {
                     }
                 } else {
                     // for now throw everything else in as just text
-                    answers.push(answerText);
+                    responses.push({
+                        _questionId: question._id,
+                        textResponse: answerText
+                    });
                 }
             }
 
             // Now that we have answers processed, create a survey response
-            createSurveyResponse();
+            createSurveyResponse(responses);
 
         } else {
             // otherwise, print out current questions
@@ -84,9 +96,26 @@ exports.report = function(number, message, surveyId, callback) {
     }
 
     // With current data collected, create and save a SurveyResponse
-    function createSurveyResponse() {
-        console.log(answers);
-        callback(null, 'derp');
+    function createSurveyResponse(responses) {
+        var sr = new SurveyResponse({
+            _surveyId: surveyId,
+            _reporterId: reporter._id,
+            phoneNumber: number,
+            complete: true,
+            completedOn: new Date(),
+            commentText: '',
+            responses: responses
+        });
+        // TODO: Ask for confirmation before saving the response.
+        // TODO: Push the response to Crisis Map.
+        sr.save(function(err) {
+            if (err) {
+                console.log(err);
+                callback(err, MESSAGES.generalError);
+            } else {
+                callback(null, 'Your report has been successfully completed.  Thank you for this information.');
+            }
+        });
     }
 };
 
