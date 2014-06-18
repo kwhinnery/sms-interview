@@ -44,6 +44,16 @@ CSM deaths,
 GE,
 GE deaths
 ''')
+    assert norm_spaces(s.send(p1, '1,2,3,4,5,6')) == norm_spaces('''
+Please review your report for KB.1.1 in Epi Week 25 (2014):
+Measles: 1
+Measles deaths: 2
+CSM: 3
+CSM deaths: 4
+GE: 5
+GE deaths: 6
+Is this correct? Text "yes" or "no".
+''')
 
 def test_report_valid(disease_survey, phone1):
     s, p1 = disease_survey, phone1
@@ -70,6 +80,9 @@ GE deaths: 6
 Is this correct? Text "yes" or "no".
 ''')
     assert norm_spaces(s.send(p1, ' - Yes! - my signature')) == norm_spaces('''
+Any other diseases to report? Please provide details.
+''')
+    assert norm_spaces(s.send(p1, 'some other details')) == norm_spaces('''
 Your report has been submitted.  Thank you!''')
 
 def test_report_with_unknown_answer(disease_survey, phone1):
