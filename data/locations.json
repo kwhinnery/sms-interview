@@ -2401,22 +2401,22 @@
           "centroidLng": null,
           "childAdminLevel": "ward",
           "children": {
-            "ALIERO DANGALADIMA I": {
+            "DANGALADIMA I": {
               "code": "1",
               "centroidLat": 12.287,
               "centroidLng": 4.4702
             },
-            "ALIERO DANGALADIMA II": {
+            "DANGALADIMA II": {
               "code": "2",
               "centroidLat": 12.2704,
               "centroidLng": 4.4321
             },
-            "ALIERO S/FADA I": {
+            "S/FADA I": {
               "code": "3",
               "centroidLat": 12.2899,
               "centroidLng": 4.4683
             },
-            "ALIERO S/FADA II": {
+            "S/FADA II": {
               "code": "4",
               "centroidLat": 12.3042,
               "centroidLng": 4.4587
@@ -2590,12 +2590,12 @@
               "centroidLat": 12.5274,
               "centroidLng": 4.322
             },
-            "BIRNIN KEBBI DANGALADIMA": {
+            "DANGALADIMA": {
               "code": "4",
               "centroidLat": 12.4632,
               "centroidLng": 4.1916
             },
-            "BIRNIN KEBBI MAFARA": {
+            "MARAFA": {
               "code": "3",
               "centroidLat": 12.4668,
               "centroidLng": 4.1953
@@ -2605,7 +2605,7 @@
               "centroidLat": 12.5491,
               "centroidLng": 4.2163
             },
-            "GODONGAJI": {
+            "GWADANGAJI": {
               "code": "8",
               "centroidLat": 12.4631,
               "centroidLng": 4.261
@@ -2615,17 +2615,17 @@
               "centroidLat": 12.4077,
               "centroidLng": 4.3401
             },
-            "KARDI/YAMAMA": {
+            "K/YAMAMA": {
               "code": "11",
               "centroidLat": 12.3806,
               "centroidLng": 4.2625
             },
-            "KOLA /TARASA": {
+            "K/TARASA": {
               "code": "5",
               "centroidLat": 12.4693,
               "centroidLng": 4.1483
             },
-            "LAGA": {
+            "LAGGA": {
               "code": "12",
               "centroidLat": 12.4303,
               "centroidLng": 4.3829
@@ -2635,12 +2635,12 @@
               "centroidLat": 12.5114,
               "centroidLng": 4.098
             },
-            "MAURIDA /KARYO/UNG. MIJIN-NANA": {
+            "M/KARYO": {
               "code": "7",
               "centroidLat": 12.5653,
               "centroidLng": 4.1642
             },
-            "NASSARAWA - I": {
+            "NASSARAWA I": {
               "code": "1",
               "centroidLat": 12.4474,
               "centroidLng": 4.2104
@@ -5351,9 +5351,9 @@
     },
     "KB.1.1": {
       "placeId": "KB.1.1",
-      "name": "ALIERO DANGALADIMA I",
+      "name": "DANGALADIMA I",
       "allNames": [
-        "ALIERO DANGALADIMA I",
+        "DANGALADIMA I",
         "ALIERO",
         "KEBBI"
       ],
@@ -5363,9 +5363,9 @@
     },
     "KB.1.2": {
       "placeId": "KB.1.2",
-      "name": "ALIERO DANGALADIMA II",
+      "name": "DANGALADIMA II",
       "allNames": [
-        "ALIERO DANGALADIMA II",
+        "DANGALADIMA II",
         "ALIERO",
         "KEBBI"
       ],
@@ -5375,9 +5375,9 @@
     },
     "KB.1.3": {
       "placeId": "KB.1.3",
-      "name": "ALIERO S/FADA I",
+      "name": "S/FADA I",
       "allNames": [
-        "ALIERO S/FADA I",
+        "S/FADA I",
         "ALIERO",
         "KEBBI"
       ],
@@ -5387,9 +5387,9 @@
     },
     "KB.1.4": {
       "placeId": "KB.1.4",
-      "name": "ALIERO S/FADA II",
+      "name": "S/FADA II",
       "allNames": [
-        "ALIERO S/FADA II",
+        "S/FADA II",
         "ALIERO",
         "KEBBI"
       ],
@@ -6908,9 +6908,9 @@
     },
     "KB.6.4": {
       "placeId": "KB.6.4",
-      "name": "BIRNIN KEBBI DANGALADIMA",
+      "name": "DANGALADIMA",
       "allNames": [
-        "BIRNIN KEBBI DANGALADIMA",
+        "DANGALADIMA",
         "BIRNIN KEBBI",
         "KEBBI"
       ],
@@ -6920,9 +6920,9 @@
     },
     "KB.6.3": {
       "placeId": "KB.6.3",
-      "name": "BIRNIN KEBBI MAFARA",
+      "name": "MARAFA",
       "allNames": [
-        "BIRNIN KEBBI MAFARA",
+        "MARAFA",
         "BIRNIN KEBBI",
         "KEBBI"
       ],
@@ -9695,9 +9695,9 @@
     },
     "KB.6.8": {
       "placeId": "KB.6.8",
-      "name": "GODONGAJI",
+      "name": "GWADANGAJI",
       "allNames": [
-        "GODONGAJI",
+        "GWADANGAJI",
         "BIRNIN KEBBI",
         "KEBBI"
       ],
@@ -11216,9 +11216,9 @@
     },
     "KB.6.11": {
       "placeId": "KB.6.11",
-      "name": "KARDI/YAMAMA",
+      "name": "K/YAMAMA",
       "allNames": [
-        "KARDI/YAMAMA",
+        "K/YAMAMA",
         "BIRNIN KEBBI",
         "KEBBI"
       ],
@@ -11612,9 +11612,9 @@
     },
     "KB.6.5": {
       "placeId": "KB.6.5",
-      "name": "KOLA /TARASA",
+      "name": "K/TARASA",
       "allNames": [
-        "KOLA /TARASA",
+        "K/TARASA",
         "BIRNIN KEBBI",
         "KEBBI"
       ],
@@ -12380,9 +12380,9 @@
     },
     "KB.6.12": {
       "placeId": "KB.6.12",
-      "name": "LAGA",
+      "name": "LAGGA",
       "allNames": [
-        "LAGA",
+        "LAGGA",
         "BIRNIN KEBBI",
         "KEBBI"
       ],
@@ -13394,9 +13394,9 @@
     },
     "KB.6.7": {
       "placeId": "KB.6.7",
-      "name": "MAURIDA /KARYO/UNG. MIJIN-NANA",
+      "name": "M/KARYO",
       "allNames": [
-        "MAURIDA /KARYO/UNG. MIJIN-NANA",
+        "M/KARYO",
         "BIRNIN KEBBI",
         "KEBBI"
       ],
@@ -13718,9 +13718,9 @@
     },
     "KB.6.1": {
       "placeId": "KB.6.1",
-      "name": "NASSARAWA - I",
+      "name": "NASSARAWA I",
       "allNames": [
-        "NASSARAWA - I",
+        "NASSARAWA I",
         "BIRNIN KEBBI",
         "KEBBI"
       ],
